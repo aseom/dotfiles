@@ -1,4 +1,4 @@
-Windows Registry Editor Version 5.00
+Windows Registry Editor Version 5.00 
 
 [HKEY_CLASSES_ROOT\*\shell\Open with ST3]
 "Icon"="\"C:\\Program Files\\Sublime text 3\\sublime_text.exe\""
