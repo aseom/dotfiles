@@ -6,8 +6,8 @@ set "architecture=x64"
 :: ASeom@PC-ASEOM
 title %USERNAME%@%USERDOMAIN%
 
-:: /here 옵션 지정되지 않은 경우 사용자 폴더로 이동
-IF NOT "%~1" == "/here" pushd "%USERPROFILE%"
+:: 옵션으로 경로가 지정되지 않은 경우 사용자 폴더로 이동
+IF "%~1" == "" (pushd "%USERPROFILE%") ELSE (pushd "%~1")
 
 :: Print version
 ver | find "Windows"
