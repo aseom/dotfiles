@@ -1,0 +1,16 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"ConvertToUTF8",
+		"IMESupport",
+		"LiveReload",
+		"Markdown Preview",
+		"Package Control",
+		"SideBarEnhancements",
+		"Theme - Afterglow"
+	]
+}

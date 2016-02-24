@@ -1,2 +1,3 @@
 #PC-ASeom
-C:\Console -> C:\Users\ASeom\Dropbox\Working\dotfiles\console
+C:\Console -> C:\Users\ASeom\Dropbox\Git\dotfiles\console
+C:\Users\ASeom\AppData\Roaming\Sublime Text 3\Packages\User -> C:\Users\ASeom\Dropbox\Git\dotfiles\sublime
