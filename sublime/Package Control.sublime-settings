@@ -6,6 +6,8 @@
 	"installed_packages":
 	[
 		"ConvertToUTF8",
+		"Git",
+		"GitGutter",
 		"IMESupport",
 		"LiveReload",
 		"Markdown Preview",

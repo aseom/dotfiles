@@ -1,3 +1,5 @@
 #PC-ASeom
-C:\Console -> C:\Users\ASeom\Dropbox\Git\dotfiles\console
-C:\Users\ASeom\AppData\Roaming\Sublime Text 3\Packages\User -> C:\Users\ASeom\Dropbox\Git\dotfiles\sublime
+C:/Console -> ~/Dropbox/Git/dotfiles/console/
+~/AppData/Roaming/Sublime Text 3/Packages/User/ -> ~/Dropbox/Git/dotfiles/sublime/
+~/.minttyrc -> ~/Dropbox/Git/dotfiles/.minttyrc
+~/.ssh/config -> ~/Dropbox/Git/dotfiles/.ssh/config
