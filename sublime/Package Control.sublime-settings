@@ -5,9 +5,14 @@
 	],
 	"installed_packages":
 	[
+		"All Autocomplete",
+		"AutoHotkey",
 		"ConvertToUTF8",
+		"DevDocs",
+		"FileSystem Autocompletion",
 		"Git",
 		"GitGutter",
+		"Google Search",
 		"IMESupport",
 		"LiveReload",
 		"Markdown Preview",
