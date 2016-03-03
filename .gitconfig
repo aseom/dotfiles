@@ -1,3 +1,6 @@
+[core]
+	symlinks = true
+	autocrlf = true
 [user]
 	name = aseom
 	email = hm9599@gmail.com
