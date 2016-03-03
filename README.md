@@ -60,10 +60,10 @@ cmd.exe를 위한 Color schemes: `console/color-schemes/cmd-color-*.reg`
 
 ## Sublime Text 3
 
-#### 플러그인
+#### Command Palette
 
-- **Package Control**
-- **SideBarEnhancements**
-- **ConvertToUTF8**
-- **Theme - Afterglow**
-- **...**
+- **ASeom: Ruby Pry**
+	- SublimeREPL의 [Ruby Pry 오류 해결][]한 것
+	- 작동하려면 `gem install pry` 필요함
+
+[Ruby Pry 오류 해결]: https://github.com/smiler/SublimeREPL/commit/95ffe15382336ef6720502752e71c290055cf7f8
