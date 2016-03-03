@@ -3,3 +3,5 @@ C:/Console -> ~/Dropbox/Git/dotfiles/console/
 ~/AppData/Roaming/Sublime Text 3/Packages/User/ -> ~/Dropbox/Git/dotfiles/sublime/
 ~/.minttyrc -> ~/Dropbox/Git/dotfiles/.minttyrc
 ~/.ssh/config -> ~/Dropbox/Git/dotfiles/.ssh/config
+~/.vimrc -> ~/Dropbox/Git/dotfiles/.vimrc
+~/.gitconfig -> ~/Dropbox/Git/dotfiles/.gitconfig
