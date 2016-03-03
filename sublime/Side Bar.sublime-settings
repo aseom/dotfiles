@@ -1,0 +1,6 @@
+{
+	"disabled_menuitem_edit": true,
+	"disabled_menuitem_open_in_new_window": true,
+	"disabled_menuitem_paste_in_parent": true,
+	"default_browser": "chrome"
+}

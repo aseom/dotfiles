@@ -1,0 +1,21 @@
+[
+    {
+        "caption": "ASeom: Ruby Pry",
+        "command":"repl_open",
+        "args":{
+            "type":"subprocess",
+            "external_id":"ruby",
+            "encoding":"utf8",
+            "cmd":[
+                "ruby.exe",
+                "${packages}/User/pry_repl_fixed.rb",
+                "$editor"
+            ],
+            "soft_quit":"\nexit\n",
+            "cwd":"$file_path",
+            "cmd_postfix":"\n",
+            "autocomplete_server": true,
+            "syntax":"Packages/Ruby/Ruby.tmLanguage"
+        }
+    }
+]
