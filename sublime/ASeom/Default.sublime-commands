@@ -8,7 +8,7 @@
             "encoding":"utf8",
             "cmd":[
                 "ruby.exe",
-                "${packages}/User/pry_repl_fixed.rb",
+                "${packages}/User/ASeom/pry_repl_fixed.rb",
                 "$editor"
             ],
             "soft_quit":"\nexit\n",
