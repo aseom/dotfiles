@@ -1,4 +1,10 @@
-*cache*
-*tmp*
-*history*
-*.last-run
+# ignore everything
+# except .gitignore
+*
+!.gitignore
+
+# whitelist...
+!/*.sublime-settings
+!/*.sublime-keymap
+!/ASeom
+!/ASeom/*
