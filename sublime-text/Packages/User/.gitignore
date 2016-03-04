@@ -6,5 +6,3 @@
 # whitelist...
 !/*.sublime-settings
 !/*.sublime-keymap
-!/ASeom
-!/ASeom/*

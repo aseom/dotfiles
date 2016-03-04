@@ -2,7 +2,7 @@
 	// Theme
 	"theme": "Afterglow-orange.sublime-theme",
 	//"color_scheme": "Packages/Theme - Afterglow/afterglow.tmTheme",
-	"color_scheme": "Packages/User/ASeom/Wombat-afterglow.tmTheme",
+	"color_scheme": "Packages/ASeom/Wombat-afterglow.tmTheme",
 	"tabs_medium": true,
 	"sidebar_size_12": true,
 	"sidebar_row_padding_medium": true,
