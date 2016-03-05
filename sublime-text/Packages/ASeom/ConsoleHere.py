@@ -4,8 +4,10 @@ import os
 import subprocess
 
 def current_dir(window):
+	
 	active_file = window.active_view().file_name()
 	active_folders = window.folders()
+
 	if active_file:
 		return active_file
 	elif active_folders:
@@ -15,6 +17,7 @@ def current_dir(window):
 
 class CmdplusHereCommand(sublime_plugin.WindowCommand):
 	def run(self, paths=[]):
+
 		path = paths[0] if paths else current_dir(sublime.active_window())
 		if not os.path.isdir(path): 
 			path = os.path.dirname(path)
@@ -22,6 +25,7 @@ class CmdplusHereCommand(sublime_plugin.WindowCommand):
 
 class GitbashHereCommand(sublime_plugin.WindowCommand):
 	def run(self, paths=[]):
+
 		path = paths[0] if paths else current_dir(sublime.active_window())
 		if not os.path.isdir(path): 
 			path = os.path.dirname(path)

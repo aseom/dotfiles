@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "Search Google",
+        "command": "web_search",
+        "args": {
+            "base_url": "https://www.google.co.kr/",
+            "suffix": "search?q="
+        }
+    }
+]
