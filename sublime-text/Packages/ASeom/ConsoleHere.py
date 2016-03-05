@@ -18,6 +18,8 @@ def current_dir(window):
 class CmdplusHereCommand(sublime_plugin.WindowCommand):
 	def run(self, paths=[]):
 
+		# 사이드바에서 호출되면:        해당 폴더/파일의 위치
+		# Command Palette에서 호출되면: 현재 열린 파일의 위치
 		path = paths[0] if paths else current_dir(sublime.active_window())
 		if not os.path.isdir(path): 
 			path = os.path.dirname(path)
