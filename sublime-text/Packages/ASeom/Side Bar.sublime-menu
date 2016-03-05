@@ -1,0 +1,16 @@
+[
+    {
+        "caption": "Cmd+ Here",
+        "command": "cmdplus_here",
+        "args": {
+        	"paths": []
+        }
+    },
+    {
+        "caption": "Git Bash Here",
+        "command": "gitbash_here",
+        "args": {
+        	"paths": []
+        }
+    }
+]

@@ -1,5 +1,13 @@
 [
     {
+        "caption": "ASeom: Cmd+ Here",
+        "command": "cmdplus_here"
+    },
+    {
+        "caption": "ASeom: Git Bash Here",
+        "command": "gitbash_here"
+    },
+    {
         "caption": "ASeom: Ruby Pry",
         "command":"repl_open",
         "args":{
