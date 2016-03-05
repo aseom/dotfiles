@@ -67,3 +67,15 @@ cmd.exe를 위한 Color schemes: `console/color-schemes/cmd-color-*.reg`
 	- 작동하려면 `gem install pry` 필요함
 
 [Ruby Pry 오류 해결]: https://github.com/smiler/SublimeREPL/commit/95ffe15382336ef6720502752e71c290055cf7f8
+
+
+## Git
+
+#### 무시되는 파일이 이미 커밋된 경우
+
+스테이징 영역에서 모든 파일이 삭제되도록 하고,  
+`.gitignore`에 의해 무시되지 않는 파일들은 다시 추가.
+
+	$ git rm -r --cached .
+	$ git add .
+	$ git commit -m "Delete ignored files"
