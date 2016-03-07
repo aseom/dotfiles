@@ -71,11 +71,11 @@ cmd.exe를 위한 Color schemes: `console/color-schemes/cmd-color-*.reg`
 
 ## Git
 
-#### 무시되는 파일이 이미 커밋된 경우
+#### 이미 커밋된 파일을 .gitignore에 추가할 경우
 
-스테이징 영역에서 모든 파일이 삭제되도록 하고,  
-`.gitignore`에 의해 무시되지 않는 파일들은 다시 추가.
+무시되지만 여전히 무시되지 않는(?) 파일의 리스트를 확인하고,
+해당되는 파일들을 stage 영역에서 삭제 후 변경사항을 커밋.
 
-	$ git rm -r --cached .
-	$ git add .
+	$ git ls-files --ignored --exclude-standard
+	$ git rm --cached path/to/file
 	$ git commit -m "Delete ignored files"
