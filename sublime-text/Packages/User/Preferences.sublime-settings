@@ -1,31 +1,29 @@
 {
-	// Theme
-	"theme": "Afterglow-orange.sublime-theme",
-	//"color_scheme": "Packages/Theme - Afterglow/afterglow.tmTheme",
-	"color_scheme": "Packages/ASeom/Wombat-afterglow.tmTheme",
-	"tabs_medium": true,
-	"sidebar_size_12": true,
-	"sidebar_row_padding_medium": true,
-	"status_bar_brighter": true,
+    // Theme
+    "theme": "Afterglow-orange.sublime-theme",
+    //"color_scheme": "Packages/Theme - Afterglow/afterglow.tmTheme",
+    "color_scheme": "Packages/ASeom/Wombat-afterglow.tmTheme",
+    "tabs_medium": true,
+    "sidebar_size_12": true,
+    "sidebar_row_padding_medium": true,
+    "status_bar_brighter": true,
 
-	// Font
-	"font_face": "D2Coding",
-	"font_size": 12,
+    // Font
+    "font_face": "D2Coding",
+    "font_size": 12,
 
-	// Whitespace
-	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true,
-    "ensure_newline_at_eof_on_save": true,
+    // Whitespace
+    "translate_tabs_to_spaces": true,
 
-	// Misc
-	"enable_tab_scrolling": false,
-	"highlight_line": true,
-	"line_padding_bottom": 1,
-	"caret_extra_width": 1,
-	"caret_style": "phase",
-	"fade_fold_buttons": false,
-	"show_encoding": true,
-	"show_line_endings": true,
+    // Misc
+    "enable_tab_scrolling": false,
+    "highlight_line": true,
+    "line_padding_bottom": 1,
+    "caret_extra_width": 1,
+    "caret_style": "phase",
+    "fade_fold_buttons": false,
+    "show_encoding": true,
+    "show_line_endings": true,
 
     "folder_exclude_patterns": [],
     "file_exclude_patterns": ["desktop.ini", ".DS_Store"]

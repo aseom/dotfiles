@@ -1,6 +1,6 @@
 {
-	// PEP8 recommand
-	"rulers": [79],
-	// SublimeJEDI: auto-completion on dot
-	"auto_complete_triggers": [{"selector": "source.python", "characters": "."}]
+    // PEP8 recommand
+    "rulers": [79],
+    // SublimeJEDI: auto-completion on dot
+    "auto_complete_triggers": [{"selector": "source.python", "characters": "."}]
 }

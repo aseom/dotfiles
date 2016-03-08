@@ -3,14 +3,14 @@
         "caption": "Cmd+ Here",
         "command": "cmdplus_here",
         "args": {
-        	"paths": []
+            "paths": []
         }
     },
     {
         "caption": "Git Bash Here",
         "command": "gitbash_here",
         "args": {
-        	"paths": []
+            "paths": []
         }
     }
 ]
