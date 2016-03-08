@@ -12,6 +12,11 @@
 	"font_face": "D2Coding",
 	"font_size": 12,
 
+	// Whitespace
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+    "ensure_newline_at_eof_on_save": true,
+
 	// Misc
 	"enable_tab_scrolling": false,
 	"highlight_line": true,
@@ -20,5 +25,8 @@
 	"caret_style": "phase",
 	"fade_fold_buttons": false,
 	"show_encoding": true,
-	"show_line_endings": true
+	"show_line_endings": true,
+
+    "folder_exclude_patterns": [],
+    "file_exclude_patterns": ["desktop.ini", ".DS_Store"]
 }

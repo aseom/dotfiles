@@ -8,11 +8,26 @@
         }
     },
     {
+        "caption": "Search Python 3.4 doc",
+        "command": "web_search",
+        "args": {
+            "base_url": "https://docs.python.org/3.4/",
+            "suffix": "search.html?q="
+        }
+    },
+    {
         "caption": "Search Ruby-Doc",
         "command": "web_search",
         "args": {
             "base_url": "http://ruby-doc.com/",
             "suffix": "search.html?q="
         }
+    },
+    {
+        "caption": "-"
+    },
+    {
+        "caption": "Jedi Show Docstring",
+        "command": "sublime_jedi_docstring"
     }
 ]
