@@ -6,24 +6,5 @@
     {
         "caption": "ASeom: Git Bash Here",
         "command": "gitbash_here"
-    },
-    {
-        "caption": "ASeom: Ruby Pry",
-        "command":"repl_open",
-        "args":{
-            "type":"subprocess",
-            "external_id":"ruby",
-            "encoding":"utf8",
-            "cmd":[
-                "ruby.exe",
-                "${packages}/ASeom/pry_repl_fixed.rb",
-                "$editor"
-            ],
-            "soft_quit":"\nexit\n",
-            "cwd":"$file_path",
-            "cmd_postfix":"\n",
-            "autocomplete_server": true,
-            "syntax":"Packages/Ruby/Ruby.tmLanguage"
-        }
     }
 ]

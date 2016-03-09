@@ -16,14 +16,6 @@
         }
     },
     {
-        "caption": "Search Ruby-Doc",
-        "command": "web_search",
-        "args": {
-            "base_url": "http://ruby-doc.com/",
-            "suffix": "search.html?q="
-        }
-    },
-    {
         "caption": "-"
     },
     {
