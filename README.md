@@ -62,9 +62,7 @@ cmd.exe를 위한 Color schemes: `console/color-schemes/cmd-color-*.reg`
 
 #### Command Palette
 
-- **SublimeREPL: Shell - virtualenv**
-	- SublimeREPL을 이용해 프로젝트 폴더에서 쉘을 열고 virtualenv를 활성화
-	- 프로젝트 설정에서 `venv_activate_script`를 지정해야 합
+- 추가바람
 
 
 ## Git

@@ -2,5 +2,7 @@
     /* Command Palette */
     { "keys": ["shift+enter"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
     /* Goto Anything */
-    { "keys": ["shift+space"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} }
+    { "keys": ["shift+space"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+    // Build override
+    { "keys": ["ctrl+b"], "command": "show_overlay", "args": {"overlay": "command_palette", "text": "Build With: "} }
 ]
