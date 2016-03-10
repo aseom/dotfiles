@@ -6,5 +6,9 @@
     {
         "caption": "ASeom: Git Bash Here",
         "command": "gitbash_here"
+    },
+    {
+        "caption": "SublimeREPL: Shell - virtualenv",
+        "command": "repl_virtualenv"
     }
 ]

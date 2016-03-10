@@ -26,5 +26,5 @@
     "show_line_endings": true,
 
     "folder_exclude_patterns": [],
-    "file_exclude_patterns": ["desktop.ini", ".DS_Store"]
+    "file_exclude_patterns": ["*.exe", "*.dll", "*.so", "desktop.ini", ".DS_Store", "*.sublime-workspace"]
 }

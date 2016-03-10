@@ -62,18 +62,16 @@ cmd.exe를 위한 Color schemes: `console/color-schemes/cmd-color-*.reg`
 
 #### Command Palette
 
-- **ASeom: Ruby Pry**
-	- SublimeREPL의 [Ruby Pry 오류 해결][]한 것
-	- 작동하려면 `gem install pry` 필요함
-
-[Ruby Pry 오류 해결]: https://github.com/smiler/SublimeREPL/commit/95ffe15382336ef6720502752e71c290055cf7f8
+- **SublimeREPL: Shell - virtualenv**
+	- SublimeREPL을 이용해 프로젝트 폴더에서 쉘을 열고 virtualenv를 활성화
+	- 프로젝트 설정에서 `venv_activate_script`를 지정해야 합
 
 
 ## Git
 
 #### 이미 커밋된 파일을 .gitignore에 추가할 경우
 
-무시되지만 여전히 무시되지 않는(?) 파일의 리스트를 확인하고,
+무시되지만 여전히 무시되지 않는(?) 파일의 리스트를 확인하고,  
 해당되는 파일들을 stage 영역에서 삭제 후 변경사항을 커밋.
 
 	$ git ls-files --ignored --exclude-standard
