@@ -1,0 +1,4 @@
+{
+    // Set syntax: Markdown Extended
+	"extensions": ["mdown", "markdown", "markdn", "md"]
+}

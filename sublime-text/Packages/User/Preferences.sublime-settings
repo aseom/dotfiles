@@ -1,7 +1,6 @@
 {
     // Theme
     "theme": "Afterglow-orange.sublime-theme",
-    //"color_scheme": "Packages/Theme - Afterglow/afterglow.tmTheme",
     "color_scheme": "Packages/ASeom/Wombat-afterglow.tmTheme",
     "tabs_medium": true,
     "sidebar_size_12": true,
@@ -12,10 +11,7 @@
     "font_face": "D2Coding",
     "font_size": 12,
 
-    // Whitespace
-    "translate_tabs_to_spaces": true,
-
-    // Misc
+    // Visual
     "enable_tab_scrolling": false,
     "highlight_line": true,
     "line_padding_bottom": 1,
@@ -25,6 +21,8 @@
     "show_encoding": true,
     "show_line_endings": true,
 
-    "folder_exclude_patterns": [],
-    "file_exclude_patterns": ["*.exe", "*.dll", "*.so", "desktop.ini", ".DS_Store", "*.sublime-workspace"]
+    // Othets
+    "word_wrap": true,
+    "translate_tabs_to_spaces": true,
+    "folder_exclude_patterns": []
 }
