@@ -1,7 +1,6 @@
 #PC-ASeom
 C:/Console -> ~/Dropbox/Git/dotfiles/console/
-~/AppData/Roaming/Sublime Text 3/Packages/User/ -> ~/Dropbox/Git/dotfiles/sublime-text/Packages/User
-~/AppData/Roaming/Sublime Text 3/Packages/ASeom/ -> ~/Dropbox/Git/dotfiles/sublime-text/Packages/ASeom
+~/AppData/Roaming/Sublime Text 3/Packages/User -> ~/Dropbox/Git/dotfiles/sublime-text
 ~/.minttyrc -> ~/Dropbox/Git/dotfiles/.minttyrc
 ~/.ssh/config -> ~/Dropbox/Git/dotfiles/.ssh/config
 ~/.vimrc -> ~/Dropbox/Git/dotfiles/.vimrc
