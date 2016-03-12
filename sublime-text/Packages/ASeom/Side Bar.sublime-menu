@@ -1,15 +1,25 @@
 [
     {
         "caption": "Cmd+ Here",
-        "command": "cmdplus_here",
+        "command": "console_here",
         "args": {
+            "shell": "cmd_plus",
             "paths": []
         }
     },
     {
         "caption": "Git Bash Here",
-        "command": "gitbash_here",
+        "command": "console_here",
         "args": {
+            "shell": "git_bash",
+            "paths": []
+        }
+    },
+    {
+        "caption": "Cmd+ with virtualenv",
+        "command": "console_here",
+        "args": {
+            "shell": "cmd_venv",
             "paths": []
         }
     }

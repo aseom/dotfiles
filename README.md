@@ -60,9 +60,15 @@ cmd.exe를 위한 Color schemes: `console/color-schemes/cmd-color-*.reg`
 
 ## Sublime Text 3
 
-#### Command Palette
+#### Python with virtualenv
 
-- 추가바람
+`*.sublime-project` 파일에 다음과 같이 virtualenv의 Python executable을 지정.
+
+```JSON
+"settings": {
+	"python_interpreter": "$project_path/.venv/Scripts/python.exe"
+}
+```
 
 
 ## Git

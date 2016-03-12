@@ -1,10 +1,23 @@
 [
     {
-        "caption": "ASeom: Cmd+ Here",
-        "command": "cmdplus_here"
+        "caption": "Console: Cmd+",
+        "command": "console_here",
+        "args": {
+            "shell": "cmd_plus"
+        }
     },
     {
-        "caption": "ASeom: Git Bash Here",
-        "command": "gitbash_here"
+        "caption": "Console: Git Bash",
+        "command": "console_here",
+        "args": {
+            "shell": "git_bash"
+        }
+    },
+    {
+        "caption": "Console: Cmd+ with virtualenv",
+        "command": "console_here",
+        "args": {
+            "shell": "cmd_venv"
+        }
     }
 ]
