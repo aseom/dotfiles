@@ -1,0 +1,18 @@
+{
+    // Set syntax: ShellScript Improved
+    "extensions":
+    [
+        "sh",
+        "bash",
+        "zsh",
+        ".bash_profile",
+        ".bash_aliases",
+        ".bash_login",
+        ".bash_logout",
+        ".bash_variables",
+        ".bash_functions",
+        ".bashrc",
+        ".zshrc",
+        ".profile"
+    ]
+}

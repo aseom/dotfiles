@@ -1040,6 +1040,17 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
+				<string>#88b8f6</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Shell: External</string>
+			<key>scope</key>
+			<string>support.function.external.shell</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
 				<string>#cae682</string>
 			</dict>
 		</dict>
