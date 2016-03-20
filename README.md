@@ -4,6 +4,11 @@ ASeom's dotfiles
 개발환경 구축에 필요한 잡동사니들을 모아둔 저장소
 
 
+## Cheatsheet
+
+#### [Linux](docs/cheatsheet-linux.md)
+
+
 ## PC-ASeom
 
 	Windows (C:)
