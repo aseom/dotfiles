@@ -36,7 +36,7 @@ umask 007로 변경되어 770이 지정된다는 뜻.
 Vim - Vi IMproved
 -----------------
 
-- [Vim 입문서](http://www.joinc.co.kr/modules/moniwiki/wiki.php/Site/Vim/Documents/UsedVim)
+- [VIM을 사용하자](http://play.joinc.co.kr/w/Site/Vim/Documents/UsedVim)
 
 - [VIM 단축키 및 설정](http://sinoroo.tistory.com/entry/VIM-%EB%8B%A8%EC%B6%95%ED%82%A4-%EB%B0%8F-%EC%84%A4%EC%A0%95)
 
