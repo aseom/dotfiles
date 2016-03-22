@@ -33,6 +33,29 @@ ASeom's dotfiles
 개발용으로 웹서버 구동시 방화벽으로 인바운드 연결 차단
 
 
+## SSH key pairs
+
+로컬에서 key pair 생성 후 1Password에 저장
+
+```Shell
+$ ssh-keygen -t rsa -N "" -f id_rsa
+```
+
+#### GitHub SSH connection
+```Shell
+# Created at 2016‎-03‎-22‎
+~/.ssh/github-aseom/id_rsa
+~/.ssh/github-aseom/id_rsa.pub
+```
+
+#### Linux server (vultr-aseom)
+```Shell
+# Created at 2016‎-03‎-22‎
+~/.ssh/vultr-aseom/id_rsa
+~/.ssh/vultr-aseom/id_rsa.pub
+```
+
+
 ## Console
 
 #### 설치 필요
