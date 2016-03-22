@@ -108,3 +108,12 @@ Powerline
 - [Powerline : Shell, Vim 등의 Statusline을 예쁘게](http://humb1ec0ding.github.io/2013/11/26/ubuntu-powerline-beautify-the-stateline.html)
 
 - [D2Coding Powerline](http://dalgona.128bit.tech/d2coding-powerline/)
+
+
+Uncategorized
+-------------
+
+#### SSH 접속 시 `~/.ssh/config` 무시하기
+```Shell
+$ ssh ... -F /dev/null
+```
