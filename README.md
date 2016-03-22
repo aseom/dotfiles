@@ -43,14 +43,14 @@ $ ssh-keygen -t rsa -N "" -f id_rsa
 
 #### GitHub SSH connection
 ```Shell
-# Created at 2016‎-03‎-22‎
+# Generated at 2016‎-03‎-22‎
 ~/.ssh/github-aseom/id_rsa
 ~/.ssh/github-aseom/id_rsa.pub
 ```
 
 #### Linux server (vultr-aseom)
 ```Shell
-# Created at 2016‎-03‎-22‎
+# Generated at 2016‎-03‎-22‎
 ~/.ssh/vultr-aseom/id_rsa
 ~/.ssh/vultr-aseom/id_rsa.pub
 ```
