@@ -24,14 +24,14 @@ $ ssh-keygen -t rsa -N "" -f id_rsa
 
 #### GitHub SSH connection
 ```Shell
-# Generated at 2016‎-03‎-22‎
+# 키 생성: 2016‎-03‎-22‎
 .../github-aseom/id_rsa
 .../github-aseom/id_rsa.pub
 ```
 
 #### Linux server (vultr-aseom)
 ```Shell
-# Generated at 2016‎-03‎-22‎
+# 키 생성: 2016‎-03‎-22‎
 .../vultr-aseom/id_rsa
 .../vultr-aseom/id_rsa.pub
 ```
