@@ -5,16 +5,13 @@
     // Goto Anything
     { "keys": ["shift+space"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
 
-    // Equivalent of "Command+Q"
-    { "keys": ["ctrl+q"], "command": "exit" },
-
     // Quick Switch Project
-    { "keys": ["ctrl+tab"], "command": "prompt_select_workspace" },
+    { "keys": ["option+tab"], "command": "prompt_select_workspace" },
 
     // Split View
-    { "keys": ["ctrl+right"], "command": "new_pane" },
-    { "keys": ["ctrl+left"], "command": "close_pane" },
+    { "keys": ["command+right"], "command": "new_pane" },
+    { "keys": ["command+left"], "command": "close_pane" },
 
     // Toggle Side Bar
-    { "keys": ["ctrl+e"], "command": "toggle_side_bar" }
+    { "keys": ["command+e"], "command": "toggle_side_bar" }
 ]

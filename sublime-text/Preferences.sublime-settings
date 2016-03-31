@@ -9,7 +9,7 @@
 
     // Font
     "font_face": "D2Coding",
-    "font_size": 12,
+    "font_size": 16,
 
     // Visual
     "enable_tab_scrolling": false,
@@ -24,5 +24,7 @@
     // Othets
     "word_wrap": true,
     "translate_tabs_to_spaces": true,
-    "folder_exclude_patterns": ["__pycache__"]
+    "folder_exclude_patterns": ["__pycache__"],
+    "scroll_speed": 0,
+    "scroll_past_end": true
 }
