@@ -11,29 +11,47 @@ ASeom's dotfiles
 
 ## macbook-pro
 
-추가바람.
+- 잠자기 시 암호 요구 끔
+- 보안 설정에서 자동 로그인 활성화 (사용자 설정 아님!)
+- 공유 설정에서 컴퓨터 이름 지정
+
+#### Install
+- XCode, iTerm2, Sublime Text 3
+- ST3: Package Control
+- Font: D2Coding
+
+#### Homebrew
+```Shell
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install git vim
+```
+
+#### Clone dotfiles
+```Shell
+cd ~
+git clone https://github.com/aseom/dotfiles.git
+ln -sf ~/dotfiles/.gitconfig
+
+mkdir .ssh && chmod 700 .ssh
+ln -sf ~/dotfiles/.ssh/config .ssh
+
+cd "$HOME/Library/Application Support/Sublime Text 3/Packages"
+rm -rf User && ln -s ~/dotfiles/sublime-text User
+```
+
+#### 마무리
+```Shell
+chmod 600 ~/.ssh/*.pem
+cd ~/dotfiles && git remote set-url origin git@github.com:aseom/dotfiles.git
+```
 
 
-## SSH key pairs
+## Generate SSH key
 
 로컬에서 key pair 생성 후 1Password에 저장
 
 ```Shell
 $ ssh-keygen -t rsa -N "" -f id_rsa
-```
-
-#### GitHub SSH connection
-```Shell
-# 키 생성: 2016‎-03‎-22‎
-.../github-aseom/id_rsa
-.../github-aseom/id_rsa.pub
-```
-
-#### Linux server (vultr-aseom)
-```Shell
-# 키 생성: 2016‎-03‎-22‎
-.../vultr-aseom/id_rsa
-.../vultr-aseom/id_rsa.pub
 ```
 
 
