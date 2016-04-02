@@ -266,7 +266,7 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>269 574 606 456 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>451 98 874 639 0 0 1920 1057 </string>
+	<string>796 284 874 639 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>88 390 874 639 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -884,6 +884,8 @@
 			<array/>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
+			<key>Thin Strokes</key>
+			<integer>0</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
