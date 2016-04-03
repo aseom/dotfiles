@@ -25,6 +25,7 @@
     "word_wrap": true,
     "translate_tabs_to_spaces": true,
     "folder_exclude_patterns": ["__pycache__"],
+    "overlay_scroll_bars": "disabled",
     "scroll_speed": 0,
     "scroll_past_end": true
 }
