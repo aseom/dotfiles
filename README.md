@@ -31,6 +31,8 @@ brew install git vim
 cd ~
 git clone https://github.com/aseom/dotfiles.git
 ln -sf ~/dotfiles/.gitconfig
+ln -sf ~/dotfiles/.gitignore_global
+ln -sf ~/dotfiles/.vimrc
 ln -sf ~/dotfiles/.zshrc
 
 mkdir .ssh && chmod 700 .ssh

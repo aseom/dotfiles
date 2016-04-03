@@ -1,5 +1,7 @@
 [core]
-	symlinks = true
+    symlinks = true
+    excludesfile = ~/.gitignore_global
+    editor = vim    # No /usr/bin/vim
 [user]
-	name = aseom
-	email = hm9599@gmail.com
+    name = aseom
+    email = hm9599@gmail.com
