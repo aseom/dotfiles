@@ -82,13 +82,9 @@ SSH 접속 가능한지 테스트.
 ## Working with this repository
 
 ```Shell
-# 서버에 Git SSH key 업로드: ~/.ssh/github-aseom
-echo -e "Host github.com\n  IdentityFile ~/.ssh/github-aseom" >> ~/.ssh/config
-
-cd /home
-git clone git@github.com:aseom/vultr-aseom.git
-
 cd ~
-ln -sf /home/vultr-aseom/.vimrc
-ln -sf /home/vultr-aseom/.bashrc
+git clone https://github.com/aseom/dotfiles.git
+ln -sf ~/dotfiles/.vimrc
+ln -sf ~/dotfiles/ubuntu/.bashrc
+ln -sf ~/dotfiles/ubuntu/.ssh/config .ssh
 ```
