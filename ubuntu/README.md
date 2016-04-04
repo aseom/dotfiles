@@ -8,6 +8,11 @@ cd ~
 ln -sf ~/dotfiles/.vimrc
 ln -sf ~/dotfiles/ubuntu/.bashrc
 ln -sf ~/dotfiles/ubuntu/.ssh/config .ssh
+
+# Git
+git config --global user.name "aseom"
+git config --global user.email "hm9599@gmail.com"
+git config --global core.editor "vim"
 ```
 
 ---
