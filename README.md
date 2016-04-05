@@ -11,15 +11,17 @@ ASeom's dotfiles
 
 ## macbook-pro
 
+#### Setup
 - 잠자기 시 암호 요구 끔
 - 보안 설정에서 자동 로그인 활성화 (사용자 설정 아님!)
 - 공유 설정에서 컴퓨터 이름 지정
 
-&nbsp;
+#### Requirements
 - XCode, iTerm2, Homebrew
 - Sublime Text 3, Package Control
 - Menlo, D2Coding
 
+#### Unboxing
 ```Shell
 brew install git vim zsh
 ```
