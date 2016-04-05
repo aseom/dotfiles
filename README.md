@@ -15,6 +15,7 @@ ASeom's dotfiles
 - 보안 설정에서 자동 로그인 활성화 (사용자 설정 아님!)
 - 공유 설정에서 컴퓨터 이름 지정
 
+&nbsp;
 - XCode, iTerm2, Homebrew
 - Sublime Text 3, Package Control
 - Menlo, D2Coding
