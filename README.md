@@ -1,30 +1,20 @@
-ASeom's dotfiles
+aseom.dotfiles
 ================
 
-개발환경에 필요한 잡동사니들을 모아둔 저장소
-
-
-## Cheatsheet
-
-#### [Linux](docs/cheatsheet-linux.md)
-
+> __Docs__  
+> [Cheatsheet - Linux](docs/cheatsheet-linux.md)
 
 ## macbook-pro
 
-#### Setup
-- 잠자기 시 암호 요구 끔
-- 보안 설정에서 자동 로그인 활성화 (사용자 설정 아님!)
-- 공유 설정에서 컴퓨터 이름 지정
+> 잠자기 시 암호 요구 끔  
+> 보안 설정에서 자동 로그인 활성화 (사용자 설정 아님!)  
+> 공유 설정에서 컴퓨터 이름 지정
 
-#### Requirements
-- XCode, iTerm2, Homebrew
-- Sublime Text 3, Package Control
-- Menlo, D2Coding
+> Requires [XCode][] & [Homebrew][]  
+> `brew install git vim zsh`
 
-#### Unboxing
-```Shell
-brew install git vim zsh
-```
+[XCode]: https://itunes.apple.com/kr/app/xcode/id497799835?mt=12
+[Homebrew]: http://brew.sh
 
 ```Shell
 cd ~
@@ -34,18 +24,30 @@ ln -sf ~/dotfiles/.gitignore_global
 ln -sf ~/dotfiles/.vimrc
 ln -sf ~/dotfiles/.zshrc
 
-mkdir .ssh && chmod 700 .ssh && ln -sf ~/dotfiles/.ssh/config .ssh
+# Create .ssh dir, Copy SSH keys, then
+chmod 700 .ssh && chmod 600 .ssh/*.pem
+ln -sf ~/dotfiles/.ssh/config .ssh
+
+# ST3 & Package Control
 cd "$HOME/Library/Application Support/Sublime Text 3/Packages"
 rm -rf User && ln -s ~/dotfiles/sublime-text User
 ```
 
----
-
-#### Use SSH
+###### zsh를 기본 셸로 쓰기
 ```Shell
-chmod 600 ~/.ssh/*.pem
+sudo cp -p /etc/shells /etc/shells.backup_
+echo $(which zsh) | sudo tee -a /etc/shells
+chpass -s $(which zsh)
+```
+
+###### Dotfiles 푸시할 때 SSH 쓰기
+```Shell
 cd ~/dotfiles && git remote set-url origin git@github.com:aseom/dotfiles.git
 ```
+
+---
+
+###### TODO: 여기 아래 있는 것들 정리해야함.
 
 #### Generate SSH key
 ```Shell
