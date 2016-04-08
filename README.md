@@ -45,6 +45,13 @@ chpass -s $(which zsh)
 cd ~/dotfiles && git remote set-url origin git@github.com:aseom/dotfiles.git
 ```
 
+###### Firefox - `about:config`
+```INI
+gfx.color_management.mode = 1
+gfx.color_management.enablev4 = true
+mousewheel.default.delta_multiplier_y = 200
+```
+
 ---
 
 ###### TODO: 여기 아래 있는 것들 정리해야함.
