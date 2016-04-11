@@ -1,16 +1,9 @@
 [
     {
-        "caption": "Console: Cmd+",
+        "caption": "Console: Open iTerm",
         "command": "console_here",
         "args": {
-            "shell": "cmd_plus"
-        }
-    },
-    {
-        "caption": "Console: Git Bash",
-        "command": "console_here",
-        "args": {
-            "shell": "git_bash"
+            "shell": "iterm"
         }
     },
     {

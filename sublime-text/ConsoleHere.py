@@ -44,12 +44,10 @@ class ConsoleHereCommand(sublime_plugin.WindowCommand):
                 self.window.show_quick_panel([str(e)], None)
                 return
 
-        if shell == 'cmd_plus': self.open_cmd_plus(cwd)
-        if shell == 'cmd_venv': self.open_cmd_venv(cwd)
-        if shell == 'git_bash': self.open_git_bash(cwd)
-
-    def open_cmd_plus(self, cwd):
-        subprocess.Popen('cmd.exe /k C:\\Console\\profile.cmd "%s"' % cwd)
+        if shell == 'iterm':
+            subprocess.Popen('open -a iTerm "%s"' % cwd, shell=True)
+        if shell == 'cmd_venv':
+            self.open_cmd_venv(cwd)
 
     def open_cmd_venv(self, cwd):
         try:
@@ -59,6 +57,3 @@ class ConsoleHereCommand(sublime_plugin.WindowCommand):
         else:
             subprocess.Popen([
                 'cmd.exe', '/k', 'C:\\Console\\profile.cmd', cwd, '&&', script])
-
-    def open_git_bash(self, cwd):
-        subprocess.Popen('C:\\Git\\git-bash.exe --cd="%s"' % cwd)
