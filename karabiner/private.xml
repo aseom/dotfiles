@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<root>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_toggle_keyup</name>
+    <url type="shell">
+      <![CDATA[
+        /usr/bin/osascript <<EOF
+        tell application "System Events" to tell process "KeyUp"
+            click menu bar item 1 of menu bar 2 -- Click menu bar icon
+        end tell
+        EOF
+      ]]>
+    </url>
+  </vkopenurldef>
+  
+  <item>
+    <name>Toggle KeyUp with MouseButton5</name>
+    <appendix>Click KeyUp icon on OS X Menu Bar</appendix>
+    <identifier>private.MB5_toggle_keyup</identifier>
+    <autogen>
+      __KeyToKey__ PointingButton::BUTTON5, KeyCode::VK_OPEN_URL_toggle_keyup
+    </autogen>
+  </item>
+  <item>
+    <name>(Simultaneous) Left+RightClick to Shift+Click</name>
+    <identifier>private.remap_LRClick_to_ShiftLClick</identifier>
+    <autogen>
+      __SimultaneousKeyPresses__
+      PointingButton::LEFT, PointingButton::RIGHT, 
+      PointingButton::LEFT, ModifierFlag::SHIFT_L
+    </autogen>
+  </item>
+
+  <item>
+    <name>Double RightClick to Option+LeftClick</name>
+    <identifier>private.remap_DoubleRClick_to_OptLClick</identifier>
+    <autogen>
+      __DoublePressModifier__
+      PointingButton::RIGHT,
+      PointingButton::RIGHT,
+      PointingButton::LEFT, ModifierFlag::OPTION_L
+    </autogen>
+  </item>
+
+  <item><name>──────────────────────────────</name></item>
+</root>

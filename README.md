@@ -31,6 +31,10 @@ ln -sf ~/dotfiles/.ssh/config .ssh
 # ST3 & Package Control
 cd "$HOME/Library/Application Support/Sublime Text 3/Packages"
 rm -rf User && ln -s ~/dotfiles/sublime-text User
+
+# Karabiner
+cd "$HOME/Library/Application Support/Karabiner"
+ln -sf ~/dotfiles/karabiner/private.xml
 ```
 
 ###### zsh를 기본 셸로 쓰기
