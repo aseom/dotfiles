@@ -1,9 +1,8 @@
 [
     {
         "caption": "Open iTerm Here",
-        "command": "console_here",
+        "command": "iterm_here",
         "args": {
-            "shell": "iterm",
             "paths": []
         }
     }

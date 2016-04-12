@@ -1,9 +1,6 @@
 [
     {
-        "caption": "Console: Open iTerm",
-        "command": "console_here",
-        "args": {
-            "shell": "iterm"
-        }
+        "caption": "Open iTerm in Project Directory",
+        "command": "iterm_here"
     }
 ]
