@@ -6,13 +6,5 @@
             "shell": "iterm",
             "paths": []
         }
-    },
-    {
-        "caption": "Cmd+ with virtualenv",
-        "command": "console_here",
-        "args": {
-            "shell": "cmd_venv",
-            "paths": []
-        }
     }
 ]

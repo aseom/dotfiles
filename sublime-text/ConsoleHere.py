@@ -12,23 +12,6 @@ def get_project_dir(window):
         raise Exception("현재 프로젝트 디렉토리를 알 수 없음")
     return os.path.dirname(proj_file)
 
-def get_venv_activator(window):
-    """
-    프로젝트 설정의 'python_interpreter' 값을 이용
-    인터프리터가 존재하는 디렉토리에서 'activate.bat'을 찾음
-    
-    """
-    py_interp = window.active_view().settings().get('python_interpreter')
-    if not py_interp:
-        raise Exception("프로젝트 설정에서 'python_interpreter'를 지정해야 함")
-
-    py_interp = py_interp.replace('$project_path', get_project_dir(window))
-    script_path = os.path.normpath(os.path.dirname(py_interp)) + '\\activate.bat'
-    if not os.path.exists(script_path):
-        raise Exception("'%s'를 찾을 수 없음" % script_path)
-        
-    return script_path
-
 
 class ConsoleHereCommand(sublime_plugin.WindowCommand):
     def run(self, shell, paths = []):
@@ -46,14 +29,3 @@ class ConsoleHereCommand(sublime_plugin.WindowCommand):
 
         if shell == 'iterm':
             subprocess.Popen('open -a iTerm "%s"' % cwd, shell=True)
-        if shell == 'cmd_venv':
-            self.open_cmd_venv(cwd)
-
-    def open_cmd_venv(self, cwd):
-        try:
-            script = get_venv_activator(self.window)
-        except Exception as e:
-            self.window.show_quick_panel([str(e)], None)
-        else:
-            subprocess.Popen([
-                'cmd.exe', '/k', 'C:\\Console\\profile.cmd', cwd, '&&', script])

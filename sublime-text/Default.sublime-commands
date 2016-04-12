@@ -5,12 +5,5 @@
         "args": {
             "shell": "iterm"
         }
-    },
-    {
-        "caption": "Console: Cmd+ with virtualenv",
-        "command": "console_here",
-        "args": {
-            "shell": "cmd_venv"
-        }
     }
 ]
