@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 <root>
+  <replacementdef>
+    <replacementname>FastKeyRepeat</replacementname>
+    <replacementvalue>
+      DelayUntilRepeat::RawValue::200,
+      KeyRepeat::RawValue::70
+    </replacementvalue>
+  </replacementdef>
+
   <vkopenurldef>
     <name>KeyCode::VK_OPEN_URL_toggle_keyup</name>
     <url type="shell">
@@ -12,15 +20,59 @@
       ]]>
     </url>
   </vkopenurldef>
-  
+
+  <modifierdef>OSK</modifierdef>
   <item>
     <name>Toggle KeyUp with MouseButton5</name>
-    <appendix>Click KeyUp icon on OS X Menu Bar</appendix>
+    <appendix>(+ Use MouseButton5 as OSK modifier key)</appendix>
     <identifier>private.MB5_toggle_keyup</identifier>
     <autogen>
-      __KeyToKey__ PointingButton::BUTTON5, KeyCode::VK_OPEN_URL_toggle_keyup
+      __KeyOverlaidModifier__
+      PointingButton::BUTTON5,
+      KeyCode::VK_MODIFIER_OSK,
+      KeyCode::VK_OPEN_URL_toggle_keyup
     </autogen>
   </item>
+
+  <item>
+    <name>ScrollWheel as Arrow key, with OSK modifier</name>
+    <appendix>(+ LeftClick to Left, RightClick to Right)</appendix>
+    <identifier>private.osk_ScrollWheel_as_Arrow</identifier>
+    <autogen>
+      __ScrollWheelToKey__
+      ScrollWheel::UP, ModifierFlag::OSK,
+      KeyCode::CURSOR_UP
+    </autogen>
+    <autogen>
+      __ScrollWheelToKey__
+      ScrollWheel::DOWN, ModifierFlag::OSK,
+      KeyCode::CURSOR_DOWN
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      PointingButton::LEFT, ModifierFlag::OSK,
+      KeyCode::CURSOR_LEFT,
+      {{ FastKeyRepeat }}
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      PointingButton::RIGHT, ModifierFlag::OSK,
+      KeyCode::CURSOR_RIGHT,
+      {{ FastKeyRepeat }}
+    </autogen>
+  </item>
+
+  <item>
+    <name>MouseButton4 to Delete</name>
+    <appendix>(Hold MouseButton4 to repeat Delete key)</appendix>
+    <identifier>private.remap_MB5_to_Delete</identifier>
+    <autogen>
+      __KeyToKey__
+      PointingButton::BUTTON4, KeyCode::DELETE,
+      {{ FastKeyRepeat }}
+    </autogen>
+  </item>
+
   <item>
     <name>(Simultaneous) Left+RightClick to Shift+Click</name>
     <identifier>private.remap_LRClick_to_ShiftLClick</identifier>
