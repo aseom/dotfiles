@@ -1,13 +1,5 @@
 <?xml version="1.0"?>
 <root>
-  <replacementdef>
-    <replacementname>FastKeyRepeat</replacementname>
-    <replacementvalue>
-      DelayUntilRepeat::RawValue::200,
-      KeyRepeat::RawValue::70
-    </replacementvalue>
-  </replacementdef>
-
   <vkopenurldef>
     <name>KeyCode::VK_OPEN_URL_toggle_keyup</name>
     <url type="shell">
@@ -21,55 +13,36 @@
     </url>
   </vkopenurldef>
 
-  <modifierdef>OSK</modifierdef>
   <item>
     <name>Toggle KeyUp with MouseButton5</name>
-    <appendix>(+ Use MouseButton5 as OSK modifier key)</appendix>
+    <appendix>(+ MouseButton5+CursorMove to Arrows)</appendix>
+    <appendix>(방향키 작동 속도가 느린 경우 해당 값 조절: Parameters -> PointingRelative to Key -> Detection interval)</appendix>
     <identifier>private.MB5_toggle_keyup</identifier>
     <autogen>
       __KeyOverlaidModifier__
       PointingButton::BUTTON5,
-      KeyCode::VK_MODIFIER_OSK,
+      KeyCode::VK_MODIFIER_EXTRA1,
       KeyCode::VK_OPEN_URL_toggle_keyup
     </autogen>
-  </item>
-
-  <item>
-    <name>ScrollWheel as Arrow key, with OSK modifier</name>
-    <appendix>(+ LeftClick to Left, RightClick to Right)</appendix>
-    <identifier>private.osk_ScrollWheel_as_Arrow</identifier>
     <autogen>
-      __ScrollWheelToKey__
-      ScrollWheel::UP, ModifierFlag::OSK,
-      KeyCode::CURSOR_UP
-    </autogen>
-    <autogen>
-      __ScrollWheelToKey__
-      ScrollWheel::DOWN, ModifierFlag::OSK,
-      KeyCode::CURSOR_DOWN
-    </autogen>
-    <autogen>
-      __KeyToKey__
-      PointingButton::LEFT, ModifierFlag::OSK,
-      KeyCode::CURSOR_LEFT,
-      {{ FastKeyRepeat }}
-    </autogen>
-    <autogen>
-      __KeyToKey__
-      PointingButton::RIGHT, ModifierFlag::OSK,
-      KeyCode::CURSOR_RIGHT,
-      {{ FastKeyRepeat }}
+      __PointingRelativeToKey__
+      ModifierFlag::EXTRA1,
+      PointingRelative::UP,    KeyCode::CURSOR_UP,
+      PointingRelative::DOWN,  KeyCode::CURSOR_DOWN,
+      PointingRelative::LEFT,  KeyCode::CURSOR_LEFT,
+      PointingRelative::RIGHT, KeyCode::CURSOR_RIGHT
     </autogen>
   </item>
 
   <item>
     <name>MouseButton4 to Delete</name>
     <appendix>(Hold MouseButton4 to repeat Delete key)</appendix>
-    <identifier>private.remap_MB5_to_Delete</identifier>
+    <identifier>private.remap_MB4_to_Delete</identifier>
     <autogen>
       __KeyToKey__
       PointingButton::BUTTON4, KeyCode::DELETE,
-      {{ FastKeyRepeat }}
+      DelayUntilRepeat::RawValue::500,
+      KeyRepeat::RawValue::70
     </autogen>
   </item>
 
