@@ -53,7 +53,7 @@
   <item>
     <name>Settings for KeyUp</name>
     <appendix>Simultaneously Left+RightClick to Shift+Click</appendix>
-    <appendix>MouseButton5+CursorMove to Arrows</appendix>
+    <appendix>XButton2+CursorMove to Arrows</appendix>
     <appendix>(Configure `Parameters` -> `PointingRelative to Key` -> `Detection interval`)</appendix>
     <identifier>private.settings_for_keyup</identifier>
     <autogen>
