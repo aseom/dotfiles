@@ -1,4 +1,4 @@
-export LANG=ko_KR.UTF-8
+export LANG=en_US.UTF-8
 
 # zplug
 if [ ! -f ~/.zplug/zplug ]; then
