@@ -13,49 +13,61 @@
     </url>
   </vkopenurldef>
 
+  <modifierdef>XBUTTON1</modifierdef>
+  <modifierdef>XBUTTON2</modifierdef>
   <item>
-    <name>MouseButton5 to Toggle KeyUp</name>
-    <appendix>+ MouseButton5+Click to ForceTouch</appendix>
-    <appendix>+ MouseButton5+RightClick to Option+RightClick</appendix>
-    <appendix>+ MouseButton5+CursorMove to Arrows</appendix>
-    <appendix>(Configure `Parameters` -> `PointingRelative to Key` -> `Detection interval`)</appendix>
-    <identifier>private.MB5_toggle_keyup</identifier>
-
+    <name>MouseButton4-5 as XButton1-2 modifier</name>
+    <appendix>+ MouseButton5 to Toggle KeyUp</appendix>
+    <identifier>private.MB45_as_XB12_modifier</identifier>
+    <autogen>
+      __KeyOverlaidModifier__
+      PointingButton::BUTTON4,
+      KeyCode::VK_MODIFIER_XBUTTON1,
+      KeyCode::VK_NONE
+    </autogen>
     <autogen>
       __KeyOverlaidModifier__
       PointingButton::BUTTON5,
-      KeyCode::VK_MODIFIER_EXTRA1,
+      KeyCode::VK_MODIFIER_XBUTTON2,
       KeyCode::VK_OPEN_URL_toggle_keyup
-    </autogen>
-
-    <autogen>
-      __KeyToKey__
-      PointingButton::LEFT, ModifierFlag::EXTRA1,
-      KeyCode::D, ModifierFlag::COMMAND_L | ModifierFlag::CONTROL_L
-    </autogen>
-    <autogen>
-      __KeyToKey__
-      PointingButton::RIGHT, ModifierFlag::EXTRA1,
-      PointingButton::RIGHT, ModifierFlag::OPTION_L
-    </autogen>
-
-    <autogen>
-      __PointingRelativeToKey__
-      ModifierFlag::EXTRA1,
-      PointingRelative::UP,    KeyCode::CURSOR_UP,
-      PointingRelative::DOWN,  KeyCode::CURSOR_DOWN,
-      PointingRelative::LEFT,  KeyCode::CURSOR_LEFT,
-      PointingRelative::RIGHT, KeyCode::CURSOR_RIGHT
     </autogen>
   </item>
 
   <item>
-    <name>(Simultaneous) Left+RightClick to Shift+Click</name>
-    <identifier>private.remap_LRClick_to_ShiftLClick</identifier>
+    <name>Settings for OS X</name>
+    <appendix>XButton2+Click to ForceTouch</appendix>
+    <appendix>XButton2+RightClick to Option+RightClick</appendix>
+    <identifier>private.settings_for_osx</identifier>
+    <autogen>
+      __KeyToKey__
+      PointingButton::LEFT, ModifierFlag::XBUTTON2,
+      KeyCode::D, ModifierFlag::COMMAND_L | ModifierFlag::CONTROL_L
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      PointingButton::RIGHT, ModifierFlag::XBUTTON2,
+      PointingButton::RIGHT, ModifierFlag::OPTION_L
+    </autogen>
+  </item>
+
+  <item>
+    <name>Settings for KeyUp</name>
+    <appendix>Simultaneously Left+RightClick to Shift+Click</appendix>
+    <appendix>MouseButton5+CursorMove to Arrows</appendix>
+    <appendix>(Configure `Parameters` -> `PointingRelative to Key` -> `Detection interval`)</appendix>
+    <identifier>private.settings_for_keyup</identifier>
     <autogen>
       __SimultaneousKeyPresses__
       PointingButton::LEFT, PointingButton::RIGHT, 
       PointingButton::LEFT, ModifierFlag::SHIFT_L
+    </autogen>
+    <autogen>
+      __PointingRelativeToKey__
+      ModifierFlag::XBUTTON2,
+      PointingRelative::UP,    KeyCode::CURSOR_UP,
+      PointingRelative::DOWN,  KeyCode::CURSOR_DOWN,
+      PointingRelative::LEFT,  KeyCode::CURSOR_LEFT,
+      PointingRelative::RIGHT, KeyCode::CURSOR_RIGHT
     </autogen>
   </item>
 
