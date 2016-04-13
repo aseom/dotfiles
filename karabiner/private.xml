@@ -17,13 +17,14 @@
   <modifierdef>XBUTTON2</modifierdef>
   <item>
     <name>MouseButton4-5 as XButton1-2 modifier</name>
+    <appendix>+ MouseButton4 to Command+Q</appendix>
     <appendix>+ MouseButton5 to Toggle KeyUp</appendix>
     <identifier>private.MB45_as_XB12_modifier</identifier>
     <autogen>
       __KeyOverlaidModifier__
       PointingButton::BUTTON4,
       KeyCode::VK_MODIFIER_XBUTTON1,
-      KeyCode::VK_NONE
+      KeyCode::Q, ModifierFlag::COMMAND_L
     </autogen>
     <autogen>
       __KeyOverlaidModifier__
