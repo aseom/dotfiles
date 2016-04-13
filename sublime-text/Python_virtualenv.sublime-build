@@ -1,8 +1,8 @@
 {
     "selector": "source.python",
-    "cmd": ["$project_path/.venv/Scripts/activate.bat",
+    "cmd": ["$project_path/.venv/bin/activate",
             "&&", "echo", "[virtualenv]",
-            "&&", "python.exe", "-u", "$file"],
+            "&&", "python", "-u", "$file"],
 
     // Regular expression to capture error output of cmd.
     "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)"

@@ -14,12 +14,5 @@
             "base_url": "https://docs.python.org/3.4/",
             "suffix": "search.html?q="
         }
-    },
-    {
-        "caption": "-"
-    },
-    {
-        "caption": "Jedi Show Docstring",
-        "command": "sublime_jedi_docstring"
     }
 ]
