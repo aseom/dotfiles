@@ -16,9 +16,8 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/brew", from:oh-my-zsh
 zplug "plugins/sublime", from:oh-my-zsh
 zplug "b4b4r07/enhancd", of:enhancd.sh
-zplug "supercrabtree/k"
-zplug "jimeh/zsh-peco-history"
-zplug "zsh-users/zsh-syntax-highlighting", nice:19
+zplug "zsh-users/zsh-syntax-highlighting", nice:18
+zplug "zsh-users/zsh-history-substring-search", nice:19
 
 if ! zplug check; then; zplug install; fi
 zplug load --verbose
