@@ -5,9 +5,13 @@
     <url type="shell">
       <![CDATA[
         /usr/bin/osascript <<EOF
-        tell application "System Events" to tell process "KeyUp"
-            click menu bar item 1 of menu bar 2 -- Click menu bar icon
-        end tell
+        if application "KeyUp" is running then
+          tell application "System Events" to tell process "KeyUp"
+              click menu bar item 1 of menu bar 2 -- Click menu bar icon
+          end tell
+        else
+          activate application "KeyUp"
+        end if
         EOF
       ]]>
     </url>
