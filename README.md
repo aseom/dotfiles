@@ -22,7 +22,7 @@ git clone https://github.com/aseom/dotfiles.git
 ln -sf ~/dotfiles/.gitconfig
 ln -sf ~/dotfiles/.gitignore_global
 ln -sf ~/dotfiles/.vimrc
-ln -sf ~/dotfiles/.zshrc
+ln -sf ~/dotfiles/.zshrc && ln -sf ~/dotfiles/.zlogout
 
 # Create .ssh dir, Copy SSH keys, then
 chmod 700 .ssh && chmod 600 .ssh/*.pem
