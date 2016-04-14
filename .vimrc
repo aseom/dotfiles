@@ -9,6 +9,7 @@ set number      " Show line numbers
 set cursorline  " Highlight current line
 set smartindent
 set laststatus=2  " Always show status bar
+set ruler         " Show scroll percentage
 
 " Convert tabs to spaces
 set expandtab
@@ -30,6 +31,7 @@ set hlsearch
 call plug#begin('~/.vim/plugged')
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'scrooloose/nerdtree'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " Colorscheme
@@ -41,4 +43,13 @@ catch 'Cannot find color scheme'
 endtry
 
 " nerdtree
+let NERDTreeShowHidden = 1     " Show hidden files by default
+let NERDTreeMouseMode  = 3     " Open file/dir by single click
 map <C-n> :NERDTreeToggle<CR>  " Ctrl+N to NERDTreeToggle
+
+" vim-gitgutter
+" Set gutter sign colors
+highlight GitGutterAdd          cterm=bold ctermfg=34
+highlight GitGutterChange       cterm=bold ctermfg=172
+highlight GitGutterChangeDelete cterm=bold ctermfg=172
+highlight GitGutterDelete       cterm=bold ctermfg=160
