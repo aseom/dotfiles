@@ -8,7 +8,7 @@ fi
 
 get_content() {
     local file="$1"
-    if echo "${file}" | grep -E "^(http|https):// >/dev/null"; then
+    if echo "${file}" | grep -E "^(http|https)://" >/dev/null; then
         curl -fsSL "${file}"
     else
         cat "${file}"
