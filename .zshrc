@@ -29,6 +29,8 @@ zplug "zsh-users/zsh-history-substring-search", nice:19
 if ! zplug check; then; zplug install; fi
 zplug load --verbose
 
+export PATH="${HOME}/bin:${PATH}"
+
 # Set prompt.
 # https://github.com/b4b4r07/zplug/issues/95
 source "$ZPLUG_HOME/repos/robbyrussell/oh-my-zsh/themes/robbyrussell.zsh-theme"

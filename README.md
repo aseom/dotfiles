@@ -23,6 +23,7 @@ ln -sf ~/dotfiles/.gitconfig
 ln -sf ~/dotfiles/.gitignore_global
 ln -sf ~/dotfiles/.vimrc
 ln -sf ~/dotfiles/.zshrc && ln -sf ~/dotfiles/.zlogout
+ln -sf ~/dotfiles/bin
 
 # Create .ssh dir, Copy SSH keys, then
 chmod 700 .ssh && chmod 600 .ssh/*.pem
@@ -63,16 +64,6 @@ mousewheel.default.delta_multiplier_y = 200
 #### Generate SSH key
 ```Shell
 $ ssh-keygen -t rsa -N "" -f whatever.pem
-```
-
-#### ST3: Python with virtualenv
-
-`*.sublime-project` 파일에 다음과 같이 virtualenv의 Python executable을 지정.
-
-```JSON
-"settings": {
-	"python_interpreter": "$project_path/.venv/Scripts/python.exe"
-}
 ```
 
 #### 이미 커밋된 파일을 .gitignore에 추가
