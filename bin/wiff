@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Check existence of argument
+if [ $# -lt 2 ]; then
+    echo "Usage: $0 <FILE1> <FILE2>"
+    exit 1
+fi
+
+get_content() {
+    local file="$1"
+    if echo "${file}" | grep -E "^(http|https):// >/dev/null"; then
+        curl -fsSL "${file}"
+    else
+        cat "${file}"
+    fi
+}
+if diff <(get_content "$1") <(get_content "$2"); then
+    printf "$1 \e[0;32m==\e[0m $2\n"
+else
+    printf "$1 \e[0;31m!=\e[0m $2\n"
+fi
