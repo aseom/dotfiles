@@ -15,7 +15,7 @@ get_content() {
     fi
 }
 if diff <(get_content "$1") <(get_content "$2"); then
-    printf "$1 \e[0;32m==\e[0m $2\n"
+    printf "\e[0;32mTwo files have same content!\e[0m\n"
 else
-    printf "$1 \e[0;31m!=\e[0m $2\n"
+    printf "\e[0;31mTwo files have different content!\e[0m\n"
 fi
