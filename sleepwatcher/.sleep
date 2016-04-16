@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Unmount external disk before sleep
+# Unmount whole disk, not volume!
+diskutil unmountDisk /dev/disk2

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Remount volumes after wakeup
+# Mount volume 1 on disk 2
+diskutil mount /dev/disk2s1
