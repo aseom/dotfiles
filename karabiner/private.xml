@@ -76,5 +76,27 @@
     </autogen>
   </item>
 
+  <appdef>
+    <appname>ITERM</appname>
+    <equal>com.googlecode.iterm2</equal>
+  </appdef>
+  <replacementdef>
+    <replacementname>ESC2X_AND_CHANGE_IME</replacementname>
+    <replacementvalue>
+      KeyCode::ESCAPE, KeyCode::ESCAPE, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH
+    </replacementvalue>
+  </replacementdef>
+  <item>
+    <name>Settings for iTerm</name>
+    <identifier>private.settings_for_iterm</identifier>
+    <appendix>(iTerm only) ESC or XButton2+WheelUp: Double ESC and Change to English IME</appendix>
+    <only>ITERM</only>
+    <autogen>__KeyToKey__ KeyCode::ESCAPE, {{ ESC2X_AND_CHANGE_IME }}</autogen>
+    <autogen>
+      __ScrollWheelToKey__
+      ScrollWheel::UP, ModifierFlag::XBUTTON2, {{ ESC2X_AND_CHANGE_IME }}
+    </autogen>
+  </item>
+
   <item><name>──────────────────────────────</name></item>
 </root>
