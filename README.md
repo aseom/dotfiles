@@ -2,6 +2,7 @@ aseom.dotfiles
 ================
 
 > __Docs__  
+> [Node.js](docs/nodejs.md)
 > [Cheatsheet - Linux](docs/cheatsheet-linux.md)
 
 ## macbook-pro
@@ -28,10 +29,6 @@ ln -sf ~/dotfiles/bin
 # Create .ssh dir, Copy SSH keys, then
 chmod 700 .ssh && chmod 600 .ssh/*.pem
 ln -sf ~/dotfiles/.ssh/config .ssh
-
-# ST3 & Package Control
-cd "$HOME/Library/Application Support/Sublime Text 3/Packages"
-rm -rf User && ln -s ~/dotfiles/sublime-text User
 
 # Karabiner
 cd "$HOME/Library/Application Support/Karabiner"
