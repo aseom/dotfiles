@@ -3,16 +3,15 @@ set mouse=a                     " Use mouse
 set nocompatible                " Use arrows
 set backspace=indent,eol,start  " Use backspace
 
-" Customize
-set title       " Show window title
-set number      " Show line numbers
-set cursorline  " Highlight current line
-set smartindent
+set number        " Show line numbers
+set cursorline    " Highlight current line
 set laststatus=2  " Always show status bar
 set ruler         " Show scroll percentage
+set title         " Show window title
 
-" Convert tabs to spaces
-set expandtab
+set expandtab  " Convert tabs to spaces
+set autoindent
+set splitbelow
 
 " Tab size
 set softtabstop=4
@@ -26,6 +25,7 @@ set showmatch
 " Search
 set ignorecase
 set hlsearch
+
 
 " Plugin
 call plug#begin('~/.vim/plugged')
@@ -44,7 +44,6 @@ endtry
 
 " nerdtree
 let NERDTreeShowHidden = 1     " Show hidden files by default
-let NERDTreeMouseMode  = 3     " Open file/dir by single click
 map <C-n> :NERDTreeToggle<CR>  " Ctrl+N to NERDTreeToggle
 
 " vim-gitgutter

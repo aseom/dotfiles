@@ -37,7 +37,3 @@ source "$ZPLUG_HOME/repos/robbyrussell/oh-my-zsh/themes/robbyrussell.zsh-theme"
 
 # Set my aliases.
 alias ll='ls -alFh'
-alias vimn='vim +NERDTreeToggle'
-
-# Restore working directory
-if [ -f ~/.last_pwd ]; then; cd "$(cat ~/.last_pwd)"; fi
