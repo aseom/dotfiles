@@ -11,6 +11,10 @@
     "font_face": "D2Coding",
     "font_size": 16,
 
+    // Editor
+    "word_wrap": true,
+    "translate_tabs_to_spaces": true,
+
     // Visual
     "enable_tab_scrolling": false,
     "highlight_line": true,
@@ -21,11 +25,11 @@
     "show_encoding": true,
     "show_line_endings": true,
 
-    // Othets
-    "word_wrap": true,
-    "translate_tabs_to_spaces": true,
-    "folder_exclude_patterns": ["__pycache__"],
+    // Others
+    "folder_exclude_patterns": [],
+    "file_exclude_patterns": [],
     "overlay_scroll_bars": "disabled",
     "scroll_speed": 0,
-    "scroll_past_end": true
+    "scroll_past_end": true,
+    "hot_exit": false
 }
