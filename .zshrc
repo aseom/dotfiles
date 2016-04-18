@@ -35,5 +35,8 @@ export PATH="${HOME}/bin:${PATH}"
 # https://github.com/b4b4r07/zplug/issues/95
 source "$ZPLUG_HOME/repos/robbyrussell/oh-my-zsh/themes/robbyrussell.zsh-theme"
 
+# http://stackoverflow.com/questions/3446320/in-vim-how-to-map-save-to-ctrl-s
+stty -ixon
+
 # Set my aliases.
 alias ll='ls -alFh'
