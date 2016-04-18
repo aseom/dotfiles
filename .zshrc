@@ -7,13 +7,6 @@ if [ ! -f ~/.zplug/zplug ]; then
 fi
 source ~/.zplug/zplug
 
-# vim-plug
-if [ ! -f ~/.vim/autoload/plug.vim ]; then
-    echo "Installig vim-plug..."
-    curl -fsSLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
-
 # commands
 zplug "peco/peco", from:gh-r, as:command
 zplug "junegunn/fzf-bin", file:"fzf", from:gh-r, as:command

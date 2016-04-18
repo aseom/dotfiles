@@ -2,17 +2,18 @@ aseom.dotfiles
 ================
 
 > __Docs__  
-> [Node.js](docs/nodejs.md)
+> [Vim - Vi IMproved](docs/vim.md)  
 > [Cheatsheet - Linux](docs/cheatsheet-linux.md)
 
-## macbook-pro
+macbook-pro
+-----------
 
 > 잠자기 시 암호 요구 끔  
 > 보안 설정에서 자동 로그인 활성화 (사용자 설정 아님!)  
 > 공유 설정에서 컴퓨터 이름 지정
 
 > Requires [XCode][] & [Homebrew][]  
-> `brew install git vim zsh`
+> `brew install git zsh`
 
 [XCode]: https://itunes.apple.com/kr/app/xcode/id497799835?mt=12
 [Homebrew]: http://brew.sh
@@ -22,7 +23,6 @@ cd ~
 git clone https://github.com/aseom/dotfiles.git
 ln -sf ~/dotfiles/.gitconfig
 ln -sf ~/dotfiles/.gitignore_global
-ln -sf ~/dotfiles/.vimrc
 ln -sf ~/dotfiles/.zshrc
 ln -sf ~/dotfiles/bin
 
