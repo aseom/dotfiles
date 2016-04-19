@@ -270,9 +270,9 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>269 574 606 456 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>220 411 810 578 0 0 1920 1057 </string>
+	<string>446 201 1130 787 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>315 248 1130 710 0 0 1920 1057 </string>
+	<string>63 76 1130 787 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>268 407 874 639 0 0 1920 1057 </string>
 	<key>New Bookmarks</key>
@@ -843,7 +843,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>D2Coding 16</string>
+			<string>D2CodingPowerline 16</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -975,7 +975,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-04-16T08:55:46Z</date>
+	<date>2016-04-18T09:25:03Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>WordCharacters</key>

@@ -12,8 +12,6 @@ zplug "peco/peco", from:gh-r, as:command
 zplug "junegunn/fzf-bin", file:"fzf", from:gh-r, as:command
 
 # plugins
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/brew", from:oh-my-zsh
 zplug "plugins/sublime", from:oh-my-zsh
 zplug "b4b4r07/enhancd", of:enhancd.sh
 zplug "zsh-users/zsh-syntax-highlighting", nice:18
@@ -28,8 +26,16 @@ export PATH="${HOME}/bin:${PATH}"
 # https://github.com/b4b4r07/zplug/issues/95
 source "$ZPLUG_HOME/repos/robbyrussell/oh-my-zsh/themes/robbyrussell.zsh-theme"
 
-# http://stackoverflow.com/questions/3446320/in-vim-how-to-map-save-to-ctrl-s
-stty -ixon
+# Allow remap Ctrl+S, Ctrl+Q
+stty -ixon -ixoff
 
 # Set my aliases.
 alias ll='ls -alFh'
+alias md='open -a markoff'
+
+# git aliases
+alias gss='git status'
+alias gdf='git diff'
+alias gaa='git add -A'
+alias gcm='git commit'
+alias gpcb='git push origin HEAD'
