@@ -24,19 +24,22 @@
 
 
   <item>
-    <name>Mouse: XButtonUp, XButtonDown</name>
-    <appendix>XButtonUp open/close KeyUp</appendix>
-    <appendix>XButtonUp+CursorMove as Arrows</appendix>
-    <appendix>* Configure `Parameters` -> `PointingRelative to Key` -> `Detection interval`</appendix>
-    <appendix>XButtonDown as Option+RightClick</appendix>
+    <name>Mouse: XButtonUp, XButtonDown configurations</name>
+    <appendix>XButtonUp, XButtonUp + LeftClick, XButtonUp + CursorMove, XButtonDown</appendix>
+    <appendix>(Configure `Parameters` -> `PointingRelative to Key` -> `Detection interval`)</appendix>
     <identifier>private.mouse_map_XButtonUpDown</identifier>
 
-    <!-- X-Up -->
+    <!-- XUp, XUp+LClick, XUp+Cursor -->
     <autogen>
       __KeyOverlaidModifier__
       PointingButton::BUTTON5,
       KeyCode::VK_MODIFIER_EXTRA1,
       KeyCode::VK_OPEN_URL_toggle_keyup
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      PointingButton::LEFT, ModifierFlag::EXTRA1,
+      KeyCode::SPACE, ModifierFlag::CONTROL_L
     </autogen>
     <autogen>
       __PointingRelativeToKey__
@@ -47,7 +50,7 @@
       PointingRelative::RIGHT, KeyCode::CURSOR_RIGHT
     </autogen>
 
-    <!-- X-Down -->
+    <!-- XDown -->
     <autogen>
       __KeyToKey__
       PointingButton::BUTTON4,
@@ -56,22 +59,19 @@
   </item>
 
   <item>
-    <name>Mouse: LeftButton, RightButton</name>
-    <appendix>Simultaneously RightButton+Click as Shift+Click</appendix>
-    <appendix>RightButton+Click as Command+Click</appendix>
-    <appendix>* RightButton+Click as Control+Click (Terminal)</appendix>
-    <appendix>RightButton+LongClick as ForceTouch</appendix>
-    <appendix>* RightButton+LongClick as ESC+ChangeIME (Terminal)</appendix>
+    <name>Mouse: LeftButton, RightButton configurations</name>
+    <appendix>Simultaneously Left + RightClick,</appendix>
+    <appendix>App-specific Right + LeftClick, Right + Long-LeftClick</appendix>
     <identifier>private.mouse_map_LeftRightButton</identifier>
 
-    <!-- R+Click (Simultaneous) -->
+    <!-- L+RClick (Simultaneous) -->
     <autogen>
       __SimultaneousKeyPresses__
-      PointingButton::LEFT, PointingButton::RIGHT, 
+      PointingButton::LEFT, PointingButton::RIGHT,
       PointingButton::LEFT, ModifierFlag::SHIFT_L
     </autogen>
 
-    <!-- R+Click, R+LongClick -->
+    <!-- R+LClick, R+LongLClick -->
     <autogen>
       __KeyOverlaidModifier__
       PointingButton::RIGHT,
@@ -90,7 +90,7 @@
         @begin
         KeyCode::D, ModifierFlag::COMMAND_L | ModifierFlag::CONTROL_L
         @end
-        ThresholdMillisecond::RawValue::200
+        ThresholdMillisecond::RawValue::300
       </autogen>
     </block>
     <block>
@@ -103,10 +103,10 @@
         PointingButton::LEFT, ModifierFlag::CONTROL_L
         @end
         @begin
-        KeyCode::ESCAPE, KeyCode::ESCAPE,
-        KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH
+        <!-- Double ESC + Change IME to En -->
+        KeyCode::ESCAPE, KeyCode::ESCAPE, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH
         @end
-        ThresholdMillisecond::RawValue::200
+        ThresholdMillisecond::RawValue::300
       </autogen>
     </block>
   </item>
