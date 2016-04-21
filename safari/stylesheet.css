@@ -1,0 +1,293 @@
+/* Back_to_the_Mac_System_v16.css */
+
+// 서체를 대치하는 코드
+
+@font-face {
+    font-family: AppleGothic;
+    src:
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: AppleMyungjo;
+    src:
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: "돋움";
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: "돋움체";
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: DotumChe;
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: dotum;
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: "돋움";
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: "굴림";
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: "굴림체";
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: GulimChe;
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: "바탕";
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: "바탕체";
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: Batang;
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: BatangChe;
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: "궁서";
+    src:      local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: "궁서체";
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: Gungsuh;
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: MalgunGothic;
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: "Malgun Gothic";
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: "맑은 고딕";
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: KoPubDotumMedium;
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: KoPubDotum;
+    src: 
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: "Nanum Gothic";
+    src:
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: "나눔고딕";
+    src:
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: "NanumGothic";
+    src:
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: "NanumMyeongjo";
+    src:
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+@font-face {
+    font-family: "나눔명조";
+    src:
+    local("Apple SD Gothic Neo"),
+    local("Nanum Gothic");
+}
+
+// 예외 항목
+
+// 네이버 카페 및 블로그용
+
+#main-area { font-family: "Apple SD Gothic Neo" !important; }
+#main-area.m-tcol-c { font-family: "Apple SD Gothic Neo" !important; }
+#tbody.m-tcol-c { font-family: "Apple SD Gothic Neo" !important; }
+#content-area { font-family: "Apple SD Gothic Neo" !important; }
+
+.p.comm.m-tcol-c { font-size: 12px !important; font-family: "Apple SD Gothic Neo" !important;}
+.m-tcol-c { font-family: "Apple SD Gothic Neo" !important;}
+
+.view { font-family: "Apple SD Gothic Neo" !important;}
+.article-board { font-family: "Apple SD Gothic Neo" !important; }
+
+.p_con { font-family: "Apple SD Gothic Neo" !important;}
+.p_col { font-family: "Apple SD Gothic Neo" !important;}
+.p_col1 { font-family: "Apple SD Gothic Neo" !important;}
+.p_col2 { font-family: "Apple SD Gothic Neo" !important;}
+
+.pcol1 { font-family: "Apple SD Gothic Neo" !important;}
+.pcol2 { font-family: "Apple SD Gothic Neo" !important;}
+.pcol3 { font-family: "Apple SD Gothic Neo" !important;}
+.pcol4 { font-family: "Apple SD Gothic Neo" !important;}
+
+.post { font-family: "Apple SD Gothic Neo" !important;}
+.post-view { font-family: "Apple SD Gothic Neo" !important;}
+
+.itemfont { font-family: "Apple SD Gothic Neo" !important;}
+.itemTitlefont { font-family: "Apple SD Gothic Neo" !important;}
+
+.gac {font-family: "Apple SD Gothic Neo" !important;}
+
+// 사커라인
+
+.te1{font-family: "Apple SD Gothic Neo" !important;}
+.te1{font-family: "Apple SD Gothic Neo" !important;}
+.te2{font-family: "Apple SD Gothic Neo" !important;}
+.te3{font-family: "Apple SD Gothic Neo" !important;}
+.tt5{font-family: "Apple SD Gothic Neo" !important;}
+.ti0{font-family: "Apple SD Gothic Neo" !important;}
+.ti1{font-family: "Apple SD Gothic Neo" !important;}
+.ti2{font-family: "Apple SD Gothic Neo" !important;}
+.ti3{font-family: "Apple SD Gothic Neo" !important;}
+.ti4{font-family: "Apple SD Gothic Neo" !important;}
+.ti5{font-family: "Apple SD Gothic Neo" !important;}
+.ti6{font-family: "Apple SD Gothic Neo" !important;}
+.ti7{font-family: "Apple SD Gothic Neo" !important;}
+.ti8{font-family: "Apple SD Gothic Neo" !important;}
+.ti9{font-family: "Apple SD Gothic Neo" !important;}
+.te1 a{font-family: "Apple SD Gothic Neo" !important;}
+
+// 클리앙
+
+.ad_area1 { font-family: "Apple SD Gothic Neo" !important; }
+
+.board_title h2 { font-family: "Apple SD Gothic Neo" !important; }
+.content_hd h2 { font-family: "Apple SD Gothic Neo" !important; }
+.RecentLeft h2 { font-family: "Apple SD Gothic Neo" !important; }
+.RecentRight h2 { font-family: "Apple SD Gothic Neo" !important; }
+
+#sideViewRow_memo a{ font-family: "Apple SD Gothic Neo" !important; }
+#sideViewRow_mail a{ font-family: "Apple SD Gothic Neo" !important; }
+#sideViewRow_info a{ font-family: "Apple SD Gothic Neo" !important; }
+#sideViewRow_mb_id a{ font-family: "Apple SD Gothic Neo" !important; }
+
+.member { font-family: "Apple SD Gothic Neo" !important; }
+.post_category { font-family: "Apple SD Gothic Neo" !important; }
+.post_category a { font-family: "Apple SD Gothic Neo" !important; }
+.post_subject { font-family: "Apple SD Gothic Neo" !important; }
+.post_subject a { font-family: "Apple SD Gothic Neo" !important; }
+
+.view_title h2 { font-family: "Apple SD Gothic Neo" !important; }
+.view_title h3 { font-family: "Apple SD Gothic Neo" !important; }
+.view_title h4 { font-family: "Apple SD Gothic Neo" !important; }
+.view_board td { font-family: "Apple SD Gothic Neo" !important; }
+.aside_notice h2 { font-family: "Apple SD Gothic Neo" !important; }
+.preview_title h2 { font-family: "Apple SD Gothic Neo" !important; }
+
+.reply_content { font-family: "Apple SD Gothic Neo" !important; }
+.reply_write { font-family: "Apple SD Gothic Neo" !important; }
+.reply_write textarea { font-family: "Apple SD Gothic Neo" !important; }
+
+// Holynet
+
+.tk { font-family: "Apple SD Gothic Neo" !important; }
+.tk2 { font-family: "Apple SD Gothic Neo" !important; }
+.tk3 { font-family: "Apple SD Gothic Neo" !important; }
+.tk3_h { font-family: "Apple SD Gothic Neo" !important; }
+.tkl3 { font-family: "Apple SD Gothic Neo" !important; }
+.tkl3b { font-family: "Apple SD Gothic Neo" !important; }
+.tk4l { font-family: "Apple SD Gothic Neo" !important; }
+.tk4br { font-family: "Apple SD Gothic Neo" !important; }
+.tk5 { font-family: "Apple SD Gothic Neo" !important; }
+.tka { font-family: "Apple SD Gothic Neo" !important; }
+.tkau { font-family: "Apple SD Gothic Neo" !important; }
+.tkb { font-family: "Apple SD Gothic Neo" !important; }
+.tkab { font-family: "Apple SD Gothic Neo" !important; }
+.tkmm { font-family: "Apple SD Gothic Neo" !important; }
+.tklm { font-family: "Apple SD Gothic Neo" !important; }
+.tks { font-family: "Apple SD Gothic Neo" !important; }
