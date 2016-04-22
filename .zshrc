@@ -31,7 +31,7 @@ stty -ixon -ixoff
 
 # Set my aliases.
 alias ll='ls -alFh'
-alias md='open -a markoff'
+alias vimn='vim +NERDTree'
 
 # git aliases
 alias gss='git status'

@@ -10,7 +10,9 @@ set ruler         " Show scroll percentage
 set title         " Show window title
 
 set expandtab  " Convert tabs to spaces
+set showmatch  " Highlight brackets
 set autoindent
+
 set splitright  " Split to right when `:vs`
 set splitbelow  " Split to below when `:sp`
 
@@ -18,13 +20,13 @@ set splitbelow  " Split to below when `:sp`
 set clipboard=unnamed
 
 " Tab size
-set softtabstop=4
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 
-" Match brackets
-set matchpairs=(:),{:},[:],<:>
-set showmatch
+" Show trailing spaces
+set list
+set listchars=trail:×
 
 " Search
 set incsearch
@@ -37,18 +39,14 @@ set hlsearch
 " Key combination timeout (ms)
 set timeoutlen=300
 
-" Ctrl+S, Ctrl+Z, Ctrl+Y
-" Requires `stty -ixon` for Ctrl+S!
-nnoremap <C-s>      :w<CR>
-inoremap <C-s> <ESC>:w<CR>
-nnoremap <C-z>      u
-inoremap <C-z> <ESC>u
-nnoremap <C-y>      <C-r>
-inoremap <C-y> <ESC><C-r>
+" If autocompletion popup visable, <CR> to select next item
+inoremap <expr> <CR> pumvisible() ? "\<C-n>" : "\<CR>"
 
-" Better than `ZZ`, `ZQ`
-nnoremap q  :q<CR>
-nnoremap qq :wq<CR>
+" Save, quit
+nnoremap <C-s>      :update<CR>
+inoremap <C-s> <C-o>:update<CR>
+nnoremap <C-q>      :q<CR>
+inoremap <C-q> <C-o>:q<CR>
 
 " Paste in newline
 nnoremap pp :pu<CR>
@@ -60,33 +58,43 @@ nnoremap <CR> o<ESC>
 nnoremap <C-l> :nohlsearch<CR>
 
 " Open NERDTree
-nnoremap <C-e> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 
 " === Plugins ==============================================
 
 " Manage plugins with `vim-plug`
 call plug#begin('~/.vim/plugged')
+
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 Plug 'Shougo/neocomplete.vim'
-Plug 'ternjs/tern_for_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
+Plug 'ternjs/tern_for_vim'
+Plug 'JamshedVesuna/vim-markdown-preview'
+
 call plug#end()
 
 " papercolor-theme
 set background=light
+let g:PaperColor_Light_Override = {'background': '#FFFFFF', 'cursorline': '#FCFCFC'}
 try
     colorscheme PaperColor
 catch 'Cannot find color scheme'
     colorscheme default
 endtry
 
+" vim-airline
+let g:airline_powerline_fonts = 1
+
 " neocomplete
-set completeopt=menuone
+set completeopt=menuone  " Popup even one item, no preview
 let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_auto_select = 1
-let g:neocomplete#auto_completion_start_length = 0
 
 " nerdtree
 let NERDTreeShowHidden = 1     " Show hidden files by default
@@ -97,3 +105,8 @@ highlight GitGutterAdd          cterm=bold ctermfg=34
 highlight GitGutterChange       cterm=bold ctermfg=214
 highlight GitGutterChangeDelete cterm=bold ctermfg=214
 highlight GitGutterDelete       cterm=bold ctermfg=160
+
+" vim-markdown-preview
+" By default, <C-p> to activate preview
+let vim_markdown_preview_github=1
+let vim_markdown_preview_browser='Safari'
