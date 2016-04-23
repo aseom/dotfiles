@@ -24,9 +24,9 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-" Show trailing spaces
+" Show EOL
 set list
-set listchars=trail:×
+set listchars=eol:¬
 
 " Search
 set incsearch
@@ -42,23 +42,32 @@ set timeoutlen=300
 " If autocompletion popup visable, <CR> to select next item
 inoremap <expr> <CR> pumvisible() ? "\<C-n>" : "\<CR>"
 
+" Open NERDTree
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
+
 " Save, quit
-nnoremap <C-s>      :update<CR>
-inoremap <C-s> <C-o>:update<CR>
-nnoremap <C-q>      :q<CR>
-inoremap <C-q> <C-o>:q<CR>
+nnoremap <silent> <C-s>      :update<CR>
+inoremap <silent> <C-s> <ESC>:update<CR>
+nnoremap <silent> q :q<CR>
+nnoremap <silent> Q :qa<CR>
 
 " Paste in newline
-nnoremap pp :pu<CR>
+nnoremap <silent> pp :pu<CR>
+
+" Easy indent
+nnoremap <Tab>   >>
+nnoremap <S-Tab> <<
+vnoremap > >gv
+vnoremap < <gv
 
 " Add newline + ESC
 nnoremap <CR> o<ESC>
 
 " Clear search highlight
-nnoremap <C-l> :nohlsearch<CR>
+nnoremap <silent> <C-l> :nohlsearch<CR>
 
-" Open NERDTree
-nnoremap <C-n> :NERDTreeToggle<CR>
+" Reload vimrc
+nnoremap <silent> <F5> :source ~/.vimrc<CR>:echo "Reloaded!"<CR>
 
 
 " === Plugins ==============================================
@@ -110,3 +119,25 @@ highlight GitGutterDelete       cterm=bold ctermfg=160
 " By default, <C-p> to activate preview
 let vim_markdown_preview_github=1
 let vim_markdown_preview_browser='Safari'
+
+
+" === Misc. ================================================
+
+" Treat `*.note` as `note` filetype
+autocmd BufNewFile,BufRead *.note set filetype=note
+
+" Syntax matchs (`[ ]`, `[x]`, `@Tag`, `Header:`)
+autocmd FileType note syn match Constant   /\[\s\].*/ contains=Identifier
+autocmd FileType note syn match Comment    /\[x\].*/  contains=Identifier
+autocmd FileType note syn match Identifier /@\S*/
+autocmd FileType note syn match markdownH1 /^.*:$/
+
+" <C-t> to add task
+autocmd FileType note nnoremap <buffer> <C-t> o- [ ]<Space>
+
+" <C-d> to mark current task as done
+autocmd FileType note nnoremap <buffer> <silent> <C-d> :call TaskDone()
+function! TaskDone()
+    let l:line = substitute(getline('.'), '\[\s\]', '[x]', '')
+    call setline('.', l:line . ' @Done(' . strftime("%Y-%m-%d") . ')')
+endfunction
