@@ -106,7 +106,9 @@ set completeopt=menuone  " Popup even one item, no preview
 let g:neocomplete#enable_at_startup = 1
 
 " nerdtree
-let NERDTreeShowHidden = 1     " Show hidden files by default
+let NERDTreeShowHidden = 1
+let NERDTreeShowBookmarks = 1
+let NERDTreeIgnore = ['^\.DS_Store$', '^\.Trash$', '\.swp$', '^\.dropbox']
 
 " vim-gitgutter
 " Set gutter sign colors
@@ -126,18 +128,19 @@ let vim_markdown_preview_browser='Safari'
 " Treat `*.note` as `note` filetype
 autocmd BufNewFile,BufRead *.note set filetype=note
 
-" Syntax matchs (`[ ]`, `[x]`, `@Tag`, `Header:`)
-autocmd FileType note syn match Constant   /\[\s\].*/ contains=Identifier
-autocmd FileType note syn match Comment    /\[x\].*/  contains=Identifier
-autocmd FileType note syn match Identifier /@\S*/
-autocmd FileType note syn match markdownH1 /^.*:$/
+" Syntax matchs ([ ], [!], [x], Header:, `Code`)
+autocmd FileType note syn match  Constant     /\[\s\].*$/
+autocmd FileType note syn match  Comment      /\[x\].*$/
+autocmd FileType note syn match  Type         /\[!\].*$/
+autocmd FileType note syn match  StorageClass /^.*:$/
+autocmd FileType note syn region String      start='`\+' end='`\+'
 
-" <C-t> to add task
+" <C-t> to add task, <C-d> to mark as done, <C-i> to mark as important
 autocmd FileType note nnoremap <buffer> <C-t> o- [ ]<Space>
+autocmd FileType note nnoremap <buffer> <silent> <C-d> :call FindReplace('\[.\]', '[x] [' . strftime("%Y-%m-%d") . ']')<CR>
+autocmd FileType note nnoremap <buffer> <silent> <C-i> :call FindReplace('\[\s\]', '[!]')<CR>
 
-" <C-d> to mark current task as done
-autocmd FileType note nnoremap <buffer> <silent> <C-d> :call TaskDone()
-function! TaskDone()
-    let l:line = substitute(getline('.'), '\[\s\]', '[x]', '')
-    call setline('.', l:line . ' @Done(' . strftime("%Y-%m-%d") . ')')
+function! FindReplace(from, to)
+    call setline('.', substitute(getline('.'), a:from, a:to, ''))
 endfunction
+
