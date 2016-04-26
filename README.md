@@ -8,16 +8,20 @@ aseom.dotfiles
 > 공유 설정에서 컴퓨터 이름 지정  
 > XCode, Homebrew 설치
 
+### Bootstrap
 ```Shell
 cd ~
-git clone --recursive https://github.com/aseom/dotfiles.git
-ln -sf ~/dotfiles/.gitconfig && ln -sf ~/dotfiles/.gitignore_global
-ln -sf ~/dotfiles/bin
-
-mkdir .ssh && chmod 700 .ssh && ln -sf ~/dotfiles/.ssh/config .ssh
+mkdir .ssh && chmod 700 .ssh
 chmod 600 .ssh/*.pem  # After copy ssh keys
 
-cd ~/dotfiles && git remote set-url origin git@github.com:aseom/dotfiles.git
+# Git SSH Clone without ~/.ssh/config
+GIT_SSH_COMMAND="ssh -i [ssh_key_file]" \
+    git clone --recursive git@github.com:aseom/dotfiles.git
+
+ln -sf ~/dotfiles/.gitconfig
+ln -sf ~/dotfiles/.gitignore_global
+ln -sf ~/dotfiles/.ssh/config .ssh
+ln -sf ~/dotfiles/bin
 ```
 
 ### Zsh
