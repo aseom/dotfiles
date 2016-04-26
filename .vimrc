@@ -108,26 +108,3 @@ highlight GitGutterDelete       cterm=bold ctermfg=160
 " By default, <C-p> to activate preview
 let vim_markdown_preview_github=1
 let vim_markdown_preview_browser='Safari'
-
-
-" === Misc. ================================================
-
-" Treat `*.note` as `note` filetype
-autocmd BufNewFile,BufRead *.note set filetype=note
-
-" Syntax matchs ([ ], [!], [x], Header:, `Code`)
-autocmd FileType note syn match  Constant     /\[\s\].*$/
-autocmd FileType note syn match  Comment      /\[x\].*$/
-autocmd FileType note syn match  Type         /\[!\].*$/
-autocmd FileType note syn match  StorageClass /^.*:$/
-autocmd FileType note syn region String      start='`\+' end='`\+'
-
-" <C-t> to add task, <C-d> to mark as done, <C-i> to mark as important
-autocmd FileType note nnoremap <buffer> <C-t> o- [ ]<Space>
-autocmd FileType note nnoremap <buffer> <silent> <C-d> :call FindReplace('\[.\]', '[x] [' . strftime("%Y-%m-%d") . ']')<CR>
-autocmd FileType note nnoremap <buffer> <silent> <C-i> :call FindReplace('\[\s\]', '[!]')<CR>
-
-function! FindReplace(from, to)
-    call setline('.', substitute(getline('.'), a:from, a:to, ''))
-endfunction
-
