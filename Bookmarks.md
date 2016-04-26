@@ -49,8 +49,9 @@ Bookmarks
 ### Vim
 ###### [VIM을 사용하자](http://play.joinc.co.kr/w/Site/Vim/Documents/UsedVim) - 윤상배
 ###### [[VIM] 화면 나누기 및 버퍼 관리](http://anster.tistory.com/64) - Old Lisper
-###### [Vi and Vim Editor: 12 Powerful Find and Replace Examples](http://www.thegeekstuff.com/2009/04/vi-vim-editor-search-and-replace-examples/) - Sathiyamoorthy
 ###### [vi Complete Key Binding List](http://hea-www.harvard.edu/~fine/Tech/vi.html) - Tom Fine
+###### [Vi and Vim Editor: 12 Powerful Find and Replace Examples](http://www.thegeekstuff.com/2009/04/vi-vim-editor-search-and-replace-examples/) - Sathiyamoorthy
+###### [Manage Your Vim Plugins Using Pathogen and Git Submodules](http://jirichara.com/manage-your-vim-plugins-using-pathogen-and-git-submodules) - Jiri Chara
 
 
 ### Tmux

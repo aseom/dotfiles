@@ -10,7 +10,7 @@ aseom.dotfiles
 
 ```Shell
 cd ~
-git clone https://github.com/aseom/dotfiles.git
+git clone --recursive https://github.com/aseom/dotfiles.git
 ln -sf ~/dotfiles/.gitconfig && ln -sf ~/dotfiles/.gitignore_global
 ln -sf ~/dotfiles/bin
 
@@ -34,13 +34,9 @@ chpass -s $(which zsh)
 ### Vim
 ```Shell
 brew install vim --with-lua  # neocomplete requires lua
-ln -sf ~/dotfiles/.vimrc ~
-
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim +PlugInstall +qall
+ln -sf ~/dotfiles/.vim ~ && ln -sf ~/dotfiles/.vimrc ~
 
 # Plugin reqirements
-cd ~/.vim/plugged/tern_for_vim && npm install
+cd ~/.vim/bundle/tern_for_vim && npm install
 pip install grip
 ```
