@@ -72,22 +72,9 @@ nnoremap <silent> <F5> :source ~/.vimrc<CR>:echo "Reloaded!"<CR>
 
 " === Plugins ==============================================
 
-" Manage plugins with `vim-plug`
-call plug#begin('~/.vim/plugged')
-
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-Plug 'Shougo/neocomplete.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-
-Plug 'ternjs/tern_for_vim'
-Plug 'JamshedVesuna/vim-markdown-preview'
-
-call plug#end()
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+filetype plugin indent on
 
 " papercolor-theme
 set background=light
