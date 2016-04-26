@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/vim-markdown-preview"]
 	path = .vim/bundle/vim-markdown-preview
 	url = https://github.com/JamshedVesuna/vim-markdown-preview.git
+[submodule ".vim/bundle/vim-notetaking"]
+	path = .vim/bundle/vim-notetaking
+	url = git@github.com:aseom/vim-notetaking.git
