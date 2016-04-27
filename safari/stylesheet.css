@@ -1,20 +1,24 @@
+/* YouTube */
+#watch-discussion.yt-card { display: none; }
+
 /* GitHub */
-.repository-content .file {
-    margin-left: -40px;
-    margin-right: -40px;
-}
-.repository-content .file .blob-code-inner {
+.repository-content .blob-code-inner {
     font-family: Menlo, monospace !important;
-    font-size: 14px !important;
+    font-size: 13px !important;
 }
 
 /* Clien */
+#wrap .board_main td {
+    padding: 6px 0 5px 0 !important;
+    font-size: 13px !important;
+}
+#snb_navi1, #snb_navi2 { font-size: 13px; }
 #wrapper #wrap { width: 924px !important; }
 #wrapper #wrap #aside { display: none; }
 
 /* Back to the Mac */
-#content #main #sidebar .widget:nth-of-type(2) { display: none; }
-#content #main .post #comments { display: none; }
+#content #sidebar .widget:nth-of-type(2) { display: none; }
+#content .post #comments { display: none; }
 
 
 /* Back_to_the_Mac_System_v16.css */
