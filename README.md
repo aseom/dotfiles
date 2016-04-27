@@ -5,7 +5,7 @@ aseom.dotfiles
 
 > 잠자기 시 암호 요구 끔  
 > 보안 설정에서 자동 로그인 활성화 (사용자 설정 아님!)  
-> 공유 설정에서 컴퓨터 이름 지정  
+> 입력 메뉴에서 다음 소스 선택에 `Cmd` + `Space` 할당  
 > XCode, Homebrew 설치
 
 ### Bootstrap

@@ -39,7 +39,7 @@
     <autogen>
       __KeyToKey__
       PointingButton::LEFT, ModifierFlag::EXTRA1,
-      KeyCode::SPACE, ModifierFlag::CONTROL_L
+      KeyCode::SPACE, ModifierFlag::COMMAND_L
     </autogen>
     <autogen>
       __PointingRelativeToKey__
