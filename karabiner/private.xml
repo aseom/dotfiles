@@ -103,8 +103,7 @@
         PointingButton::LEFT, ModifierFlag::CONTROL_L
         @end
         @begin
-        <!-- Double ESC + Change IME to En -->
-        KeyCode::ESCAPE, KeyCode::ESCAPE, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH
+        KeyCode::ESCAPE
         @end
         ThresholdMillisecond::RawValue::300
       </autogen>
