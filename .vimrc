@@ -24,9 +24,9 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-" Show EOL
-set list
-set listchars=eol:¬
+" Markdown show trailing spaces
+autocmd FileType markdown set list
+autocmd FileType markdown set listchars=trail:▪︎
 
 " Search
 set incsearch
@@ -38,6 +38,9 @@ set hlsearch
 
 " Key combination timeout (ms)
 set timeoutlen=300
+
+" Auto change input source
+inoremap <silent> <ESC> <ESC>:ISWSetInputSource en<CR>
 
 " If autocompletion popup visable, <CR> to select next item
 inoremap <expr> <CR> pumvisible() ? "\<C-n>" : "\<CR>"
