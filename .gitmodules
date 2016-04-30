@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/vim-inputswitch"]
 	path = .vim/bundle/vim-inputswitch
 	url = git@github.com:aseom/vim-inputswitch.git
+[submodule ".vim/bundle/swift.vim"]
+	path = .vim/bundle/swift.vim
+	url = https://github.com/keith/swift.vim.git

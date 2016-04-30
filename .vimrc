@@ -39,9 +39,6 @@ set hlsearch
 " Key combination timeout (ms)
 set timeoutlen=300
 
-" Auto change input source
-inoremap <silent> <ESC> <ESC>:ISWSetInputSource en<CR>
-
 " If autocompletion popup visable, <CR> to select next item
 inoremap <expr> <CR> pumvisible() ? "\<C-n>" : "\<CR>"
 
@@ -78,6 +75,9 @@ nnoremap <silent> <F5> :source ~/.vimrc<CR>:echo "Reloaded!"<CR>
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 filetype plugin indent on
+
+" Auto change input source (vim-inputswitch)
+autocmd InsertLeave * :ISWSetInputSource en
 
 " papercolor-theme
 set background=light
