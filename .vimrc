@@ -76,19 +76,15 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 filetype plugin indent on
 
-" Auto change input source (vim-inputswitch)
-autocmd InsertLeave * :ISWSetInputSource en
-
-" papercolor-theme
-set background=light
-let g:PaperColor_Light_Override = {'background': '#FFFFFF', 'cursorline': '#FCFCFC'}
+" colorscheme
 try
-    colorscheme PaperColor
+    colorscheme wombat
 catch 'Cannot find color scheme'
     colorscheme default
 endtry
 
 " vim-airline
+let g:airline_theme="wombat"
 let g:airline_powerline_fonts = 1
 
 " neocomplete
@@ -99,13 +95,6 @@ let g:neocomplete#enable_at_startup = 1
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore = ['^\.DS_Store$', '^\.Trash$', '\.swp$', '^\.dropbox']
-
-" vim-gitgutter
-" Set gutter sign colors
-highlight GitGutterAdd          cterm=bold ctermfg=34
-highlight GitGutterChange       cterm=bold ctermfg=214
-highlight GitGutterChangeDelete cterm=bold ctermfg=214
-highlight GitGutterDelete       cterm=bold ctermfg=160
 
 " vim-markdown-preview
 " By default, <C-p> to activate preview

@@ -1,9 +1,6 @@
 [submodule ".vim/bundle/vim-pathogen"]
 	path = .vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule ".vim/bundle/papercolor-theme"]
-	path = .vim/bundle/papercolor-theme
-	url = https://github.com/NLKNguyen/papercolor-theme.git
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
@@ -37,3 +34,6 @@
 [submodule ".vim/bundle/swift.vim"]
 	path = .vim/bundle/swift.vim
 	url = https://github.com/keith/swift.vim.git
+[submodule ".vim/bundle/vim-wombat-scheme"]
+	path = .vim/bundle/vim-wombat-scheme
+	url = https://github.com/sheerun/vim-wombat-scheme.git
