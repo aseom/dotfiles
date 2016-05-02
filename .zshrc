@@ -7,9 +7,17 @@ plugins=(zsh-syntax-highlighting)
 
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 
+# fzf
+FZF_PATH="$HOME/.fzf"
+if [ -d $FZF_PATH ]; then
+    export PATH="$FZF_PATH/bin:$PATH"
+    source $FZF_PATH/shell/completion.zsh
+    source $FZF_PATH/shell/key-bindings.zsh
+fi
+
 # Exports
 export LANG=en_US.UTF-8
-export PATH="${HOME}/bin:${PATH}"
+export PATH="$HOME/bin:$PATH"
 
 # Allow remap Ctrl+S, Ctrl+Q
 stty -ixon -ixoff
