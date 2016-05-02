@@ -37,3 +37,6 @@
 [submodule ".vim/bundle/vim-wombat-scheme"]
 	path = .vim/bundle/vim-wombat-scheme
 	url = https://github.com/sheerun/vim-wombat-scheme.git
+[submodule ".zsh/plugins/zsh-syntax-highlighting"]
+	path = .zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git

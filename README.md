@@ -27,7 +27,8 @@ ln -sf ~/dotfiles/bin
 ### Zsh
 ```Shell
 brew install zsh
-ln -sf ~/dotfiles/.zshrc ~
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+ln -sf ~/dotfiles/.zsh ~ && ln -sf ~/dotfiles/.zshrc ~
 
 # As default shell
 sudo cp -p /etc/shells /etc/shells.backup_
