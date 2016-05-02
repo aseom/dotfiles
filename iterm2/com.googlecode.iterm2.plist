@@ -269,10 +269,12 @@
 	<string>1181 269 667 288 0 0 1920 1057 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>269 574 606 456 0 0 1920 1057 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>650 515 620 392 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>446 201 1130 787 0 0 1920 1057 </string>
+	<string>0 104 970 673 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>63 76 1130 787 0 0 1920 1057 </string>
+	<string>685 67 1130 787 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>268 407 874 639 0 0 1920 1057 </string>
 	<key>New Bookmarks</key>
@@ -470,7 +472,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>140</integer>
+			<integer>120</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Color</key>
@@ -851,7 +853,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>40</integer>
+			<integer>32</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -912,6 +914,8 @@
 			<string>/Users/aseom</string>
 		</dict>
 	</array>
+	<key>NoSyncInstallationId</key>
+	<string>64B16A7A-7C6B-4993-A9AE-822FEFCF940F</string>
 	<key>NoSyncLastTipTime</key>
 	<real>481375629.70683801</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
@@ -919,6 +923,8 @@
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
+	<true/>
+	<key>NoSyncSuppressAnnyoingBellOffer</key>
 	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>481107117.75536901</real>
@@ -971,16 +977,16 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing3.xml</string>
+	<string>https://iterm2.com/appcasts/testing3.xml?shard=61</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-04-18T09:25:03Z</date>
+	<date>2016-04-29T15:42:49Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>2.9.20160313</string>
+	<string>2.9.20160426</string>
 </dict>
 </plist>
