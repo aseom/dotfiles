@@ -32,3 +32,8 @@ alias gdf='git diff'
 alias gaa='git add -A'
 alias gcm='git commit'
 alias gpcb='git push origin HEAD'
+
+# Start tmux on login
+if [[ $- == *i* ]] && [ -z $TMUX ]; then
+    which tmux > /dev/null && exec tmux
+fi
