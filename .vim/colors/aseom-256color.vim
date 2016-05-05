@@ -1,37 +1,58 @@
-" vim: et sw=2 sts=2
-
 " Colorscheme: aseom-256color
 " Description: A 256 colors colorscheme for Vim.
 " Maintainer:  ASeom Han <https://github.com/aseom>
 " Original:    https://github.com/mhinz/vim-janah
 
+let g:colors_name = 'aseom-256color'
 highlight clear
+syntax reset
 
-if exists('syntax_on')
-  syntax reset
-endif
+function! s:highlight(group, fg, bg, attr)
+    if a:fg != ""
+        execute "highlight " . a:group . " ctermfg=" . a:fg
+    endif
+    if a:bg != ""
+        execute "highlight " . a:group . " ctermbg=" . a:bg
+    endif
+    if a:attr != ""
+        execute "highlight " . a:group . " cterm=" . a:attr
+    endif
+endfunction
 
-highlight Normal guifg=#dadada ctermfg=253 guibg=#262626 gui=NONE cterm=NONE
+" Color palettes
+let s:green   = 150
+let s:green1  = 156
+let s:cyan    = 115
+let s:cyan1   = 116
+let s:orange  = 216
+let s:orange1 = 223
+let s:red     = 161
+let s:blue    = 110
+let s:magenta = 181
 
-" Misc {{{1
+" Plain text, Background
+call s:highlight("Normal", 254, "", "")
 
-highlight Comment guifg=#585858 ctermfg=240 ctermbg=NONE gui=NONE cterm=NONE
-highlight Constant guifg=#87dfdf ctermfg=116 ctermbg=NONE gui=NONE cterm=NONE
-highlight Directory guifg=#ffaf87 ctermfg=216 ctermbg=NONE gui=NONE cterm=NONE
-highlight Identifier guifg=#ffaf87 ctermfg=216 ctermbg=NONE gui=NONE cterm=NONE
-highlight MatchParen guifg=#df005f ctermfg=161 ctermbg=NONE gui=bold cterm=bold
-highlight NonText guifg=#ff00af ctermfg=199 ctermbg=NONE gui=bold cterm=bold
-highlight Number guifg=#87dfdf ctermfg=116 ctermbg=NONE gui=NONE cterm=NONE
-highlight PreProc guifg=#ffdfaf ctermfg=223 ctermbg=NONE gui=NONE cterm=NONE
-highlight Special guifg=#dfafaf ctermfg=181 ctermbg=NONE gui=NONE cterm=NONE
-highlight SpecialKey guifg=#3a3a3a ctermfg=237 ctermbg=NONE gui=NONE cterm=NONE
-highlight Statement guifg=#afdf87 ctermfg=150 ctermbg=NONE gui=NONE cterm=NONE
-highlight String guifg=#87afdf ctermfg=110 ctermbg=NONE gui=NONE cterm=NONE
-highlight Title guifg=#afff87 ctermfg=156 ctermbg=NONE gui=NONE cterm=NONE
-highlight Todo guifg=#ffdfaf ctermfg=223 ctermbg=NONE gui=NONE cterm=NONE
-highlight Type guifg=#87dfaf ctermfg=115 ctermbg=NONE gui=NONE cterm=NONE
-highlight VertSplit guifg=#3a3a3a ctermfg=237 guibg=#3a3a3a ctermbg=237 gui=NONE cterm=NONE
-highlight WildMenu guifg=#df005f ctermfg=161 guibg=#3a3a3a ctermbg=237 gui=bold cterm=bold
+" Basic syntax highlighting
+call s:highlight("Comment", 246, "", "")
+call s:highlight("Constant", s:cyan1, "", "")
+call s:highlight("Directory", s:orange, "", "")
+call s:highlight("Identifier", s:orange, "", "")
+call s:highlight("Number", s:cyan1, "", "")
+call s:highlight("PreProc", s:orange1, "", "")
+call s:highlight("Special", s:magenta, "", "")
+call s:highlight("SpecialKey", 237, "", "")
+call s:highlight("Statement", s:green, "", "")
+call s:highlight("String", s:blue, "", "")
+call s:highlight("Title", s:green1, "", "")
+call s:highlight("Todo", s:orange1, "", "")
+call s:highlight("Type", s:cyan, "", "")
+call s:highlight("MatchParen", s:red, "", "bold")
+call s:highlight("NonText", 238, "", "")
+
+" Misc.
+call s:highlight("VertSplit", 238, 238, "")
+call s:highlight("WildMenu", s:red, 238, "bold")
 
 " Cursor lines {{{1
 
@@ -143,5 +164,3 @@ if has('nvim')
   highlight TermCursor ctermfg=NONE guibg=#ff00af ctermbg=199 gui=NONE cterm=NONE
   highlight TermCursorNC ctermfg=NONE ctermbg=NONE gui=NONE cterm=NONE
 endif
-
-let g:colors_name = 'janah'

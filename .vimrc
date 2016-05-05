@@ -81,11 +81,7 @@ set rtp+=~/.fzf
 
 " colorscheme
 try
-    colorscheme janah
-    highlight VertSplit ctermfg=238 ctermbg=238
-    highlight Normal    ctermfg=254 ctermbg=235
-    highlight Comment   ctermfg=246
-    highlight NonText   ctermfg=238
+    colorscheme aseom-256color
 catch 'Cannot find color scheme'
     colorscheme default
 endtry
