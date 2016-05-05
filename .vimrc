@@ -81,13 +81,16 @@ set rtp+=~/.fzf
 
 " colorscheme
 try
-    colorscheme wombat
+    colorscheme janah
+    highlight VertSplit ctermfg=238 ctermbg=238
+    highlight Normal    ctermfg=254 ctermbg=235
+    highlight Comment   ctermfg=246
+    highlight NonText   ctermfg=238
 catch 'Cannot find color scheme'
     colorscheme default
 endtry
 
 " vim-airline
-let g:airline_theme="wombat"
 let g:airline_powerline_fonts = 1
 
 " neocomplete
