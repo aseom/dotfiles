@@ -33,6 +33,11 @@ set incsearch
 set ignorecase
 set hlsearch
 
+" Fix mouse in tmux
+if &term =~ '^screen'
+    set ttymouse=xterm2
+endif
+
 
 " === Keymaps ==============================================
 
@@ -80,8 +85,9 @@ filetype plugin indent on
 set rtp+=~/.fzf
 
 " colorscheme
+set background=light
 try
-    colorscheme aseom-256color
+    colorscheme PaperColor
 catch 'Cannot find color scheme'
     colorscheme default
 endtry
