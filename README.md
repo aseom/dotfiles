@@ -8,26 +8,18 @@ aseom.dotfiles
 > 입력 메뉴에서 다음 소스 선택에 `Cmd` + `Space` 할당  
 > XCode, Homebrew 설치
 
-### Bootstrap
+### Install
 ```Shell
-cd ~
-mkdir .ssh && chmod 700 .ssh
-chmod 600 .ssh/*.pem  # After copy ssh keys
-
 # Git SSH Clone without ~/.ssh/config
 GIT_SSH_COMMAND="ssh -i [ssh_key_file]" \
-    git clone --recursive git@github.com:aseom/dotfiles.git
+    git clone --recursive git@github.com:aseom/dotfiles.git ~/dotfiles
 
-ln -sf ~/dotfiles/.gitconfig
-ln -sf ~/dotfiles/.gitignore_global
-ln -sf ~/dotfiles/.ssh/config .ssh
-ln -sf ~/dotfiles/bin
+cd dotfiles && ./install.sh
 ```
 
 ### Zsh
 ```Shell
 brew install zsh
-ln -sf ~/dotfiles/.zsh ~ && ln -sf ~/dotfiles/.zshrc ~
 
 # Manually install
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
@@ -42,7 +34,6 @@ chpass -s $(which zsh)
 ### Vim
 ```Shell
 brew install vim --with-lua  # neocomplete requires lua
-ln -sf ~/dotfiles/.vim ~ && ln -sf ~/dotfiles/.vimrc ~
 
 # Plugin reqirements
 cd ~/.vim/bundle/tern_for_vim && npm install
