@@ -3,7 +3,7 @@
 #    which tmux > /dev/null && exec tmux
 #fi
 
-export DOTFILES="$HOME/dotfiles/"
+export DOTFILES="$HOME/dotfiles"
 
 # fzf
 FZF_PATH="$HOME/.fzf"
@@ -50,5 +50,27 @@ alias gaa='git add -A'
 alias gcm='git commit'
 alias gpcb='git push origin HEAD'
 
+
+load_plugin() {
+    local location="$1"
+    local ext
+
+    # Try to find *all* the `*.plugin.zsh` files and source it.
+    # If not exists, find `*.zsh`, find `*.sh`...
+    for ext in plugin.zsh zsh sh; do
+        # Create array from glob matchs
+        scripts_array=( $location/*.$ext(N) )
+        # If any script(s) found, break now.
+        if [ $#scripts_array -gt 0 ]; then break; fi
+    done
+    for script ($scripts_array) {
+        echo "Loading '$script'..."  # Verbose
+        source "$script"
+    }
+
+    # Add to $fpath, for completion(s).
+    fpath=("$location" $fpath)
+}
+
 # Must be at the end
-source "$DOTFILES/vender/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+load_plugin "$DOTFILES/vender/zsh-syntax-highlighting"
