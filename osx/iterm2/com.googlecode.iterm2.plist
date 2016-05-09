@@ -442,7 +442,7 @@
 	<key>NSFontPanelAttributes</key>
 	<string>1, 4</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dotfiles/iterm2</string>
+	<string>~/dotfiles/osx/iterm2</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{1014, 580}</string>
 	<key>NSNavPanelExpandedSizeForSaveMode</key>
@@ -488,9 +488,9 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>155 473 592 584 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>99 312 970 635 0 0 1920 1057 </string>
+	<string>300 189 970 635 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>360 146 970 635 0 0 1920 1057 </string>
+	<string>5 124 970 635 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>268 407 874 639 0 0 1920 1057 </string>
 	<key>New Bookmarks</key>
@@ -1185,7 +1185,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/aseom/dotfiles/iterm2</string>
+	<string>/Users/aseom/dotfiles/osx/iterm2</string>
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
 	<key>SUEnableAutomaticChecks</key>
@@ -1197,7 +1197,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-05-07T11:04:13Z</date>
+	<date>2016-05-08T12:46:28Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>UKCrashReporterLastCrashReportDate</key>

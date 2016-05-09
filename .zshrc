@@ -3,6 +3,8 @@
 #    which tmux > /dev/null && exec tmux
 #fi
 
+export DOTFILES="$HOME/dotfiles/"
+
 # fzf
 FZF_PATH="$HOME/.fzf"
 if [ -d $FZF_PATH ]; then
@@ -47,3 +49,6 @@ alias gdf='git diff'
 alias gaa='git add -A'
 alias gcm='git commit'
 alias gpcb='git push origin HEAD'
+
+# Must be at the end
+source "$DOTFILES/vender/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
