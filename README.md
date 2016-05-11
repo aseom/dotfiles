@@ -14,7 +14,7 @@ aseom.dotfiles
 GIT_SSH_COMMAND="ssh -i [ssh_key_file]" \
     git clone --recursive git@github.com:aseom/dotfiles.git ~/dotfiles
 
-cd dotfiles && ./install.sh
+cd ~/dotfiles && ./install.sh
 ```
 
 ### Zsh
