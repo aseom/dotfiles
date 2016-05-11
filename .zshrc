@@ -1,21 +1,7 @@
-# Start tmux on login
-#if [[ $- == *i* ]] && [ -z $TMUX ]; then
-#    which tmux > /dev/null && exec tmux
-#fi
-
-export DOTFILES="$HOME/dotfiles"
-
-# fzf
-FZF_PATH="$HOME/.fzf"
-if [ -d $FZF_PATH ]; then
-    export PATH="$FZF_PATH/bin:$PATH"
-    source $FZF_PATH/shell/completion.zsh
-    source $FZF_PATH/shell/key-bindings.zsh
-fi
-
 # Exports
 export LANG=en_US.UTF-8
 export PATH="$HOME/bin:$PATH"
+export DOTFILES="$HOME/dotfiles"
 
 # Enable completion
 autoload -U compinit && compinit
@@ -35,42 +21,16 @@ setopt hist_ignore_dups
 # Allow remap Ctrl+S, Ctrl+Q
 stty -ixon -ixoff
 
-# Colorize!
-alias ls='ls -G'
-alias grep='grep --color=auto'
+source ~/.zsh/aliases.zsh
+source ~/.zsh/functions.zsh
 
-# Set my aliases.
-alias ll='ls -alFh'
-alias vimn='vim +NERDTree'
-
-# git aliases
-alias gss='git status'
-alias gdf='git diff'
-alias gaa='git add -A'
-alias gcm='git commit'
-alias gpcb='git push origin HEAD'
-
-
-load_plugin() {
-    local location="$1"
-    local ext
-
-    # Try to find *all* the `*.plugin.zsh` files and source it.
-    # If not exists, find `*.zsh`, find `*.sh`...
-    for ext in plugin.zsh zsh sh; do
-        # Create array from glob matchs
-        scripts_array=( $location/*.$ext(N) )
-        # If any script(s) found, break now.
-        if [ $#scripts_array -gt 0 ]; then break; fi
-    done
-    for script ($scripts_array) {
-        echo "Loading '$script'..."  # Verbose
-        source "$script"
-    }
-
-    # Add to $fpath, for completion(s).
-    fpath=("$location" $fpath)
-}
+# fzf
+FZF_PATH="$HOME/.fzf"
+if [ -d $FZF_PATH ]; then
+    export PATH="$FZF_PATH/bin:$PATH"
+    source $FZF_PATH/shell/completion.zsh
+    source $FZF_PATH/shell/key-bindings.zsh
+fi
 
 # Must be at the end
 load_plugin "$DOTFILES/vender/zsh-syntax-highlighting"
