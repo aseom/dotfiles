@@ -13,6 +13,9 @@ load_plugin() {
     done
 
     # Source script(s) and add fpath.
-    for script ($scripts_array) { source "$script" }
+    for script in $scripts_array; do
+        #echo "> $script"
+        source "$script"
+    done
     fpath=("$location" $fpath)
 }

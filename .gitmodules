@@ -43,3 +43,15 @@
 [submodule "vender/zsh-syntax-highlighting"]
 	path = vender/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "vender/zsh-autosuggestions"]
+	path = vender/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "vender/zsh-completions"]
+	path = vender/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "vender/zsh-async"]
+	path = vender/zsh-async
+	url = https://github.com/mafredri/zsh-async.git
+[submodule "vender/pure"]
+	path = vender/pure
+	url = https://github.com/sindresorhus/pure.git
