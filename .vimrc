@@ -81,9 +81,6 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 filetype plugin indent on
 
-" fzf (Reqiured for fzf.vim)
-set rtp+=~/.fzf
-
 " colorscheme
 set background=light
 try

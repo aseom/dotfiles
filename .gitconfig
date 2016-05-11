@@ -5,3 +5,7 @@
 [user]
     name = aseom
     email = hm9599@gmail.com
+[credential]
+	helper = osxkeychain
+[credential "https://github.com"]
+	username = aseom
