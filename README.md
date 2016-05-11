@@ -20,7 +20,6 @@ cd ~/dotfiles && ./install.sh
 ### Zsh
 ```Shell
 brew install zsh
-git clone https://github.com/junegunn/fzf.git ~/.fzf
 
 # As default shell
 sudo cp -p /etc/shells /etc/shells.backup_

@@ -55,3 +55,6 @@
 [submodule "vender/pure"]
 	path = vender/pure
 	url = https://github.com/sindresorhus/pure.git
+[submodule "vender/fzf"]
+	path = vender/fzf
+	url = https://github.com/junegunn/fzf.git
