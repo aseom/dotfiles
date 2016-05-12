@@ -34,7 +34,7 @@ main() {
     # Synlink other files/dirs
     files=(
         .gitconfig .gitignore_global
-        .zshrc .vimrc .tmux.conf
+        .zshrc .vimrc .tmux.conf .tern-config
         .zsh .vim bin
     )
     for file in ${files[@]}; do
