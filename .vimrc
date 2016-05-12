@@ -13,11 +13,11 @@ set expandtab  " Convert tabs to spaces
 set showmatch  " Highlight brackets
 set autoindent
 
+set nowrap
+set nofoldenable
 set splitright  " Split to right when `:vs`
 set splitbelow  " Split to below when `:sp`
-
-" Sync clipboard with OS
-set clipboard=unnamed
+set clipboard=unnamed  " Sync clipboard with OS
 
 " Tab size
 set tabstop=4
@@ -89,9 +89,18 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'Yggdroot/indentLine'
+Plug 'mhinz/vim-startify'
 
 " Languages
+Plug 'pangloss/vim-javascript'
+Plug 'ternjs/tern_for_vim'
+Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'keith/swift.vim'
+Plug 'tmux-plugins/vim-tmux'
+" vim-markdown depends on tabular
+Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+Plug 'JamshedVesuna/vim-markdown-preview', { 'for': 'markdown' }
 
 " Awesome
 Plug 'aseom/vim-notetaking'
@@ -120,6 +129,9 @@ let g:neocomplete#enable_at_startup = 1
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore = ['^\.DS_Store$', '^\.Trash$', '\.swp$', '^\.dropbox']
+
+" indentLine
+let g:indentLine_color_term = 253
 
 " vim-markdown-preview
 " By default, <C-p> to activate preview
