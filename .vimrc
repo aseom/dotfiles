@@ -77,9 +77,29 @@ nnoremap <silent> <F5> :source ~/.vimrc<CR>:echo "Reloaded!"<CR>
 
 " === Plugins ==============================================
 
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
-filetype plugin indent on
+call plug#begin('~/.vim/bundle')
+
+" PlugUpdate:  Install or update plugins
+" PlugUpgrade: Upgrade vim-plug itself
+" PlugClean:   Remove unused directories
+
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'vim-airline/vim-airline'
+Plug 'Shougo/neocomplete.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" Languages
+Plug 'keith/swift.vim'
+
+" Awesome
+Plug 'aseom/vim-notetaking'
+Plug 'aseom/vim-inputswitch'
+
+" Add plugins to &runtimepath
+call plug#end()
+
 
 " colorscheme
 set background=light

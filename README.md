@@ -26,8 +26,9 @@ chpass -s $(which zsh)
 ###### Vim
 ```Shell
 brew install vim --with-lua  # neocomplete requires lua
+vim +PlugInstall +qa
 
 # Plugin reqirements
 cd ~/.vim/bundle/tern_for_vim && npm install
-pip install grip
+pip install grip  # vim-markdown-preview
 ```
