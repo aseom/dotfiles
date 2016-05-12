@@ -104,7 +104,11 @@ Plug 'JamshedVesuna/vim-markdown-preview', { 'for': 'markdown' }
 
 " Awesome
 Plug 'aseom/vim-notetaking'
-Plug 'aseom/vim-inputswitch'
+
+if has('mac')
+    Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
+    Plug 'aseom/vim-inputswitch'
+endif
 
 " Add plugins to &runtimepath
 call plug#end()

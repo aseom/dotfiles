@@ -16,3 +16,6 @@
 [submodule "vender/fzf"]
 	path = vender/fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule "vender/z"]
+	path = vender/z
+	url = https://github.com/rupa/z.git
