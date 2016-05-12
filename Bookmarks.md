@@ -20,6 +20,9 @@ Bookmarks
 
 
 ### Swift
+###### [Swift 언어 개발문서 (한국어)](http://swift.leantra.kr)
+###### [스위프트(Swift) 가이드](http://seorenn.blogspot.kr/2014/06/swift_16.html) - Seorenn SIGSEGV
+###### [Swift Cookbook, Recipes, Tutorials](http://iswift.org/cookbook) - iSwift Cookbook
 ###### [Swift Video Tutorials](http://www.swiftvideotutorials.com)
 
 
@@ -52,6 +55,8 @@ Bookmarks
 ###### [vi Complete Key Binding List](http://hea-www.harvard.edu/~fine/Tech/vi.html) - Tom Fine
 ###### [Vi and Vim Editor: 12 Powerful Find and Replace Examples](http://www.thegeekstuff.com/2009/04/vi-vim-editor-search-and-replace-examples/) - Sathiyamoorthy
 ###### [Manage Your Vim Plugins Using Pathogen and Git Submodules](http://jirichara.com/manage-your-vim-plugins-using-pathogen-and-git-submodules) - Jiri Chara
+###### [Learn Vimscript the Hard Way](http://learnvimscriptthehardway.stevelosh.com) - Steve Losh
+###### [Making Vim Pretty With Custom Colors](http://andrewradev.com/2011/08/06/making-vim-pretty-with-custom-colors/) - Andrew's Blog
 
 
 ### Tmux
@@ -88,5 +93,6 @@ Bookmarks
 ### 미분류
 ###### [한국어 번역글 위키](https://github.com/nolboo/nolboo.github.io/wiki) - Nolboo
 ###### [ansi codes](http://bluesock.org/~willg/dev/ansi.html) - ANSI escape sequences
+###### [Xterm 256color mode color chart](https://gist.github.com/jasonm23/2868981) - jasonm23
 ###### [terminal.sexy](http://terminal.sexy/) - Terminal Color Scheme Designer
 ###### [D2Coding Powerline](http://dalgona.128bit.tech/d2coding-powerline/) - D2Coding 기반, Powerline 특수기호를 포함한 글꼴
