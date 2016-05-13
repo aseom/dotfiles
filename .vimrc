@@ -15,9 +15,10 @@ set autoindent
 
 set nowrap
 set nofoldenable
+set clipboard=unnamed  " Sync clipboard with OS
+
 set splitright  " Split to right when `:vs`
 set splitbelow  " Split to below when `:sp`
-set clipboard=unnamed  " Sync clipboard with OS
 
 " Tab size
 set tabstop=4
@@ -136,6 +137,9 @@ let NERDTreeIgnore = ['^\.DS_Store$', '^\.Trash$', '\.swp$', '^\.dropbox']
 
 " indentLine
 let g:indentLine_color_term = 253
+" https://github.com/Yggdroot/indentLine/issues/109
+let g:indentLine_conceallevel  = &conceallevel
+let g:indentLine_concealcursor = &concealcursor
 
 " vim-markdown-preview
 " By default, <C-p> to activate preview
