@@ -100,7 +100,9 @@ Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'keith/swift.vim'
 Plug 'tmux-plugins/vim-tmux'
 " vim-markdown depends on tabular
-Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+"Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular' |
+    \ Plug 'aseom/vim-markdown', { 'as': 'vim-markdown-aseom' }
 Plug 'JamshedVesuna/vim-markdown-preview', { 'for': 'markdown' }
 
 " Awesome
@@ -129,6 +131,8 @@ let g:airline_powerline_fonts = 1
 " neocomplete
 set completeopt=menuone  " Popup even one item, no preview
 let g:neocomplete#enable_at_startup = 1
+" Force use omni completion for specific filetype
+let g:neocomplete#force_omni_input_patterns = { 'javascript': '\w\w\+' }
 
 " nerdtree
 let NERDTreeShowHidden = 1
