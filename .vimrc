@@ -95,7 +95,8 @@ Plug 'mhinz/vim-startify'
 
 " Languages
 Plug 'pangloss/vim-javascript'
-Plug 'ternjs/tern_for_vim'
+Plug 'ternjs/tern_for_vim',        { 'for': 'javascript' }
+"Plug 'aseom/vim-nodejs-complete', { 'for': 'javascript' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'keith/swift.vim'
 Plug 'tmux-plugins/vim-tmux'
@@ -131,8 +132,17 @@ let g:airline_powerline_fonts = 1
 " neocomplete
 set completeopt=menuone  " Popup even one item, no preview
 let g:neocomplete#enable_at_startup = 1
-" Force use omni completion for specific filetype
-let g:neocomplete#force_omni_input_patterns = { 'javascript': '\w\w\+' }
+" Call omni completion [O] for specific pattern matchs
+"let g:neocomplete#sources#omni#input_patterns = { 'javascript': '\h\w\+' }
+
+" If tab pressed, insert tab? or omni completion?
+function! s:smart_tab()
+    if pumvisible() | return "\<C-n>" | endif
+    let before = getline('.')[col('.') - 2]  " Character before cursor
+    return before =~ '\S' ? "\<C-x>\<C-o>" : "\<Tab>"
+endfunction
+inoremap <expr> <Tab> <SID>smart_tab()
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " nerdtree
 let NERDTreeShowHidden = 1
