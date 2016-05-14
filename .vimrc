@@ -24,6 +24,7 @@ set splitbelow  " Split to below when `:sp`
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2
 
 " Markdown show trailing spaces
 autocmd FileType markdown set list
@@ -95,16 +96,17 @@ Plug 'mhinz/vim-startify'
 
 " Languages
 Plug 'pangloss/vim-javascript'
-Plug 'ternjs/tern_for_vim',        { 'for': 'javascript' }
+Plug 'moll/vim-node',       { 'for': 'javascript' }
+Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 "Plug 'aseom/vim-nodejs-complete', { 'for': 'javascript' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'keith/swift.vim'
-Plug 'tmux-plugins/vim-tmux'
 " vim-markdown depends on tabular
 "Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'godlygeek/tabular' |
     \ Plug 'aseom/vim-markdown', { 'as': 'vim-markdown-aseom' }
 Plug 'JamshedVesuna/vim-markdown-preview', { 'for': 'markdown' }
+Plug 'tmux-plugins/vim-tmux'
 
 " Awesome
 Plug 'aseom/vim-notetaking'
