@@ -23,8 +23,13 @@ load_plugin() {
 tm() {
     # Tmux attach or create new session
     if tmux ls &>/dev/null; then
-        echo "Session is already exists. Use it? [y/N]:"
+        echo "Tmux session is already exists. Use it? [y/N]:"
         read -q && echo && tmux attach && return
     fi
     tmux new
+}
+
+asdf() {
+    [[ $1 == "-a" ]] && git add -A
+    git commit && git push origin HEAD
 }

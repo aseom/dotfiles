@@ -1,3 +1,11 @@
+# Reqiure functions
+source ~/.zsh/functions.zsh
+
+# Start tmux on login
+if [[ -o login && -z "$TMUX" ]]; then
+    tmux -V &>/dev/null && exec tm
+fi
+
 # Exports
 export LANG=en_US.UTF-8
 export PATH="$HOME/bin:$PATH"
@@ -19,5 +27,4 @@ setopt hist_ignore_dups
 stty -ixon -ixoff
 
 source ~/.zsh/aliases.zsh
-source ~/.zsh/functions.zsh
 source ~/.zsh/plugins.zsh
