@@ -1,4 +1,7 @@
 {
+    "dontLoad": [
+        "node_modules/**/*.js"
+    ],
     "plugins": {
         "node": {}
     }

@@ -46,8 +46,9 @@ endif
 " Key combination timeout (ms)
 set timeoutlen=300
 
-" If autocompletion popup visable, <CR> to select next item
-inoremap <expr> <CR> pumvisible() ? "\<C-n>" : "\<CR>"
+" If autocompletion popup visable, <Tab> to select next item
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Open NERDTree
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
@@ -89,6 +90,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'Shougo/neocomplete.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
@@ -98,17 +100,15 @@ Plug 'mhinz/vim-startify'
 Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node',       { 'for': 'javascript' }
 Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
-"Plug 'aseom/vim-nodejs-complete', { 'for': 'javascript' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'keith/swift.vim'
 " vim-markdown depends on tabular
-"Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
-Plug 'godlygeek/tabular' |
-    \ Plug 'aseom/vim-markdown', { 'as': 'vim-markdown-aseom' }
+Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'JamshedVesuna/vim-markdown-preview', { 'for': 'markdown' }
 Plug 'tmux-plugins/vim-tmux'
 
 " Awesome
+"Plug 'aseom/vim-nodejs-complete', { 'for': 'javascript' }
 Plug 'aseom/vim-notetaking'
 
 if has('mac')
@@ -129,27 +129,30 @@ catch 'Cannot find color scheme'
 endtry
 
 " vim-airline
-let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 
 " neocomplete
 set completeopt=menuone  " Popup even one item, no preview
 let g:neocomplete#enable_at_startup = 1
 " Call omni completion [O] for specific pattern matchs
-"let g:neocomplete#sources#omni#input_patterns = { 'javascript': '\h\w\+' }
-
-" If tab pressed, insert tab? or omni completion?
-function! s:smart_tab()
-    if pumvisible() | return "\<C-n>" | endif
-    let before = getline('.')[col('.') - 2]  " Character before cursor
-    return before =~ '\S' ? "\<C-x>\<C-o>" : "\<Tab>"
-endfunction
-inoremap <expr> <Tab> <SID>smart_tab()
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+let g:neocomplete#sources#omni#input_patterns = { 'javascript': '\h\w\+' }
 
 " nerdtree
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore = ['^\.DS_Store$', '^\.Trash$', '\.swp$', '^\.dropbox']
+
+"syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height = 5
+let g:syntastic_enable_signs = 0
+let g:syntastic_javascript_checkers = ['eslint']
 
 " indentLine
 let g:indentLine_color_term = 253
