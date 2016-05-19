@@ -23,6 +23,11 @@ setopt share_history
 # Ignore repeated commands
 setopt hist_ignore_dups
 
+# Completion
+setopt menu_complete
+# Case insensitive
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
 # Allow remap Ctrl+S, Ctrl+Q
 stty -ixon -ixoff
 
