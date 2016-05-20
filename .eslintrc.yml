@@ -1,9 +1,26 @@
 env:
     es6: true
     node: true
+
 extends:
     "eslint:recommended"
+
 rules:
+    # Off
     no-console: "off"
-    camelcase: "error"
+    no-debugger: "off"
+
+    # Warn
+    brace-style: ["warn", "1tbs"]
+    camelcase: "warn"
+    eol-last: "warn"
+    indent: ["warn", 2]
+    no-trailing-spaces: "warn"
+    quotes: ["warn", "single"]
+    space-before-function-paren:
+        - "warn"
+        - { anonymous: "always", named: "never" }
+
+    # Error
+    linebreak-style: ["error", "unix"]
     semi: ["error", "always"]
