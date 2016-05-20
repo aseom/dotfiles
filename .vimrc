@@ -35,6 +35,10 @@ set incsearch
 set ignorecase
 set hlsearch
 
+" Conceal
+set concealcursor=
+set conceallevel=2
+
 " Fix mouse in tmux
 if &term =~ '^screen'
     set ttymouse=xterm2
@@ -146,15 +150,15 @@ let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore = ['^\.DS_Store$', '^\.Trash$', '\.swp$', '^\.dropbox']
 
 "syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_loc_list_height = 5
-let g:syntastic_enable_signs = 0
+let g:syntastic_stl_format = "Syntax:%F (%t)"
 let g:syntastic_javascript_checkers = ['eslint']
 
 " indentLine
-let g:indentLine_color_term = 253
+let g:indentLine_color_term = 252
 " https://github.com/Yggdroot/indentLine/issues/109
 let g:indentLine_conceallevel  = &conceallevel
 let g:indentLine_concealcursor = &concealcursor
