@@ -39,6 +39,10 @@ set hlsearch
 set concealcursor=
 set conceallevel=2
 
+" 80 column ruler
+set textwidth=80
+set colorcolumn=+1
+
 " Fix mouse in tmux
 if &term =~ '^screen'
     set ttymouse=xterm2
