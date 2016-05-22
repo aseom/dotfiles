@@ -6,21 +6,21 @@ extends:
     "eslint:recommended"
 
 rules:
-    # Off
+    # Allow console, debugger
     no-console: "off"
     no-debugger: "off"
 
-    # Warn
-    brace-style: ["warn", "1tbs"]
-    camelcase: "warn"
-    eol-last: "warn"
-    indent: ["warn", 2]
-    no-trailing-spaces: "warn"
-    quotes: ["warn", "single"]
+    # Styles
+    brace-style: ["error", "1tbs"]
+    camelcase: ["error", { properties: "always" }]
+    indent: ["error", 2]
+    quotes: ["error", "single"]
+    semi: ["error", "always"]
     space-before-function-paren:
-        - "warn"
+        - "error"
         - { anonymous: "always", named: "never" }
 
-    # Error
+    # Misc.
+    eol-last: "error"
     linebreak-style: ["error", "unix"]
-    semi: ["error", "always"]
+    no-trailing-spaces: "error"
