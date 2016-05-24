@@ -13,8 +13,9 @@ rules:
     # Styles
     brace-style: ["error", "1tbs"]
     camelcase: ["error", { properties: "always" }]
-    indent: ["error", 2]
-    quotes: ["error", "single"]
+    indent: ["error", 2, { SwitchCase: 1 }]
+    object-curly-spacing: ["error", "always"]
+    quotes: ["error", "single", { avoidEscape: true }]
     semi: ["error", "always"]
     space-before-function-paren:
         - "error"
