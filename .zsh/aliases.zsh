@@ -2,6 +2,9 @@
 alias ls='ls -G'
 alias grep='grep --color=auto'
 
+# httpie
+alias http='http --style=default'
+
 # Such aliases
 alias ll='ls -alFh'
 alias vimn='vim +NERDTree'

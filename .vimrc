@@ -68,6 +68,17 @@ inoremap <silent> <C-s> <ESC>:update<CR>
 nnoremap <silent> q :q<CR>
 nnoremap <silent> Q :qa<CR>
 
+" Undo, redo, paste
+" Use `[p` to paste and adjust indent
+nnoremap <C-z>      :undo
+inoremap <C-z> <C-o>:undo
+inoremap <C-r> <C-o>:redo
+nnoremap <C-v>      p
+inoremap <C-v> <C-o>p
+
+" Drop selection and paste
+vnoremap p "_dP
+
 " Paste in newline
 nnoremap <silent> pp :pu<CR>
 
