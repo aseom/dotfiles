@@ -3,6 +3,7 @@
   <appdef>
     <appname>TERMINAL</appname>
     <equal>com.googlecode.iterm2</equal>
+    <equal>org.vim.MacVim</equal>
   </appdef>
 
   <vkopenurldef>

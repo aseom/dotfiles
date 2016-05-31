@@ -48,6 +48,14 @@ if &term =~ '^screen'
     set ttymouse=xterm2
 endif
 
+" MacVim
+" Quit after last window closes:
+" defaults write org.vim.MacVim MMLastWindowClosedBehavior 2
+if has("gui_macvim")
+    set guifont=Menlo:h14
+    set linespace=1
+endif
+
 
 " === Keymaps ==============================================
 
@@ -106,8 +114,10 @@ call plug#begin('~/.vim/bundle')
 " PlugUpgrade: Upgrade vim-plug itself
 " PlugClean:   Remove unused directories
 
-Plug 'NLKNguyen/papercolor-theme'
+"Plug 'NLKNguyen/papercolor-theme'
+Plug 'zefei/cake16'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'Shougo/neocomplete.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
@@ -130,11 +140,7 @@ Plug 'tmux-plugins/vim-tmux'
 " Awesome
 "Plug 'aseom/vim-nodejs-complete', { 'for': 'javascript' }
 Plug 'aseom/vim-notetaking'
-
-if has('mac')
-    Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
-    Plug 'aseom/vim-inputswitch'
-endif
+"Plug 'aseom/vim-inputswitch'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -143,12 +149,18 @@ call plug#end()
 " colorscheme
 set background=light
 try
-    colorscheme PaperColor
+    "colorscheme PaperColor
+    colorscheme cake16
+    hi Normal       guifg=#484040 guibg=#fffdfa
+    hi CursorLine   guifg=NONE    guibg=#f6f4eb
+    hi CursorLineNr guifg=NONE    guibg=#f6f4eb
+    hi ColorColumn  guifg=NONE    guibg=#f0f0e8
 catch 'Cannot find color scheme'
     colorscheme default
 endtry
 
 " vim-airline
+let g:airline_theme='light'
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -161,6 +173,8 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#sources#omni#input_patterns = { 'javascript': '\h\w\+' }
 
 " nerdtree
+let NERDTreeWinSize = 26
+let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore = ['^\.DS_Store$', '^\.Trash$', '\.swp$', '^\.dropbox']
