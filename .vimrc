@@ -1,3 +1,6 @@
+" Settings {{{
+" ============
+
 syntax on
 set mouse=a                     " Use mouse
 set nocompatible                " Use arrows
@@ -8,13 +11,14 @@ set cursorline    " Highlight current line
 set laststatus=2  " Always show status bar
 set ruler         " Show scroll percentage
 set title         " Show window title
+set scrolloff=5
 
 set expandtab  " Convert tabs to spaces
 set showmatch  " Highlight brackets
 set autoindent
 
 set nowrap
-set nofoldenable
+"set nofoldenable
 set clipboard=unnamed  " Sync clipboard with OS
 
 set splitright  " Split to right when `:vs`
@@ -25,10 +29,6 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2
-
-" Markdown show trailing spaces
-autocmd FileType markdown set list
-autocmd FileType markdown set listchars=trail:▪︎
 
 " Search
 set incsearch
@@ -54,10 +54,19 @@ endif
 if has("gui_macvim")
     set guifont=Menlo:h14
     set linespace=1
+    set guioptions-=L
+    set noimdisable  " Auto switch input source
 endif
 
+" NERDTree + Startify
+autocmd VimEnter * if !argc() | Startify | NERDTree | endif
 
-" === Keymaps ==============================================
+" }}}
+
+" Keymaps, Commands {{{
+" =====================
+
+" Use `:help index` to see the default key bindings
 
 " Key combination timeout (ms)
 set timeoutlen=300
@@ -70,6 +79,16 @@ inoremap <expr> <CR>    pumvisible() ? "\<C-y>" : "\<CR>"
 " Open NERDTree
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 
+" Fugitive
+function! s:on_fugitive()
+    nnoremap <C-g> :Gstatus<CR>
+    command! -nargs=* Gdiff     Git! diff <args>
+    command! -nargs=* GdiffHead Git! diff HEAD <args>
+    command! -nargs=* GaddAll   Git add -A <args>
+    command! -nargs=* GpushHead Gpush origin HEAD <args>
+endfunction
+autocmd User Fugitive call s:on_fugitive()
+
 " Save, quit
 nnoremap <silent> <C-s>      :update<CR>
 inoremap <silent> <C-s> <ESC>:update<CR>
@@ -78,9 +97,9 @@ nnoremap <silent> Q :qa<CR>
 
 " Undo, redo, paste
 " Use `[p` to paste and adjust indent
-nnoremap <C-z>      :undo
-inoremap <C-z> <C-o>:undo
-inoremap <C-r> <C-o>:redo
+nnoremap <C-z>      u
+inoremap <C-z> <C-o>u
+inoremap <C-r> <C-o><C-r>
 nnoremap <C-v>      p
 inoremap <C-v> <C-o>p
 
@@ -102,11 +121,15 @@ nnoremap <CR> o<ESC>
 " Clear search highlight
 nnoremap <silent> <C-l> :nohlsearch<CR>
 
-" Reload vimrc
-nnoremap <silent> <F5> :source ~/.vimrc<CR>:echo "Reloaded!"<CR>
+" Open iTerm in current directory
+if has('mac')
+    nnoremap <C-k> :silent !open -a iTerm .<CR>
+endif
 
+" }}}
 
-" === Plugins ==============================================
+" Plugins {{{
+" ===========
 
 call plug#begin('~/.vim/bundle')
 
@@ -188,12 +211,19 @@ let g:syntastic_stl_format = "Syntax:%F (%t)"
 let g:syntastic_javascript_checkers = ['eslint']
 
 " indentLine
-let g:indentLine_color_term = 252
+let g:indentLine_color_gui = "#ede4d4"
 " https://github.com/Yggdroot/indentLine/issues/109
 let g:indentLine_conceallevel  = &conceallevel
 let g:indentLine_concealcursor = &concealcursor
+
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
 
 " vim-markdown-preview
 " By default, <C-p> to activate preview
 let vim_markdown_preview_github=1
 let vim_markdown_preview_browser='Safari'
+
+" }}}
+
+vim:fdm=marker
