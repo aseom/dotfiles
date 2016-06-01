@@ -11,6 +11,7 @@ set cursorline    " Highlight current line
 set laststatus=2  " Always show status bar
 set ruler         " Show scroll percentage
 set title         " Show window title
+set noshowmode
 set scrolloff=5
 
 set expandtab  " Convert tabs to spaces
@@ -51,15 +52,16 @@ endif
 " MacVim
 " Quit after last window closes:
 " defaults write org.vim.MacVim MMLastWindowClosedBehavior 2
-if has("gui_macvim")
-    set guifont=Menlo:h14
+if has('gui_macvim')
+    set guifont=Menlo\ for\ Powerline:h14
     set linespace=1
     set guioptions-=L
     set noimdisable  " Auto switch input source
 endif
 
 " NERDTree + Startify
-autocmd VimEnter * if !argc() | Startify | NERDTree | endif
+autocmd VimEnter * if !argc() &&
+    \ exists(':Startify') && exists(':NERDTree') | Startify | NERDTree | endif
 
 " }}}
 
@@ -139,8 +141,8 @@ call plug#begin('~/.vim/bundle')
 
 "Plug 'NLKNguyen/papercolor-theme'
 Plug 'zefei/cake16'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'tomasr/molokai'
+Plug 'itchyny/lightline.vim'
 Plug 'Shougo/neocomplete.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
@@ -170,24 +172,56 @@ call plug#end()
 
 
 " colorscheme
-set background=light
 try
-    "colorscheme PaperColor
-    colorscheme cake16
-    hi Normal       guifg=#484040 guibg=#fffdfa
-    hi CursorLine   guifg=NONE    guibg=#f6f4eb
-    hi CursorLineNr guifg=NONE    guibg=#f6f4eb
-    hi ColorColumn  guifg=NONE    guibg=#f0f0e8
+    if has('gui_macvim')
+        colorscheme cake16
+        hi Normal       guifg=#484040 guibg=#fffdfa
+        hi CursorLine   guifg=NONE    guibg=#f6f4eb
+        hi CursorLineNr guifg=NONE    guibg=#f6f4eb
+        hi ColorColumn  guifg=NONE    guibg=#f0f0e8
+    else
+        let g:rehash256 = 1
+        colorscheme molokai
+    endif
 catch 'Cannot find color scheme'
     colorscheme default
 endtry
 
-" vim-airline
-let g:airline_theme='light'
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+" lightline
+let g:lightline = {
+    \   'colorscheme': 'wombat',
+    \   'active': {
+    \     'left':  [['mode'], ['filename']],
+	\     'right': [['lineinfo'], ['percent'], ['fileinfo']]
+    \   },
+    \   'component_function': {
+    \     'filename': 'LightlineFilename',
+    \     'fileinfo': 'LightlineFileinfo'
+    \   },
+    \   'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }
+    \ }
+
+function! LightlineFilename()
+    let filename = ''
+    if exists('*fugitive#head')
+        let branch = fugitive#head()
+        let filename .= branch != '' ? "\ue0a0 ".branch." \ue0b1 " : ''
+    endif
+    let filename .= &readonly ? "\ue0a2 \ue0b1 " : ''
+    let filename .= expand('%:t') != '' ? expand('%:t') : '[No Name]'
+    let filename .= &modified ? ' *' : ''
+    return filename
+endfunction
+
+function! LightlineFileinfo()
+    let fileinfo = ''
+    if winwidth(0) > 70
+        let fileinfo .= &filetype
+        let fileinfo .= &fileformat != ''   ? " \ue0b3 ".&fileformat   : ''
+        let fileinfo .= &fileencoding != '' ? " \ue0b3 ".&fileencoding : ''
+    endif
+    return fileinfo
+endfunction
 
 " neocomplete
 set completeopt=menuone  " Popup even one item, no preview
@@ -201,6 +235,7 @@ let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore = ['^\.DS_Store$', '^\.Trash$', '\.swp$', '^\.dropbox']
+let NERDTreeChDirMode = 2  " Auto change CWD
 
 "syntastic
 "let g:syntastic_always_populate_loc_list = 1
@@ -226,4 +261,4 @@ let vim_markdown_preview_browser='Safari'
 
 " }}}
 
-vim:fdm=marker
+" vim:fdm=marker
