@@ -12,7 +12,7 @@ set laststatus=2  " Always show status bar
 set ruler         " Show scroll percentage
 set title         " Show window title
 set noshowmode
-set scrolloff=5
+set scrolloff=3
 
 set expandtab  " Convert tabs to spaces
 set showmatch  " Highlight brackets
@@ -56,7 +56,8 @@ if has('gui_macvim')
     set guifont=Menlo\ for\ Powerline:h14
     set linespace=1
     set guioptions-=L
-    set noimdisable  " Auto switch input source
+    set noimdisable  " Auto change input source to english
+    set iminsert=1   " Don't change when insert enter
 endif
 
 " NERDTree + Startify
@@ -83,11 +84,12 @@ nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 
 " Fugitive
 function! s:on_fugitive()
-    nnoremap <C-g> :Gstatus<CR>
-    command! -nargs=* Gdiff     Git! diff <args>
-    command! -nargs=* GdiffHead Git! diff HEAD <args>
-    command! -nargs=* GaddAll   Git add -A <args>
-    command! -nargs=* GpushHead Gpush origin HEAD <args>
+    nnoremap <buffer> <C-g> :Gstatus<CR>
+    command! -buffer -nargs=* Gdiff     Git! diff <args>
+    command! -buffer -nargs=* GdiffHead Git! diff HEAD <args>
+    command! -buffer -nargs=* Gadd      Git add <args>
+    command! -buffer -nargs=* GaddAll   Gadd -A <args>
+    command! -buffer -nargs=* Gpush     Git push <args>
 endfunction
 autocmd User Fugitive call s:on_fugitive()
 
@@ -192,7 +194,7 @@ let g:lightline = {
     \   'colorscheme': 'wombat',
     \   'active': {
     \     'left':  [['mode'], ['filename']],
-	\     'right': [['lineinfo'], ['percent'], ['fileinfo']]
+    \     'right': [['lineinfo'], ['percent'], ['fileinfo']]
     \   },
     \   'component_function': {
     \     'filename': 'LightlineFilename',
