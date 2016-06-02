@@ -2,6 +2,8 @@
     symlinks = true
     excludesfile = ~/.gitignore_global
     editor = vim    # No /usr/bin/vim
+	autocrlf = input
+	eol = lf
 [user]
     name = aseom
     email = hm9599@gmail.com
