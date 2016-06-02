@@ -3,10 +3,6 @@ load_plugin "$DOTFILES/vender/zsh-async"
 load_plugin "$DOTFILES/vender/pure"
 load_plugin "$DOTFILES/vender/z"
 
-#load_plugin "$DOTFILES/vender/zsh-autosuggestions"
-#export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=251"
-#bindkey '^ ' autosuggest-execute
-
 # FZF
 fzf="$DOTFILES/vender/fzf"
 if [ ! -e "$fzf/bin/fzf" ]; then

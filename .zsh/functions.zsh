@@ -28,8 +28,3 @@ tm() {
     fi
     tmux new
 }
-
-asdf() {
-    [[ $1 == "-a" ]] && git add -A
-    git commit && git push origin HEAD
-}

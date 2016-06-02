@@ -2,9 +2,9 @@
 source ~/.zsh/functions.zsh
 
 # Start tmux on login
-if [[ -o login && -z "$TMUX" ]]; then
-    tmux -V &>/dev/null && exec tm
-fi
+#if [[ -o login && -z "$TMUX" ]]; then
+#    tmux -V &>/dev/null && exec tm
+#fi
 
 # Exports
 export LANG=en_US.UTF-8
