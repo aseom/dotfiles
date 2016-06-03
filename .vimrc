@@ -70,6 +70,7 @@ autocmd VimEnter * if !argc() &&
 " =====================
 
 " Use `:help index` to see the default key bindings
+" Split window: <C-w>s or <C-w>v
 
 " Key combination timeout (ms)
 set timeoutlen=300
@@ -98,6 +99,22 @@ nnoremap <silent> <C-s>      :update<CR>
 inoremap <silent> <C-s> <ESC>:update<CR>
 nnoremap <silent> q :q<CR>
 nnoremap <silent> Q :qa<CR>
+
+" Use buffer instead of tab
+nnoremap <silent> H :bNext<CR>
+nnoremap <silent> L :bprevious<CR>
+
+" Delete buffer without closing window
+function! s:delete_buffer()
+    if &modified | echom 'No write since last change!' | return | endif
+    " Find all windows that show current buffer (%: curr, #: prev, $: last)
+    for winnum in filter(range(1, winnr('$')), 'winbufnr(v:val) == bufnr("%")')
+        execute winnum.'wincmd w'
+        execute buflisted(bufnr('#')) ? 'buffer #' : 'enew'
+    endfor
+    silent! bdelete #  " Ignore 'No buffer were deleted'
+endfunction
+nnoremap <silent> <C-c> :call <SID>delete_buffer()<CR>
 
 " Undo, redo, paste
 " Use `[p` to paste and adjust indent
@@ -152,6 +169,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'mhinz/vim-startify'
+Plug 'ap/vim-buftabline'
 
 " Languages
 Plug 'pangloss/vim-javascript'
@@ -252,6 +270,11 @@ let g:indentLine_color_gui = "#ede4d4"
 " https://github.com/Yggdroot/indentLine/issues/109
 let g:indentLine_conceallevel  = &conceallevel
 let g:indentLine_concealcursor = &concealcursor
+
+" buftabline
+let g:buftabline_show = 1  " if at least two buffers
+let g:buftabline_numbers = 2
+let g:buftabline_indicators = 1
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
