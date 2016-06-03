@@ -64,6 +64,19 @@ endif
 autocmd VimEnter * if !argc() &&
     \ exists(':Startify') && exists(':NERDTree') | Startify | NERDTree | endif
 
+" Quit vim if NERDTree is only window
+autocmd WinEnter * if winnr('$') == 1 && &ft == 'nerdtree' | q | endif
+
+" Let fugitive resolve symlink when opening file
+function! s:fugitive_resolve_symlink()
+    let path     = expand('%:p')
+    let realpath = resolve(path)
+    if path != realpath && exists('*fugitive#detect')
+        call fugitive#detect(realpath)
+    endif
+endfunction
+autocmd BufReadPost * call <SID>fugitive_resolve_symlink()
+
 " }}}
 
 " Keymaps, Commands {{{
@@ -97,8 +110,7 @@ autocmd User Fugitive call s:on_fugitive()
 " Save, quit
 nnoremap <silent> <C-s>      :update<CR>
 inoremap <silent> <C-s> <ESC>:update<CR>
-nnoremap <silent> q :q<CR>
-nnoremap <silent> Q :qa<CR>
+nnoremap <silent> Q :confirm q<CR>
 
 " Use buffer instead of tab
 nnoremap <silent> H :bNext<CR>
@@ -106,7 +118,9 @@ nnoremap <silent> L :bprevious<CR>
 
 " Delete buffer without closing window
 function! s:delete_buffer()
+    if &filetype == 'help' | q | return | endif
     if &modified | echom 'No write since last change!' | return | endif
+
     " Find all windows that show current buffer (%: curr, #: prev, $: last)
     for winnum in filter(range(1, winnr('$')), 'winbufnr(v:val) == bufnr("%")')
         execute winnum.'wincmd w'
@@ -114,7 +128,7 @@ function! s:delete_buffer()
     endfor
     silent! bdelete #  " Ignore 'No buffer were deleted'
 endfunction
-nnoremap <silent> <C-c> :call <SID>delete_buffer()<CR>
+nnoremap <silent> q :call <SID>delete_buffer()<CR>
 
 " Undo, redo, paste
 " Use `[p` to paste and adjust indent
