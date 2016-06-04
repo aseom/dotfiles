@@ -67,16 +67,6 @@ autocmd VimEnter * if !argc() &&
 " Quit vim if NERDTree is only window
 autocmd WinEnter * if winnr('$') == 1 && &ft == 'nerdtree' | q | endif
 
-" Let fugitive resolve symlink when opening file
-function! s:fugitive_resolve_symlink()
-    let path     = expand('%:p')
-    let realpath = resolve(path)
-    if path != realpath && exists('*fugitive#detect')
-        call fugitive#detect(realpath)
-    endif
-endfunction
-autocmd BufReadPost * call <SID>fugitive_resolve_symlink()
-
 " }}}
 
 " Keymaps, Commands {{{
@@ -96,20 +86,10 @@ inoremap <expr> <CR>    pumvisible() ? "\<C-y>" : "\<CR>"
 " Open NERDTree
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 
-" Fugitive
-function! s:on_fugitive()
-    nnoremap <buffer> <C-g> :Gstatus<CR>
-    command! -buffer -nargs=* Gdiff     Git! diff <args>
-    command! -buffer -nargs=* GdiffHead Git! diff HEAD <args>
-    command! -buffer -nargs=* Gadd      Git add <args>
-    command! -buffer -nargs=* GaddAll   Gadd -A <args>
-    command! -buffer -nargs=* Gpush     Git push <args>
-endfunction
-autocmd User Fugitive call s:on_fugitive()
-
 " Save, quit
 nnoremap <silent> <C-s>      :update<CR>
 inoremap <silent> <C-s> <ESC>:update<CR>
+nnoremap <silent> q :confirm q<CR>
 nnoremap <silent> Q :confirm q<CR>
 
 " Use buffer instead of tab
@@ -118,9 +98,7 @@ nnoremap <silent> L :bprevious<CR>
 
 " Delete buffer without closing window
 function! s:delete_buffer()
-    if &filetype == 'help' | q | return | endif
     if &modified | echom 'No write since last change!' | return | endif
-
     " Find all windows that show current buffer (%: curr, #: prev, $: last)
     for winnum in filter(range(1, winnr('$')), 'winbufnr(v:val) == bufnr("%")')
         execute winnum.'wincmd w'
@@ -128,7 +106,7 @@ function! s:delete_buffer()
     endfor
     silent! bdelete #  " Ignore 'No buffer were deleted'
 endfunction
-nnoremap <silent> q :call <SID>delete_buffer()<CR>
+nnoremap <silent> <C-c> :call <SID>delete_buffer()<CR>
 
 " Undo, redo, paste
 " Use `[p` to paste and adjust indent
@@ -180,10 +158,12 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-buftabline'
+Plug 'jiangmiao/auto-pairs'
 
 " Languages
 Plug 'pangloss/vim-javascript'
@@ -278,6 +258,30 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_loc_list_height = 5
 let g:syntastic_stl_format = "Syntax:%F (%t)"
 let g:syntastic_javascript_checkers = ['eslint']
+
+" Fugitive
+" Use `:Gwrite` instead of `git add`
+" Reference: http://vimcasts.org/categories/git/
+function! s:on_fugitive()
+    nnoremap <buffer> <C-g> :Gstatus<CR>
+    command! -buffer -nargs=* Gadda silent Git add -A <args>
+    " Alternate of Gdiff, not use vim's diff
+    command! -buffer -nargs=* Gdiff2  Git! diff <args>
+    command! -buffer -nargs=* Gdiff2h Gdiff2 HEAD <args>
+    " It is more verbose than default Gpush
+    command! -buffer -nargs=* Gpush Git push <args>
+endfunction
+autocmd User Fugitive call s:on_fugitive()
+
+" Let fugitive resolve symlink when opening file
+function! s:fugitive_resolve_symlink()
+    let path     = expand('%:p')
+    let realpath = resolve(path)
+    if path != realpath && exists('*fugitive#detect')
+        call fugitive#detect(realpath)
+    endif
+endfunction
+autocmd BufReadPost * call <SID>fugitive_resolve_symlink()
 
 " indentLine
 let g:indentLine_color_gui = "#ede4d4"
