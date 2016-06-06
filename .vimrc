@@ -2,30 +2,30 @@
 " ============
 
 syntax on
+set nocompatible
 set mouse=a                     " Use mouse
-set nocompatible                " Use arrows
 set backspace=indent,eol,start  " Use backspace
 
+set scrolloff=3
+set nowrap
+set nofoldenable        " `zc` to fold
+set clipboard+=unnamed  " Use clipboard register '*' by default
+set splitright          " Split to right when `:vs`
+set splitbelow          " Split to below when `:sp`
+
+" Visual
+set title         " Show window title
 set number        " Show line numbers
 set cursorline    " Highlight current line
 set laststatus=2  " Always show status bar
 set ruler         " Show scroll percentage
-set title         " Show window title
 set noshowmode
-set scrolloff=3
-
-set expandtab  " Convert tabs to spaces
+set showcmd
 set showmatch  " Highlight brackets
+
+" Indent
 set autoindent
-
-set nowrap
-"set nofoldenable
-set clipboard=unnamed  " Sync clipboard with OS
-
-set splitright  " Split to right when `:vs`
-set splitbelow  " Split to below when `:sp`
-
-" Tab size
+set expandtab  " Convert tabs to spaces
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -56,8 +56,11 @@ if has('gui_macvim')
     set guifont=Menlo\ for\ Powerline:h14
     set linespace=1
     set guioptions-=L
+
+    " Use Gureum IM if not work properly
     set noimdisable  " Auto change input source to english
     set iminsert=1   " Don't change when insert enter
+    set imsearch=-1
 endif
 
 " NERDTree + Startify
@@ -82,9 +85,6 @@ set timeoutlen=300
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <CR>    pumvisible() ? "\<C-y>" : "\<CR>"
-
-" Open NERDTree
-nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 
 " Save, quit
 nnoremap <silent> <C-s>      :update<CR>
@@ -112,15 +112,17 @@ nnoremap <silent> <C-c> :call <SID>delete_buffer()<CR>
 " Use `[p` to paste and adjust indent
 nnoremap <C-z>      u
 inoremap <C-z> <C-o>u
-inoremap <C-r> <C-o><C-r>
+nnoremap <C-y>      <C-r>
+inoremap <C-y> <C-o><C-r>
 nnoremap <C-v>      p
 inoremap <C-v> <C-o>p
 
-" Drop selection and paste
-vnoremap p "_dP
+" Keep clipboard when pasting
+vnoremap p     "0dP
+vnoremap <C-v> "0dP
 
 " Paste in newline
-nnoremap <silent> pp :pu<CR>
+nnoremap <silent> pp :put<CR>
 
 " Easy indent
 nnoremap <Tab>   >>
@@ -133,6 +135,9 @@ nnoremap <CR> o<ESC>
 
 " Clear search highlight
 nnoremap <silent> <C-l> :nohlsearch<CR>
+
+" Open NERDTree
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 
 " Open iTerm in current directory
 if has('mac')
@@ -248,7 +253,7 @@ let NERDTreeWinSize = 26
 let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
-let NERDTreeIgnore = ['^\.DS_Store$', '^\.Trash$', '\.swp$', '^\.dropbox']
+let NERDTreeIgnore = ['^\.DS_Store$', '^\.Trash$', '\.swp$']
 let NERDTreeChDirMode = 2  " Auto change CWD
 
 "syntastic
@@ -263,13 +268,8 @@ let g:syntastic_javascript_checkers = ['eslint']
 " Use `:Gwrite` instead of `git add`
 " Reference: http://vimcasts.org/categories/git/
 function! s:on_fugitive()
-    nnoremap <buffer> <C-g> :Gstatus<CR>
-    command! -buffer -nargs=* Gadda silent Git add -A <args>
-    " Alternate of Gdiff, not use vim's diff
-    command! -buffer -nargs=* Gdiff2  Git! diff <args>
-    command! -buffer -nargs=* Gdiff2h Gdiff2 HEAD <args>
-    " It is more verbose than default Gpush
-    command! -buffer -nargs=* Gpush Git push <args>
+    nnoremap <buffer> <C-g>  :Gstatus<CR>
+    nnoremap <buffer> <C-g>g :Git
 endfunction
 autocmd User Fugitive call s:on_fugitive()
 
