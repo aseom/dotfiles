@@ -6,12 +6,14 @@ set nocompatible
 set mouse=a                     " Use mouse
 set backspace=indent,eol,start  " Use backspace
 
-set scrolloff=3
 set nowrap
 set nofoldenable        " `zc` to fold
 set clipboard+=unnamed  " Use clipboard register '*' by default
 set splitright          " Split to right when `:vs`
 set splitbelow          " Split to below when `:sp`
+set scrolloff=3
+set diffopt+=vertical
+set wildmenu
 
 " Visual
 set title         " Show window title
@@ -21,7 +23,6 @@ set laststatus=2  " Always show status bar
 set ruler         " Show scroll percentage
 set noshowmode
 set showcmd
-set showmatch  " Highlight brackets
 
 " Indent
 set autoindent
@@ -54,7 +55,7 @@ endif
 " defaults write org.vim.MacVim MMLastWindowClosedBehavior 2
 if has('gui_macvim')
     set guifont=Menlo\ for\ Powerline:h14
-    set linespace=1
+    set linespace=2
     set guioptions-=L
 
     " Use Gureum IM if not work properly
@@ -78,8 +79,8 @@ autocmd WinEnter * if winnr('$') == 1 && &ft == 'nerdtree' | q | endif
 " Use `:help index` to see the default key bindings
 " Split window: <C-w>s or <C-w>v
 
-" Key combination timeout (ms)
-set timeoutlen=300
+let mapleader = ','
+nnoremap ; :
 
 " If autocompletion popup visable, <Tab> to select next item
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -121,23 +122,25 @@ inoremap <C-v> <C-o>p
 vnoremap p     "0dP
 vnoremap <C-v> "0dP
 
-" Paste in newline
-nnoremap <silent> pp :put<CR>
-
 " Easy indent
 nnoremap <Tab>   >>
 nnoremap <S-Tab> <<
 vnoremap > >gv
 vnoremap < <gv
 
-" Add newline + ESC
-nnoremap <CR> o<ESC>
-
 " Clear search highlight
-nnoremap <silent> <C-l> :nohlsearch<CR>
+nnoremap <silent> <C-l> :let @/ = ''<CR>
 
 " Open NERDTree
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
+
+" Fugitive
+function! s:on_fugitive()
+    nnoremap <buffer> <C-g>  :Gstatus<CR>
+    nnoremap <buffer> <C-g>g :Git<Space>
+    nnoremap <buffer> <C-g>G :Git!<Space>
+endfunction
+autocmd User Fugitive call s:on_fugitive()
 
 " Open iTerm in current directory
 if has('mac')
@@ -256,7 +259,7 @@ let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore = ['^\.DS_Store$', '^\.Trash$', '\.swp$']
 let NERDTreeChDirMode = 2  " Auto change CWD
 
-"syntastic
+" syntastic
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
@@ -264,16 +267,8 @@ let g:syntastic_loc_list_height = 5
 let g:syntastic_stl_format = "Syntax:%F (%t)"
 let g:syntastic_javascript_checkers = ['eslint']
 
-" Fugitive
-" Use `:Gwrite` instead of `git add`
-" Reference: http://vimcasts.org/categories/git/
-function! s:on_fugitive()
-    nnoremap <buffer> <C-g>  :Gstatus<CR>
-    nnoremap <buffer> <C-g>g :Git
-endfunction
-autocmd User Fugitive call s:on_fugitive()
-
-" Let fugitive resolve symlink when opening file
+" fugitive
+" resolve symlink when opening file
 function! s:fugitive_resolve_symlink()
     let path     = expand('%:p')
     let realpath = resolve(path)
