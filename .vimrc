@@ -4,6 +4,7 @@
 syntax on
 set nocompatible
 set mouse=a                     " Use mouse
+set ttymouse=xterm2
 set backspace=indent,eol,start  " Use backspace
 
 set nowrap
@@ -45,9 +46,10 @@ set conceallevel=2
 set textwidth=80
 set colorcolumn=+1
 
-" Fix mouse in tmux
-if &term =~ '^screen'
-    set ttymouse=xterm2
+" True colors in terminal!
+" https://gist.github.com/XVilka/8346728
+if !has('gui_running') && has('termguicolors')
+    set termguicolors
 endif
 
 " MacVim
@@ -158,9 +160,8 @@ call plug#begin('~/.vim/bundle')
 " PlugUpgrade: Upgrade vim-plug itself
 " PlugClean:   Remove unused directories
 
-"Plug 'NLKNguyen/papercolor-theme'
 Plug 'zefei/cake16'
-Plug 'tomasr/molokai'
+Plug 'cocopon/iceberg.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'Shougo/neocomplete.vim'
 Plug 'scrooloose/nerdtree'
@@ -198,13 +199,10 @@ call plug#end()
 try
     if has('gui_macvim')
         colorscheme cake16
-        hi Normal       guifg=#484040 guibg=#fffdfa
-        hi CursorLine   guifg=NONE    guibg=#f6f4eb
-        hi CursorLineNr guifg=NONE    guibg=#f6f4eb
-        hi ColorColumn  guifg=NONE    guibg=#f0f0e8
+        let g:indentLine_color_gui = '#dbd1bb'
     else
-        let g:rehash256 = 1
-        colorscheme molokai
+        colorscheme iceberg
+        let g:indentLine_color_gui = '#444b71'
     endif
 catch 'Cannot find color scheme'
     colorscheme default
@@ -280,7 +278,6 @@ endfunction
 autocmd BufReadPost * call <SID>fugitive_resolve_symlink()
 
 " indentLine
-let g:indentLine_color_gui = "#ede4d4"
 " https://github.com/Yggdroot/indentLine/issues/109
 let g:indentLine_conceallevel  = &conceallevel
 let g:indentLine_concealcursor = &concealcursor
