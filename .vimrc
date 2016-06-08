@@ -50,6 +50,9 @@ set colorcolumn=+1
 " https://gist.github.com/XVilka/8346728
 if !has('gui_running') && has('termguicolors')
     set termguicolors
+    " ^[ is real eascape (<C-v><Esc>)
+    set t_8f=[38;2;%lu;%lu;%lum
+    set t_8b=[48;2;%lu;%lu;%lum
 endif
 
 " MacVim
