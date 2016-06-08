@@ -46,8 +46,8 @@ set conceallevel=2
 set textwidth=80
 set colorcolumn=+1
 
-" True colors in terminal!
-" https://gist.github.com/XVilka/8346728
+" True colors in terminal! (Vim 7.4.1770+)
+" Refer to `:help xterm-true-color`
 if !has('gui_running') && has('termguicolors')
     set termguicolors
     " ^[ is real eascape (<C-v><Esc>)
