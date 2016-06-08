@@ -59,8 +59,8 @@ endif
 " Quit after last window closes:
 " defaults write org.vim.MacVim MMLastWindowClosedBehavior 2
 if has('gui_macvim')
-    set guifont=Menlo\ for\ Powerline:h14
-    set linespace=2
+    set guifont=Fantasque_Sans_Mono:h16,Menlo:h14
+    set linespace=3
     set guioptions-=L
 
     " Use Gureum IM if not work properly
@@ -200,13 +200,8 @@ call plug#end()
 
 " colorscheme
 try
-    if has('gui_macvim')
-        colorscheme cake16
-        let g:indentLine_color_gui = '#dbd1bb'
-    else
-        colorscheme iceberg
-        let g:indentLine_color_gui = '#444b71'
-    endif
+    colorscheme iceberg
+    let g:indentLine_color_gui = '#444b71'
 catch 'Cannot find color scheme'
     colorscheme default
 endtry
