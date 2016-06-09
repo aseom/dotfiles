@@ -467,13 +467,13 @@
 			<key>Selection Color</key>
 			<dict>
 				<key>Blue Component</key>
-				<real>0.12941176470588237</real>
+				<real>0.44313725490196076</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.094117647058823528</real>
+				<real>0.29411764705882354</real>
 				<key>Red Component</key>
-				<real>0.086274509803921567</real>
+				<real>0.26666666666666666</real>
 			</dict>
 		</dict>
 		<key>papercolor-light</key>
@@ -742,7 +742,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>155 473 592 584 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>285 104 1050 787 0 0 1920 1057 </string>
+	<string>255 121 1050 787 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>398 339 970 635 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1386,13 +1386,13 @@
 			<key>Selection Color</key>
 			<dict>
 				<key>Blue Component</key>
-				<real>0.12941176470588237</real>
+				<real>0.44313725490196076</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.094117647058823528</real>
+				<real>0.29411764705882354</real>
 				<key>Red Component</key>
-				<real>0.086274509803921567</real>
+				<real>0.26666666666666666</real>
 			</dict>
 			<key>Send Code When Idle</key>
 			<false/>
