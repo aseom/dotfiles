@@ -26,6 +26,7 @@ chpass -s $(which zsh)
 ###### Vim
 ```Shell
 brew install vim --with-lua  # neocomplete requires lua
+brew cask install macvim     # or install MacVim
 vim +PlugInstall +qa
 
 # Plugin reqirements
