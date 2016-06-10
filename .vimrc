@@ -199,8 +199,11 @@ call plug#end()
 
 " colorscheme
 try
-    colorscheme iceberg
-    let g:indentLine_color_gui = '#444b71'
+    if has('gui_running')
+        colorscheme cake16
+    else
+        colorscheme iceberg
+    endif
 catch 'Cannot find color scheme'
     colorscheme default
 endtry
@@ -275,6 +278,8 @@ endfunction
 autocmd BufReadPost * call <SID>fugitive_resolve_symlink()
 
 " indentLine
+let g:indentLine_color_gui =
+    \ g:colors_name == 'cake16' ? '#dbd1bb' : '#444b71'
 " https://github.com/Yggdroot/indentLine/issues/109
 let g:indentLine_conceallevel  = &conceallevel
 let g:indentLine_concealcursor = &concealcursor
