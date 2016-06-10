@@ -21,8 +21,6 @@ set title         " Show window title
 set number        " Show line numbers
 set cursorline    " Highlight current line
 set laststatus=2  " Always show status bar
-set ruler         " Show scroll percentage
-set noshowmode
 set showcmd
 
 " Indent
@@ -45,6 +43,25 @@ set conceallevel=2
 " 80 column ruler
 set textwidth=80
 set colorcolumn=+1
+
+" Statusline
+function! S_fugitive()
+    let branch = exists('*fugitive#head') ? fugitive#head() : ''
+    return branch != '' ? "\ue0a0 ".branch." \ue0b1 " : ''
+endfunction
+function! MyStatusLine()
+    " Left
+    let git   = '%{S_fugitive()}'
+    let file  = '%n: %f '
+    let modif = '%{&modified ? "*" : ""}'
+    let ro    = '%{&readonly ? "\ue0a2" : ""}'
+    " Right
+    let ftype = '%{&filetype != ""   ? "\ue0b3 ".&filetype." "   : ""}'
+    let eol   = '%{&fileformat != "" ? "\ue0b3 ".&fileformat." " : ""}'
+    let lines = "\ue0b3 %L lines"
+    return ' '.git.file.modif.ro.'%='.ftype.eol.lines.' %<'
+endfunction
+set statusline=%!MyStatusLine()
 
 " True colors in terminal! (Vim 7.4.1770+)
 " Refer to `:help xterm-true-color`
@@ -164,7 +181,6 @@ call plug#begin('~/.vim/bundle')
 
 Plug 'zefei/cake16'
 Plug 'cocopon/iceberg.vim'
-Plug 'itchyny/lightline.vim'
 Plug 'Shougo/neocomplete.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
@@ -207,42 +223,6 @@ try
 catch 'Cannot find color scheme'
     colorscheme default
 endtry
-
-" lightline
-let g:lightline = {
-    \   'colorscheme': 'wombat',
-    \   'active': {
-    \     'left':  [['mode'], ['filename']],
-    \     'right': [['lineinfo'], ['percent'], ['fileinfo']]
-    \   },
-    \   'component_function': {
-    \     'filename': 'LightlineFilename',
-    \     'fileinfo': 'LightlineFileinfo'
-    \   },
-    \   'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }
-    \ }
-
-function! LightlineFilename()
-    let filename = ''
-    if exists('*fugitive#head')
-        let branch = fugitive#head()
-        let filename .= branch != '' ? "\ue0a0 ".branch." \ue0b1 " : ''
-    endif
-    let filename .= &readonly ? "\ue0a2 \ue0b1 " : ''
-    let filename .= expand('%:t') != '' ? expand('%:t') : '[No Name]'
-    let filename .= &modified ? ' *' : ''
-    return filename
-endfunction
-
-function! LightlineFileinfo()
-    let fileinfo = ''
-    if winwidth(0) > 70
-        let fileinfo .= &filetype
-        let fileinfo .= &fileformat != ''   ? " \ue0b3 ".&fileformat   : ''
-        let fileinfo .= &fileencoding != '' ? " \ue0b3 ".&fileencoding : ''
-    endif
-    return fileinfo
-endfunction
 
 " neocomplete
 set completeopt=menuone  " Popup even one item, no preview
