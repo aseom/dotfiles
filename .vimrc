@@ -45,7 +45,7 @@ set textwidth=80
 set colorcolumn=+1
 
 " Statusline
-function! S_git()
+function! StatusLineGit()
     let branch = exists('*fugitive#head') ? fugitive#head() : ''
     if empty(branch) | return '' | endif
     let val = 'Git('.branch.')'
@@ -56,17 +56,15 @@ function! S_git()
     return val.' / '
 endfunction
 function! MyStatusLine()
-    " Left
-    let mode  = mode() == 'i' ? '%#DiffChange# INSERT %*' : ''
-    let file  = '%n: %f '
-    let modif = '%{&modified ? "*" : ""}'
-    let ro    = '%r'
-    " Right
-    let git   = '%{S_git()}'
-    let ftype = '%{&filetype != ""   ? &filetype." / "   : ""}'
-    let eol   = '%{&fileformat != "" ? &fileformat." / " : ""}'
-    let lines = '%L lines'
-    return mode.' '.file.modif.ro.'%='.git.ftype.eol.lines.' %<'
+    let mode = mode() == 'i' ? '%#DiffChange# INSERT %*' : ''
+    let left = '%n: %f %{&modified ? "*" : ""}%r'
+    let right = [
+        \   '%{StatusLineGit()}',
+        \   '%{&filetype != ""   ? &filetype." / "   : ""}',
+        \   '%{&fileformat != "" ? &fileformat." / " : ""}',
+        \   '%L lines'
+        \ ]
+    return mode.' '.left.'%='.join(right, '').' %<'
 endfunction
 set statusline=%!MyStatusLine()
 
