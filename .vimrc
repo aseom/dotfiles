@@ -45,21 +45,28 @@ set textwidth=80
 set colorcolumn=+1
 
 " Statusline
-function! S_fugitive()
+function! S_git()
     let branch = exists('*fugitive#head') ? fugitive#head() : ''
-    return branch != '' ? '│ Git('.branch.") " : ''
+    if empty(branch) | return '' | endif
+    let val = 'Git('.branch.')'
+    if !empty(GitGutterGetHunks())
+        let sum = GitGutterGetHunkSummary()
+        let val .= ' +'.sum[0].' ~'.sum[1].' -'.sum[2]
+    endif
+    return val.' / '
 endfunction
 function! MyStatusLine()
     " Left
+    let mode  = mode() == 'i' ? '%#DiffChange# INSERT %*' : ''
     let file  = '%n: %f '
     let modif = '%{&modified ? "*" : ""}'
     let ro    = '%r'
     " Right
-    let git   = '%{S_fugitive()}'
-    let ftype = '%{&filetype != ""   ? "│ ".&filetype." "   : ""}'
-    let eol   = '%{&fileformat != "" ? "│ ".&fileformat." " : ""}'
-    let lines = "│ %L lines"
-    return ' '.file.modif.ro.'%='.git.ftype.eol.lines.' %<'
+    let git   = '%{S_git()}'
+    let ftype = '%{&filetype != ""   ? &filetype." / "   : ""}'
+    let eol   = '%{&fileformat != "" ? &fileformat." / " : ""}'
+    let lines = '%L lines'
+    return mode.' '.file.modif.ro.'%='.git.ftype.eol.lines.' %<'
 endfunction
 set statusline=%!MyStatusLine()
 
@@ -102,6 +109,7 @@ autocmd WinEnter * if winnr('$') == 1 && &ft == 'nerdtree' | q | endif
 
 let mapleader = ','
 nnoremap ; :
+vnoremap ; :
 
 " If autocompletion popup visable, <Tab> to select next item
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -136,12 +144,9 @@ nnoremap <C-z>      u
 inoremap <C-z> <C-o>u
 nnoremap <C-y>      <C-r>
 inoremap <C-y> <C-o><C-r>
-nnoremap <C-v>      p
-inoremap <C-v> <C-o>p
-
-" Keep clipboard when pasting
-vnoremap p     "0dP
-vnoremap <C-v> "0dP
+nnoremap <C-v> p
+vnoremap <C-v> p
+inoremap <C-v> <C-r>"
 
 " Easy indent
 nnoremap <Tab>   >>
@@ -243,7 +248,6 @@ let NERDTreeChDirMode = 2  " Auto change CWD
 "let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_loc_list_height = 5
-let g:syntastic_stl_format = "Syntax:%F (%t)"
 let g:syntastic_javascript_checkers = ['eslint']
 
 " fugitive
