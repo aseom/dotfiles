@@ -47,19 +47,19 @@ set colorcolumn=+1
 " Statusline
 function! S_fugitive()
     let branch = exists('*fugitive#head') ? fugitive#head() : ''
-    return branch != '' ? "\ue0a0 ".branch." \ue0b1 " : ''
+    return branch != '' ? '│ Git('.branch.") " : ''
 endfunction
 function! MyStatusLine()
     " Left
-    let git   = '%{S_fugitive()}'
     let file  = '%n: %f '
     let modif = '%{&modified ? "*" : ""}'
-    let ro    = '%{&readonly ? "\ue0a2" : ""}'
+    let ro    = '%r'
     " Right
-    let ftype = '%{&filetype != ""   ? "\ue0b3 ".&filetype." "   : ""}'
-    let eol   = '%{&fileformat != "" ? "\ue0b3 ".&fileformat." " : ""}'
-    let lines = "\ue0b3 %L lines"
-    return ' '.git.file.modif.ro.'%='.ftype.eol.lines.' %<'
+    let git   = '%{S_fugitive()}'
+    let ftype = '%{&filetype != ""   ? "│ ".&filetype." "   : ""}'
+    let eol   = '%{&fileformat != "" ? "│ ".&fileformat." " : ""}'
+    let lines = "│ %L lines"
+    return ' '.file.modif.ro.'%='.git.ftype.eol.lines.' %<'
 endfunction
 set statusline=%!MyStatusLine()
 
@@ -75,7 +75,7 @@ endif
 " Quit after last window closes:
 " defaults write org.vim.MacVim MMLastWindowClosedBehavior 2
 if has('gui_macvim')
-    set guifont=Fantasque_Sans_Mono:h16,Menlo:h14
+    set guifont=Menlo:h14
     set linespace=3
     set guioptions-=L
 
