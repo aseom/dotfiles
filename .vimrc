@@ -21,6 +21,7 @@ set title         " Show window title
 set number        " Show line numbers
 set cursorline    " Highlight current line
 set laststatus=2  " Always show status bar
+set noshowmode
 set showcmd
 
 " Indent
@@ -45,36 +46,41 @@ set textwidth=80
 set colorcolumn=+1
 
 " Statusline
+function! MyStatusLine()
+    let left = [
+        \   '%#DiffChange#%{StatusLineMode()}%* ',
+        \   '%n: %f %r%{&modified ? "*" : ""}'
+        \ ]
+    let right = [
+        \   '%{StatusLineGit()}',
+        \   '%{&filetype != ""   ? &filetype." / "   : ""}',
+        \   '%{&fileformat != "" ? &fileformat." / " : ""}',
+        \   '%L lines '
+        \ ]
+    return join(left, '').'%='.join(right, '').'%<'
+endfunction
+set statusline=%!MyStatusLine()
+
+function! StatusLineMode()
+    let mode_map = {
+        \   'i': 'INSERT', 'R': 'REPLACE',
+        \   'v': 'VISUAL', 'V': 'V-LINE', "\<C-v>": 'V-BLOCK',
+        \   's': 'SELECT', 'S': 'S-LINE', "\<C-s>": 'S-BLOCK'
+        \ }
+    let mode_name = get(mode_map, mode(), '')
+    return mode_name != '' ? '  '.mode_name.' ' : ''
+endfunction
+
 function! StatusLineGit()
     let branch = exists('*fugitive#head') ? fugitive#head() : ''
     if empty(branch) | return '' | endif
     let val = 'Git('.branch.')'
     if !empty(GitGutterGetHunks())
         let sum = GitGutterGetHunkSummary()
-        let val .= ' +'.sum[0].' ~'.sum[1].' -'.sum[2]
+        let val .= printf(' +%d ~%d -%d', sum[0], sum[1], sum[2])
     endif
     return val.' / '
 endfunction
-function! MyStatusLine()
-    let mode = mode() == 'i' ? '%#DiffChange# INSERT %*' : ''
-    let left = '%n: %f %{&modified ? "*" : ""}%r'
-    let right = [
-        \   '%{StatusLineGit()}',
-        \   '%{&filetype != ""   ? &filetype." / "   : ""}',
-        \   '%{&fileformat != "" ? &fileformat." / " : ""}',
-        \   '%L lines'
-        \ ]
-    return mode.' '.left.'%='.join(right, '').' %<'
-endfunction
-set statusline=%!MyStatusLine()
-
-" True colors in terminal! (Vim 7.4.1770+)
-" Refer to `:help xterm-true-color`
-if !has('gui_running') && has('termguicolors')
-    set termguicolors
-    let &t_8f = "\e[38;2;%lu;%lu;%lum"
-    let &t_8b = "\e[48;2;%lu;%lu;%lum"
-endif
 
 " MacVim
 " Quit after last window closes:
@@ -90,12 +96,13 @@ if has('gui_macvim')
     set imsearch=-1
 endif
 
-" NERDTree + Startify
-autocmd VimEnter * if !argc() &&
-    \ exists(':Startify') && exists(':NERDTree') | Startify | NERDTree | endif
-
-" Quit vim if NERDTree is only window
-autocmd WinEnter * if winnr('$') == 1 && &ft == 'nerdtree' | q | endif
+" True colors in terminal! (Vim 7.4.1770+)
+" Refer to `:help xterm-true-color`
+if !has('gui_running') && has('termguicolors')
+    set termguicolors
+    let &t_8f = "\e[38;2;%lu;%lu;%lum"
+    let &t_8b = "\e[48;2;%lu;%lu;%lum"
+endif
 
 " }}}
 
@@ -240,6 +247,13 @@ let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore = ['^\.DS_Store$', '^\.Trash$', '\.swp$']
 let NERDTreeChDirMode = 2  " Auto change CWD
+
+" Quit vim if NERDTree is only window
+autocmd WinEnter * if winnr('$') == 1 && &ft == 'nerdtree' | q | endif
+
+" NERDTree + Startify
+autocmd VimEnter * if !argc() &&
+    \ exists(':Startify') && exists(':NERDTree') | Startify | NERDTree | endif
 
 " syntastic
 "let g:syntastic_always_populate_loc_list = 1
