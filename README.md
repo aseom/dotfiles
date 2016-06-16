@@ -33,3 +33,7 @@ vim +PlugInstall +qa
 cd ~/.vim/bundle/tern_for_vim && npm install
 pip install grip  # vim-markdown-preview
 ```
+
+### See also
+
+###### [Bookmarks & Cheatsheet](https://github.com/aseom/dotfiles/wiki)
