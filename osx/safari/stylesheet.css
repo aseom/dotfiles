@@ -7,6 +7,9 @@
     font-size: 13px !important;
 }
 
+/* Opentutorials */
+#module_index #comment { display: none; }
+
 /* Clien */
 #wrap .board_main td {
     padding: 6px 0 5px 0 !important;
