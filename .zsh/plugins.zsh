@@ -12,7 +12,7 @@ fi
 export PATH="$PATH:$fzf/bin"
 load_plugin "$fzf/shell"  # Load `*.zsh`
 
-export FZF_DEFAULT_OPTS="--color=light,bg+:254"
+#export FZF_DEFAULT_OPTS="--color=light,bg+:254"
 export FZF_COMPLETION_TRIGGER="\`"  # cd `<TAB>
 
 
