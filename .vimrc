@@ -73,7 +73,9 @@ endfunction
 
 function! StatusLineGit()
     let branch = exists('*fugitive#head') ? fugitive#head() : ''
-    if empty(branch) | return '' | endif
+    if empty(branch)
+        return ''
+    endif
     let val = 'Git('.branch.')'
     if !empty(GitGutterGetHunks())
         let sum = GitGutterGetHunkSummary()
