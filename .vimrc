@@ -92,9 +92,9 @@ if has('gui_macvim')
     set linespace=3
     set guioptions-=L
 
-    " Use Gureum IM if not work properly
-    set noimdisable  " Auto change input source to english
-    set iminsert=1   " Don't change when insert enter
+    " If it is not work properly, use Gureum IM.
+    set noimdisable  " Auto change input source to english when escaping.
+    set iminsert=1   " Don't change input source when entering insert mode.
     set imsearch=-1
 endif
 
@@ -118,7 +118,7 @@ let mapleader = ','
 nnoremap ; :
 vnoremap ; :
 
-" If autocompletion popup visable, <Tab> to select next item
+" If autocompletion popup visable, use <Tab> to select next item
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <CR>    pumvisible() ? "\<C-y>" : "\<CR>"
@@ -175,8 +175,10 @@ function! s:on_fugitive()
 endfunction
 autocmd User Fugitive call s:on_fugitive()
 
-" Open iTerm in current directory
 if has('mac')
+    " Dictionary.app
+    nnoremap <Leader><Leader> :silent !open dict://<cword><CR>
+    " Open iTerm in current directory
     nnoremap <C-k> :silent !open -a iTerm .<CR>
 endif
 
@@ -192,6 +194,7 @@ call plug#begin('~/.vim/bundle')
 " PlugClean:   Remove unused directories
 
 Plug 'zefei/cake16'
+Plug 'aseom/snowcake16'
 Plug 'cocopon/iceberg.vim'
 Plug 'Shougo/neocomplete.vim'
 Plug 'scrooloose/nerdtree'
@@ -228,7 +231,7 @@ call plug#end()
 " colorscheme
 try
     if has('gui_running')
-        colorscheme cake16
+        colorscheme snowcake16
     else
         colorscheme iceberg
     endif
@@ -277,7 +280,7 @@ autocmd BufReadPost * call <SID>fugitive_resolve_symlink()
 
 " indentLine
 let g:indentLine_color_gui =
-    \ g:colors_name == 'cake16' ? '#dbd1bb' : '#444b71'
+    \ g:colors_name == 'iceberg' ? '#444b71' : '#dddddd'
 " https://github.com/Yggdroot/indentLine/issues/109
 let g:indentLine_conceallevel  = &conceallevel
 let g:indentLine_concealcursor = &concealcursor
