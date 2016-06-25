@@ -88,8 +88,7 @@ endfunction
 " Quit after last window closes:
 " defaults write org.vim.MacVim MMLastWindowClosedBehavior 2
 if has('gui_macvim')
-    set guifont=Menlo:h14
-    set linespace=3
+    set guifont=D2Coding:h16
     set guioptions-=L
 
     " If it is not work properly, use Gureum IM.
