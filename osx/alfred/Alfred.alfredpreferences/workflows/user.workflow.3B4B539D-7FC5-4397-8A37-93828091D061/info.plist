@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.scryner.daumalldic</string>
+	<key>connections</key>
+	<dict>
+		<key>2BF51F11-08D4-4291-8B4C-34CAB70367E9</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>AE61582A-D38E-4CDD-BD0D-77EEF9A02A55</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>2FB68152-9D2A-4298-BC84-17535F970AFC</string>
+				<key>modifiers</key>
+				<integer>262144</integer>
+				<key>modifiersubtext</key>
+				<string>Copy to clipboard</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>9F5C3661-27CB-4471-82FF-DF921A887622</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Open in Dictionary app</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>scryner</string>
+	<key>description</key>
+	<string>다음 어학 사전에서 단어를 검색합니다.  (v0.1)</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>다음 어학 사전</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string>+</string>
+				<key>url</key>
+				<string>http://alldic.daum.net/search.do?q={query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>AE61582A-D38E-4CDD-BD0D-77EEF9A02A55</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string></string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>2FB68152-9D2A-4298-BC84-17535F970AFC</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>9</integer>
+				<key>keyword</key>
+				<string>dd</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string># -*- coding:utf-8 -*-
+
+import urllib
+import json
+import unicodedata
+
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
+dictType = {
+        'kokk': u'국어',
+        'kuhh': u'한자',
+        'kuek': u'영한',
+        'kujk': u'일한',
+        'kock': u'중한',
+}
+
+ico = {
+        'kokk': 'ico_kokk.png',
+        'kuhh': 'ico_kuhh.png',
+        'kuek': 'ico_kuek.png',
+        'kujk': 'ico_kujk.png',
+        'kock': 'ico_kock.png',
+}
+
+elems = []
+i = 0
+
+def fillContents(obj, field):
+    global i
+    global elem
+
+    for item in obj[field]:
+        contents = item.split('|', 3)
+
+        if len(contents) &lt; 3:
+            continue
+
+        contentType = contents[0]
+        try:
+            contentName = dictType[contentType]
+            contentIco = ico[contentType]
+        except:
+            continue
+
+        word = contents[1]
+        meaning = contents[2]
+
+        if meaning == '':
+            content = u'%s' % word
+        else:
+            content = u'%s: %s' %(word, meaning)
+
+        s = u'&lt;item uid="dd_%d" arg="%s"&gt;&lt;title&gt;%s&lt;/title&gt;&lt;subtitle&gt;다음 %s 사전에서 &amp;quot;%s&amp;quot; 검색&lt;/subtitle&gt;&lt;icon&gt;%s&lt;/icon&gt;&lt;/item&gt;' % (i, word, content, contentName, word, contentIco)
+        elems.append(s)
+        i += 1
+
+
+# script start
+q = u'{query}'
+q2 = unicodedata.normalize('NFC', q)
+q3 = urllib.quote(q2.encode('utf-8'))
+
+unparsed = urllib.urlopen(u'http://sug.dic.daum.net/dic_all_ctsuggest?mod=json&amp;code=utf_in_out&amp;enc=utf&amp;cate=lan&amp;q=%s' % q3).read()
+
+obj = json.loads(unparsed)
+
+fillContents(obj, "items")
+fillContents(obj, "r_items")
+
+print "&lt;items&gt;"
+
+for elem in elems:
+    print elem
+
+print "&lt;/items&gt;"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>다음 어학 사전에서 단어를 검색합니다.</string>
+				<key>title</key>
+				<string>다음 어학 사전</string>
+				<key>type</key>
+				<integer>3</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>2BF51F11-08D4-4291-8B4C-34CAB70367E9</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>dict://{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>9F5C3661-27CB-4471-82FF-DF921A887622</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>2BF51F11-08D4-4291-8B4C-34CAB70367E9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>140</real>
+		</dict>
+		<key>2FB68152-9D2A-4298-BC84-17535F970AFC</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<real>140</real>
+		</dict>
+		<key>9F5C3661-27CB-4471-82FF-DF921A887622</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>290</real>
+		</dict>
+		<key>AE61582A-D38E-4CDD-BD0D-77EEF9A02A55</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>github.com/scryner</string>
+</dict>
+</plist>
