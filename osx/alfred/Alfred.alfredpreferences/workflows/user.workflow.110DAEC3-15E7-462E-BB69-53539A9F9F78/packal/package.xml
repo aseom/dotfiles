@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<workflow>
+  <name>Open Folder in iTerm</name>
+  <version>1.01</version>
+  <bundle>com.nicknish.openiniterm</bundle>
+  <updated>1463724613</updated>
+  <file>open_folder_in_iterm.alfredworkflow</file>
+</workflow>

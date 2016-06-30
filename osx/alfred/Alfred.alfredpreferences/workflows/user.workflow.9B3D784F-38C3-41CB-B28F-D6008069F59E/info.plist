@@ -26,11 +26,11 @@
 				<key>argument</key>
 				<integer>1</integer>
 				<key>hotkey</key>
-				<integer>39</integer>
+				<integer>111</integer>
 				<key>hotmod</key>
-				<integer>1048576</integer>
+				<integer>9437184</integer>
 				<key>hotstring</key>
-				<string>'</string>
+				<string>F12</string>
 				<key>leftcursor</key>
 				<true/>
 				<key>modsmode</key>
