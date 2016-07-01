@@ -229,10 +229,10 @@ call plug#end()
 
 " colorscheme
 try
-    if has('gui_running')
+    if has('gui_running') || &termguicolors
         colorscheme snowcake16
     else
-        colorscheme iceberg
+        colorscheme default
     endif
 catch 'Cannot find color scheme'
     colorscheme default
