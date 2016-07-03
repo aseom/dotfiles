@@ -12,7 +12,7 @@ set nofoldenable        " `zc` to fold
 set clipboard+=unnamed  " Use clipboard register '*' by default
 set splitright          " Split to right when `:vs`
 set splitbelow          " Split to below when `:sp`
-set scrolloff=3
+set scrolloff=1
 set diffopt+=vertical
 set wildmenu
 

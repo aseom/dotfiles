@@ -4,8 +4,6 @@
 <dict>
 	<key>bundleid</key>
 	<string></string>
-	<key>category</key>
-	<string>Templates</string>
 	<key>connections</key>
 	<dict/>
 	<key>createdby</key>
@@ -15,7 +13,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Show Alfred with selected text</string>
+	<string>Show Alfred</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -26,11 +24,11 @@
 				<key>argument</key>
 				<integer>1</integer>
 				<key>hotkey</key>
-				<integer>111</integer>
+				<integer>39</integer>
 				<key>hotmod</key>
-				<integer>9437184</integer>
+				<integer>1048576</integer>
 				<key>hotstring</key>
-				<string>F12</string>
+				<string>'</string>
 				<key>leftcursor</key>
 				<true/>
 				<key>modsmode</key>
@@ -45,6 +43,60 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>1</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>hotkey</key>
+				<integer>36</integer>
+				<key>hotmod</key>
+				<integer>262144</integer>
+				<key>hotstring</key>
+				<string>↩</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>97ABE361-CC4F-4FBB-BB45-D95968BDA41F</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>1</integer>
+				<key>argument</key>
+				<integer>1</integer>
+				<key>hotkey</key>
+				<integer>39</integer>
+				<key>hotmod</key>
+				<integer>262144</integer>
+				<key>hotstring</key>
+				<string>'</string>
+				<key>leftcursor</key>
+				<true/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>8E83141A-DE24-41FA-A79B-ECDE217A2381</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -52,6 +104,29 @@
 	<dict>
 		<key>4ACEF39F-2AEA-4F39-88CD-407D2D024B8F</key>
 		<dict>
+			<key>colorindex</key>
+			<integer>4</integer>
+			<key>xpos</key>
+			<integer>200</integer>
+			<key>ypos</key>
+			<integer>50</integer>
+		</dict>
+		<key>8E83141A-DE24-41FA-A79B-ECDE217A2381</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>4</integer>
+			<key>xpos</key>
+			<integer>200</integer>
+			<key>ypos</key>
+			<integer>150</integer>
+		</dict>
+		<key>97ABE361-CC4F-4FBB-BB45-D95968BDA41F</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>2</integer>
+			<key>note</key>
+			<string>Equivalent of
+&lt;Cmd-Return&gt; global hotkey for iTerm and MacVim</string>
 			<key>xpos</key>
 			<integer>50</integer>
 			<key>ypos</key>
