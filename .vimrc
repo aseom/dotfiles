@@ -133,7 +133,7 @@ vnoremap > >gv
 vnoremap < <gv
 
 " Clear search highlight
-nnoremap <silent> <ESC> :let @/ = ''<CR>
+nnoremap <silent> <BS> :let @/ = ''<CR>
 
 " If autocompletion popup visable, use <Tab> to select next item
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
