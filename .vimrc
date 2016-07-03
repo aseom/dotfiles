@@ -43,12 +43,12 @@ set conceallevel=2
 
 " 80 column ruler
 set textwidth=80
-set colorcolumn=+1
+"set colorcolumn=+1
 
 " Statusline
 function! MyStatusLine()
     let left = [
-        \   '%#DiffChange#%{StatusLineMode()}%* ',
+        \   '%#DiffAdd#%{StatusLineMode()}%* ',
         \   '%n: %f %r%{&modified ? "*" : ""}'
         \ ]
     let right = [
@@ -117,20 +117,28 @@ let mapleader = ','
 nnoremap ; :
 vnoremap ; :
 
+nnoremap <silent> <C-s>      :update<CR>
+inoremap <silent> <C-s> <C-o>:update<CR>
+nnoremap <silent> q :confirm q<CR>
+nnoremap <silent> Q :confirm q<CR>
+
+nnoremap <silent> <C-h> :bprevious<CR>
+nnoremap <silent> <C-l> :bnext<CR>
+nnoremap <silent> <C-j> :Startify<CR>
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
+
+nnoremap <Tab>   >>
+nnoremap <S-Tab> <<
+vnoremap > >gv
+vnoremap < <gv
+
+" Clear search highlight
+nnoremap <silent> <ESC> :let @/ = ''<CR>
+
 " If autocompletion popup visable, use <Tab> to select next item
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <CR>    pumvisible() ? "\<C-y>" : "\<CR>"
-
-" Save, quit
-nnoremap <silent> <C-s>      :update<CR>
-inoremap <silent> <C-s> <ESC>:update<CR>
-nnoremap <silent> q :confirm q<CR>
-nnoremap <silent> Q :confirm q<CR>
-
-" Use buffer instead of tab
-nnoremap <silent> H :bNext<CR>
-nnoremap <silent> L :bprevious<CR>
 
 " Delete buffer without closing window
 function! s:delete_buffer()
@@ -138,33 +146,11 @@ function! s:delete_buffer()
     " Find all windows that show current buffer (%: curr, #: prev, $: last)
     for winnum in filter(range(1, winnr('$')), 'winbufnr(v:val) == bufnr("%")')
         execute winnum.'wincmd w'
-        execute buflisted(bufnr('#')) ? 'buffer #' : 'enew'
+        bprevious
     endfor
     silent! bdelete #  " Ignore 'No buffer were deleted'
 endfunction
 nnoremap <silent> <C-c> :call <SID>delete_buffer()<CR>
-
-" Undo, redo, paste
-" Use `[p` to paste and adjust indent
-nnoremap <C-z>      u
-inoremap <C-z> <C-o>u
-nnoremap <C-y>      <C-r>
-inoremap <C-y> <C-o><C-r>
-nnoremap <C-v> p
-vnoremap <C-v> p
-inoremap <C-v> <C-r>"
-
-" Easy indent
-nnoremap <Tab>   >>
-nnoremap <S-Tab> <<
-vnoremap > >gv
-vnoremap < <gv
-
-" Clear search highlight
-nnoremap <silent> <C-l> :let @/ = ''<CR>
-
-" Open NERDTree
-nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 
 " Fugitive
 function! s:on_fugitive()
@@ -174,10 +160,8 @@ function! s:on_fugitive()
 endfunction
 autocmd User Fugitive call s:on_fugitive()
 
+" OS X
 if has('mac')
-    " Dictionary.app
-    nnoremap <Leader><Leader> :silent !open dict://<cword><CR>
-    " Open iTerm in current directory
     nnoremap <C-k> :silent !open -a iTerm .<CR>
 endif
 
@@ -229,11 +213,7 @@ call plug#end()
 
 " colorscheme
 try
-    if has('gui_running') || &termguicolors
-        colorscheme snowcake16
-    else
-        colorscheme default
-    endif
+    colorscheme snowcake16
 catch 'Cannot find color scheme'
     colorscheme default
 endtry
@@ -251,13 +231,9 @@ let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore = ['^\.DS_Store$', '^\.Trash$', '\.swp$']
 let NERDTreeChDirMode = 2  " Auto change CWD
-
+let NERDTreeAutoDeleteBuffer = 1
 " Quit vim if NERDTree is only window
 autocmd WinEnter * if winnr('$') == 1 && &ft == 'nerdtree' | q | endif
-
-" NERDTree + Startify
-autocmd VimEnter * if !argc() &&
-    \ exists(':Startify') && exists(':NERDTree') | Startify | NERDTree | endif
 
 " syntastic
 "let g:syntastic_always_populate_loc_list = 1
@@ -278,14 +254,12 @@ endfunction
 autocmd BufReadPost * call <SID>fugitive_resolve_symlink()
 
 " indentLine
-let g:indentLine_color_gui =
-    \ g:colors_name == 'iceberg' ? '#444b71' : '#dddddd'
+let g:indentLine_color_gui = 'Gray90'
 " https://github.com/Yggdroot/indentLine/issues/109
 let g:indentLine_conceallevel  = &conceallevel
 let g:indentLine_concealcursor = &concealcursor
 
 " buftabline
-let g:buftabline_show = 1  " if at least two buffers
 let g:buftabline_numbers = 2
 let g:buftabline_indicators = 1
 
