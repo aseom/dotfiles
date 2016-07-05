@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>Daum multi dictionary</name>
-  <version>0.1</version>
-  <bundle>com.scryner.daumultidic</bundle>
-  <updated>1464157281</updated>
-  <file>daeum_eohag_sajeon.alfredworkflow</file>
-</workflow>
