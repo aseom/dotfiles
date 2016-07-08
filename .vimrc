@@ -186,40 +186,32 @@ call plug#begin('~/.vim/bundle')
 " PlugUpgrade: Upgrade vim-plug itself
 " PlugClean:   Remove unused directories
 
-Plug 'zefei/cake16'
+"Plug 'zefei/cake16'
+"Plug 'cocopon/iceberg.vim'
 Plug 'aseom/snowcake16'
-Plug 'cocopon/iceberg.vim'
-Plug 'Shougo/neocomplete.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/gv.vim'
+Plug 'aseom/vim-notetaking'
+Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'junegunn/vim-peekaboo'
-Plug 'Yggdroot/indentLine'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/syntastic'
+Plug 'Shougo/neocomplete.vim'
+Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
+Plug 'airblade/vim-gitgutter'
+Plug 'Yggdroot/indentLine'
 Plug 'ap/vim-buftabline'
-Plug 'jiangmiao/auto-pairs'
 
 " Languages
 Plug 'pangloss/vim-javascript'
-Plug 'moll/vim-node',       { 'for': 'javascript' }
-Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
-Plug 'hdima/python-syntax', { 'for': 'python' }
+Plug 'moll/vim-node', { 'for': 'javascript' }
+Plug 'hdima/python-syntax'
 Plug 'keith/swift.vim'
-" vim-markdown depends on tabular
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'JamshedVesuna/vim-markdown-preview', { 'for': 'markdown' }
 Plug 'tmux-plugins/vim-tmux'
 
-" Awesome
-"Plug 'aseom/vim-nodejs-complete', { 'for': 'javascript' }
-Plug 'aseom/vim-notetaking'
-"Plug 'aseom/vim-inputswitch'
-
 " Add plugins to &runtimepath
 call plug#end()
-
 
 " colorscheme
 try
@@ -231,8 +223,6 @@ endtry
 " neocomplete
 set completeopt=menuone  " Popup even one item, no preview
 let g:neocomplete#enable_at_startup = 1
-" Call omni completion [O] for specific pattern matchs
-let g:neocomplete#sources#omni#input_patterns = { 'javascript': '\h\w\+' }
 
 " nerdtree
 let NERDTreeWinSize = 26
@@ -240,7 +230,6 @@ let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore = ['^\.DS_Store$', '^\.Trash$', '\.swp$']
-let NERDTreeChDirMode = 2  " Auto change CWD
 let NERDTreeAutoDeleteBuffer = 1
 " Quit vim if NERDTree is only window
 autocmd WinEnter * if winnr('$') == 1 && &ft == 'nerdtree' | q | endif
@@ -272,6 +261,10 @@ let g:indentLine_concealcursor = &concealcursor
 " buftabline
 let g:buftabline_numbers = 2
 let g:buftabline_indicators = 1
+
+" python-syntax
+let g:python_highlight_all = 1
+let g:python_version_2 = 1
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
