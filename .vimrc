@@ -47,20 +47,27 @@ set textwidth=80
 "set colorcolumn=+1
 
 " Statusline
-function! MyStatusLine()
-    let left = [
-        \   '%#DiffAdd#%{StatusLineMode()}%* ',
-        \   '%n: %f %r%{&modified ? "*" : ""}'
-        \ ]
+function! s:stl_update()
+    let i = 1
+    while i <= winnr('$')
+        call setwinvar(i, '&statusline', StatusLineBuild(i))
+        let i += 1
+    endwhile
+endfunction
+autocmd BufWinEnter,WinEnter * call <SID>stl_update()
+
+function! StatusLineBuild(winnr)
+    let active_winnr = winnr()
+    let mode = a:winnr == active_winnr ? '%#DiffAdd#%{StatusLineMode()}%*' : ''
+    let left  = ['%n: %f %r%{&modified ? "*" : ""}']
     let right = [
         \   '%{StatusLineGit()}',
         \   '%{&filetype != ""   ? &filetype." / "   : ""}',
         \   '%{&fileformat != "" ? &fileformat." / " : ""}',
         \   '%L lines '
         \ ]
-    return join(left, '').'%='.join(right, '').'%<'
+    return mode.' '.join(left, '').'%='.join(right, '').'%<'
 endfunction
-set statusline=%!MyStatusLine()
 
 function! StatusLineMode()
     let mode_map = {
