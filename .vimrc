@@ -35,7 +35,8 @@ autocmd FileType javascript setlocal ts=2 sts=2 sw=2
 " Search
 set incsearch
 set ignorecase
-set hlsearch
+" Don't highlight when reloading vimrc
+if !&hlsearch | set hlsearch | endif
 
 " Conceal
 set concealcursor=
@@ -120,20 +121,23 @@ vnoremap ; :
 nnoremap <silent> <C-s>      :update<CR>
 inoremap <silent> <C-s> <C-o>:update<CR>
 nnoremap <silent> q :confirm q<CR>
-nnoremap <silent> Q :confirm q<CR>
+nnoremap <silent> Q :confirm qa<CR>
 
 nnoremap <silent> <C-h> :bprevious<CR>
 nnoremap <silent> <C-l> :bnext<CR>
 nnoremap <silent> <C-j> :Startify<CR>
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 
-nnoremap <Tab>   >>
-nnoremap <S-Tab> <<
+nnoremap <C-v> *p
+vnoremap <C-v> *p
+inoremap <C-v> <C-r><C-r>*
+cnoremap <C-v> <C-r><C-r>*
+
 vnoremap > >gv
 vnoremap < <gv
 
 " Clear search highlight
-nnoremap <silent> <BS> :let @/ = ''<CR>
+nnoremap <silent> <BS> :nohlsearch<CR>
 
 " If autocompletion popup visable, use <Tab> to select next item
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -155,8 +159,7 @@ nnoremap <silent> <C-c> :call <SID>delete_buffer()<CR>
 " Fugitive
 function! s:on_fugitive()
     nnoremap <buffer> <C-g>  :Gstatus<CR>
-    nnoremap <buffer> <C-g>g :Git<Space>
-    nnoremap <buffer> <C-g>G :Git!<Space>
+    nnoremap <buffer> <C-g>g :Git
 endfunction
 autocmd User Fugitive call s:on_fugitive()
 
