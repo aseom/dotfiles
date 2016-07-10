@@ -1,0 +1,18 @@
+"*":
+  core:
+    disabledPackages: [
+      "exception-reporting"
+      "metrics"
+    ]
+    themes: [
+      "one-light-ui"
+      "piatto-light"
+    ]
+  editor:
+    fontFamily: "Fira Mono"
+    lineHeight: 1.45
+    scrollPastEnd: true
+  "file-icons":
+    coloured: false
+  welcome:
+    showOnStartup: false
