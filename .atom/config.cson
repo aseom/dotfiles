@@ -5,12 +5,10 @@
       "metrics"
     ]
     themes: [
-      "one-light-ui"
-      "piatto-light"
+      "one-dark-ui"
+      "one-dark-vivid-syntax"
     ]
   editor:
-    fontFamily: "Fira Mono"
-    lineHeight: 1.45
     scrollPastEnd: true
   "file-icons":
     coloured: false
