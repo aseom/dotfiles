@@ -9,6 +9,9 @@
       "one-dark-vivid-syntax"
     ]
   editor:
+    fontFamily: "Fira Mono, D2Coding"
+    fontSize: 15
+    lineHeight: 1.4
     scrollPastEnd: true
   "file-icons":
     coloured: false
