@@ -1,16 +1,39 @@
 "*":
   core:
+    customFileTypes:
+      "text.xml.plist": [
+        "plist"
+      ]
     disabledPackages: [
       "metrics"
       "exception-reporting"
+      "background-tips"
+    ]
+    ignoredNames: [
+      "*.pyc"
+      ".dropbox*"
+      ".DS_Store"
+      "Thumbs.db"
     ]
     themes: [
       "one-dark-ui"
       "one-dark-vivid-syntax"
     ]
+  editor:
+    scrollPastEnd: true
+    scrollSensitivity: 20
+    tabType: "soft"
+  "git-plus":
+    wordDiff: false
+  minimap:
+    charHeight: 3
+    displayPluginsControls: false
+    scrollAnimation: true
   "one-dark-ui":
     fontSize: 12
     layoutMode: "Compact"
     tabSizing: "Even"
+  "tree-view":
+    hideIgnoredNames: true
   welcome:
     showOnStartup: false
