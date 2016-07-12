@@ -4,5 +4,13 @@
       "metrics"
       "exception-reporting"
     ]
+    themes: [
+      "one-dark-ui"
+      "one-dark-vivid-syntax"
+    ]
+  "one-dark-ui":
+    fontSize: 12
+    layoutMode: "Compact"
+    tabSizing: "Even"
   welcome:
     showOnStartup: false
