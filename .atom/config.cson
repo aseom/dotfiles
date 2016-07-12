@@ -1,4 +1,8 @@
 "*":
+  "autocomplete-plus":
+    confirmCompletion: "enter"
+    minimumWordLength: 2
+    useCoreMovementCommands: false
   core:
     customFileTypes:
       "text.xml.plist": [
@@ -20,11 +24,19 @@
       "one-dark-vivid-syntax"
     ]
   editor:
+    fontFamily: "Fira Mono, D2Coding"
     scrollPastEnd: true
     scrollSensitivity: 20
     tabType: "soft"
+  "file-icons":
+    coloured: false
   "git-plus":
+    includeStagedDiff: false
     wordDiff: false
+  "git-projects":
+    maxDepth: 1
+    rootPath: "~;~/Dropbox/GitHub"
+    sortBy: "Latest modification date"
   minimap:
     charHeight: 3
     displayPluginsControls: false

@@ -30,3 +30,15 @@
 # If you are unfamiliar with CSON, you can read more about it in the
 # Atom Flight Manual:
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+'atom-workspace':
+  'cmd-t': 'git-projects:toggle'
+  'shift-cmd-t': 'git-projects:toggle-add'
+  'shift-cmd-o': 'link:open'
+
+'atom-text-editor':
+  'cmd-backspace': 'editor:delete-line'
+
+'atom-text-editor.autocomplete-active':
+  'tab': 'autocomplete-plus:move-down'
+  'shift-tab': 'autocomplete-plus:move-up'
