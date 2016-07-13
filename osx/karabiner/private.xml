@@ -18,6 +18,7 @@
         if application "KeyUp" is running then
           tell application "System Events" to tell process "KeyUp"
               click menu bar item 1 of menu bar 2 -- Click menu bar icon
+              tell front window to set size to {557, 240}
           end tell
         else
           activate application "KeyUp"
