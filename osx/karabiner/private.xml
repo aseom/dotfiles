@@ -5,6 +5,10 @@
     <equal>com.googlecode.iterm2</equal>
     <equal>org.vim.MacVim</equal>
   </appdef>
+  <appdef>
+    <appname>ATOM</appname>
+    <equal>com.github.atom</equal>
+  </appdef>
 
   <vkopenurldef>
     <name>KeyCode::VK_OPEN_URL_toggle_keyup</name>
@@ -81,7 +85,7 @@
     </autogen>
     <block>
       <!-- Other App -->
-      <not>TERMINAL</not>
+      <not>TERMINAL, ATOM</not>
       <autogen>
         __HoldingKeyToKey__
         PointingButton::LEFT, ModifierFlag::EXTRA2
@@ -90,6 +94,21 @@
         @end
         @begin
         KeyCode::D, ModifierFlag::COMMAND_L | ModifierFlag::CONTROL_L
+        @end
+        ThresholdMillisecond::RawValue::300
+      </autogen>
+    </block>
+    <block>
+      <!-- Atom Only -->
+      <only>ATOM</only>
+      <autogen>
+        __HoldingKeyToKey__
+        PointingButton::LEFT, ModifierFlag::EXTRA2
+        @begin
+        PointingButton::LEFT, ModifierFlag::COMMAND_L
+        @end
+        @begin
+        PointingButton::LEFT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
         @end
         ThresholdMillisecond::RawValue::300
       </autogen>
