@@ -1,8 +1,11 @@
 "*":
+  "atom-terminal":
+    app: "iTerm.app"
+    surpressDirectoryArgument: false
   "autocomplete-plus":
-    confirmCompletion: "enter"
     minimumWordLength: 2
-    useCoreMovementCommands: false
+  "autocomplete-python":
+    triggerCompletionRegex: "([a-zA-Z_][a-zA-Z0-9_]+)"
   core:
     customFileTypes:
       "text.xml.plist": [
@@ -24,22 +27,18 @@
       "one-dark-vivid-syntax"
     ]
   editor:
-    fontFamily: "Fira Mono, D2Coding"
+    fontFamily: "Fira Mono"
     scrollPastEnd: true
     scrollSensitivity: 20
     tabType: "soft"
   "file-icons":
     coloured: false
-  "git-plus":
-    includeStagedDiff: false
-    wordDiff: false
   "git-projects":
     maxDepth: 1
     rootPath: "~;~/Dropbox/GitHub"
     sortBy: "Latest modification date"
   minimap:
     charHeight: 3
-    displayPluginsControls: false
     scrollAnimation: true
   "one-dark-ui":
     fontSize: 12
