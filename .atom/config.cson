@@ -23,11 +23,11 @@
       "Thumbs.db"
     ]
     themes: [
-      "one-dark-ui"
-      "one-dark-vivid-syntax"
+      "one-light-ui"
+      "one-light-syntax"
     ]
   editor:
-    fontFamily: "Fira Mono"
+    fontFamily: "Input Mono, D2Coding"
     scrollPastEnd: true
     scrollSensitivity: 20
     tabType: "soft"
@@ -41,6 +41,10 @@
     charHeight: 3
     scrollAnimation: true
   "one-dark-ui":
+    fontSize: 12
+    layoutMode: "Compact"
+    tabSizing: "Even"
+  "one-light-ui":
     fontSize: 12
     layoutMode: "Compact"
     tabSizing: "Even"
