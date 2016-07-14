@@ -31,11 +31,10 @@
 
   <item>
     <name>Mouse: XButtonUp, XButtonDown configurations</name>
-    <appendix>XButtonUp, XButtonUp + LeftClick, XButtonUp + CursorMove, XButtonDown</appendix>
-    <appendix>(Configure `Parameters` -> `PointingRelative to Key` -> `Detection interval`)</appendix>
+    <appendix>XButtonUp, XButtonUp + LeftClick, XButtonDown</appendix>
     <identifier>private.mouse_map_XButtonUpDown</identifier>
 
-    <!-- XUp, XUp+LClick, XUp+Cursor -->
+    <!-- XUp, XUp+LClick -->
     <autogen>
       __KeyOverlaidModifier__
       PointingButton::BUTTON5,
@@ -46,14 +45,6 @@
       __KeyToKey__
       PointingButton::LEFT, ModifierFlag::EXTRA1,
       KeyCode::SPACE, ModifierFlag::COMMAND_L
-    </autogen>
-    <autogen>
-      __PointingRelativeToKey__
-      ModifierFlag::EXTRA1,
-      PointingRelative::UP,    KeyCode::CURSOR_UP,
-      PointingRelative::DOWN,  KeyCode::CURSOR_DOWN,
-      PointingRelative::LEFT,  KeyCode::CURSOR_LEFT,
-      PointingRelative::RIGHT, KeyCode::CURSOR_RIGHT
     </autogen>
 
     <!-- XDown -->
@@ -67,7 +58,7 @@
   <item>
     <name>Mouse: LeftButton, RightButton configurations</name>
     <appendix>Simultaneously Left + RightClick,</appendix>
-    <appendix>App-specific Right + LeftClick, Right + Long-LeftClick</appendix>
+    <appendix>Right + LeftClick, Right + Long-LeftClick, Right + CursorMove</appendix>
     <identifier>private.mouse_map_LeftRightButton</identifier>
 
     <!-- L+RClick (Simultaneous) -->
@@ -129,6 +120,17 @@
         ThresholdMillisecond::RawValue::300
       </autogen>
     </block>
+
+    <!-- R+CursorMove -->
+    <!-- Configure 'Parameters' > 'PointingRelative to Key' > 'Detection interval' -->
+    <autogen>
+      __PointingRelativeToKey__
+      ModifierFlag::EXTRA2,
+      PointingRelative::UP,    KeyCode::CURSOR_UP,
+      PointingRelative::DOWN,  KeyCode::CURSOR_DOWN,
+      PointingRelative::LEFT,  KeyCode::CURSOR_LEFT,
+      PointingRelative::RIGHT, KeyCode::CURSOR_RIGHT
+    </autogen>
   </item>
 
   <item><name>──────────────────────────────</name></item>
