@@ -30,6 +30,7 @@
     fontFamily: "Input Mono, D2Coding"
     scrollPastEnd: true
     scrollSensitivity: 20
+    tabLength: 4
     tabType: "soft"
   "file-icons":
     coloured: false
@@ -48,6 +49,8 @@
     fontSize: 12
     layoutMode: "Compact"
     tabSizing: "Even"
+  "package-sync":
+    forceOverwrite: true
   "tree-view":
     hideIgnoredNames: true
   welcome:

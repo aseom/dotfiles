@@ -1,0 +1,16 @@
+packages: [
+  "atom-terminal"
+  "auto-detect-indentation"
+  "autocomplete-paths"
+  "autocomplete-python"
+  "file-icons"
+  "filesize"
+  "git-plus"
+  "git-projects"
+  "minimap"
+  "one-dark-vivid-syntax"
+  "open-recent"
+  "package-sync"
+  "pigments"
+  "simple-drag-drop-text"
+]
