@@ -27,7 +27,7 @@
       "one-light-syntax"
     ]
   editor:
-    fontFamily: "Input Mono, D2Coding"
+    fontFamily: "Input Mono Narrow, D2Coding"
     scrollPastEnd: true
     scrollSensitivity: 20
     tabLength: 4
@@ -51,6 +51,10 @@
     tabSizing: "Even"
   "package-sync":
     forceOverwrite: true
+  pigments:
+    markerType: "dot"
+  tabs:
+    enableVcsColoring: true
   "tree-view":
     hideIgnoredNames: true
   welcome:
