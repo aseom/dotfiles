@@ -27,7 +27,7 @@
       "one-light-syntax"
     ]
   editor:
-    fontFamily: "Input Mono Narrow, D2Coding"
+    fontFamily: "Menlo, D2Coding"
     scrollPastEnd: true
     scrollSensitivity: 20
     tabLength: 4
