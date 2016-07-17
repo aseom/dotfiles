@@ -1,7 +1,4 @@
 "*":
-  "atom-terminal":
-    app: "iTerm.app"
-    surpressDirectoryArgument: false
   "autocomplete-plus":
     minimumWordLength: 2
   "autocomplete-python":
