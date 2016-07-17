@@ -20,8 +20,8 @@
       "Thumbs.db"
     ]
     themes: [
-      "one-dark-ui"
-      "one-dark-vivid-syntax"
+      "one-light-ui"
+      "one-light-syntax"
     ]
   editor:
     fontFamily: "Fira Mono, D2Coding"
