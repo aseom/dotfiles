@@ -1,3 +1,5 @@
+@import "syntax-variables";
+
 // The tree view
 .tree-view {
   .list-tree .list-nested-item > .list-tree > li,
@@ -9,8 +11,29 @@
 // The text editor
 atom-text-editor {
   font-weight: 500;
+
+  &::shadow {
+    // Makes the cursor pulse
+    .cursor {
+      transition: opacity 0.2s;
+    }
+    // Show invisibles only in cursor line
+    .invisible-character {
+      opacity: 0;
+    }
+    .cursor-line .invisible-character {
+      opacity: 1;
+    }
+    // The scrollbar is not necessary because we have the minimap!
+    .vertical-scrollbar {
+      display: none;
+    }
+  }
 }
 
-// To style other content in the text editor's shadow DOM,
-// use the ::shadow expression
-atom-text-editor::shadow {}
+// For One Light Syntax
+.theme-one-light-syntax {
+  atom-text-editor::shadow .selection .region {
+    background-color: darken(@syntax-selection-color, 3%);
+  }
+}
