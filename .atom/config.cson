@@ -23,11 +23,11 @@
       "Thumbs.db"
     ]
     themes: [
-      "one-light-ui"
-      "one-light-syntax"
+      "one-dark-ui"
+      "one-dark-vivid-syntax"
     ]
   editor:
-    fontFamily: "Menlo, D2Coding"
+    fontFamily: "Fira Mono, D2Coding"
     scrollPastEnd: true
     scrollSensitivity: 20
     tabLength: 4
