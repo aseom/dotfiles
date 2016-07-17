@@ -6,6 +6,7 @@ packages: [
   "filesize"
   "git-plus"
   "git-projects"
+  "markdown-scroll-sync"
   "minimap"
   "one-dark-vivid-syntax"
   "open-recent"

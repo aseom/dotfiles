@@ -9,3 +9,4 @@
 
 'atom-text-editor':
   'shift-cmd-k': 'editor:delete-line'
+  'shift-cmd-m': 'markdown-preview:toggle'
