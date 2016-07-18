@@ -13,6 +13,12 @@ git clone --recursive https://github.com/aseom/dotfiles.git ~/dotfiles
 cd ~/dotfiles && ./install.sh
 ```
 
+###### Atom
+```Shell
+brew cask install atom
+apm install --packages-file ~/.atom/packages.txt
+```
+
 ###### Zsh
 ```Shell
 brew install zsh
@@ -27,11 +33,10 @@ chpass -s $(which zsh)
 ```Shell
 brew install vim --with-lua  # neocomplete requires lua
 brew cask install macvim     # or install MacVim
-vim +PlugInstall +qa
 
-# Plugin reqirements
-cd ~/.vim/bundle/tern_for_vim && npm install
-pip install grip  # vim-markdown-preview
+# Install plugins
+vim +PlugInstall +qa
+pip install grip  # for vim-markdown-preview
 ```
 
 ### See also
