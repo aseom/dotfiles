@@ -4,10 +4,10 @@ aseom.dotfiles
 MacBook Pro
 -----------
 
-잠자기 시 암호 요구 끔  
-보안 설정에서 자동 로그인 활성화 (사용자 설정 아님!)  
-입력 메뉴에서 다음 소스 선택에 `Cmd` + `Space` 할당  
-XCode, Homebrew 설치
+Disable requiring password after sleep.  
+Disable "Disable automatic login" in the security preferences.  
+Map `Cmd` + `Space` for selecting next input source.  
+Install XCode and Homebrew.
 
 ```Shell
 git clone --recursive https://github.com/aseom/dotfiles.git ~/dotfiles
