@@ -1,13 +1,11 @@
-Ubuntu server
--------------
+Linux server
+------------
 
-#### Ubuntu 14.04 x64
+#### Ubuntu 14.04 기준
 
 ```Shell
 cd ~
 ln -sf ~/dotfiles/.vimrc
-ln -sf ~/dotfiles/ubuntu/.bashrc
-ln -sf ~/dotfiles/ubuntu/.ssh/config .ssh
 
 # Git
 git config --global user.name "aseom"
@@ -25,7 +23,7 @@ dpkg-reconfigure tzdata
 
 #### Hostname 설정
 ```Shell
-echo "vultr-aseom" > /etc/hostname
+echo "example-aseom" > /etc/hostname
 hostname -F /etc/hostname
 # 재접속 후 바뀐 것 확인
 ```
