@@ -2,7 +2,7 @@ aseom.dotfiles
 ==============
 
 Here are some delightful dotfiles for my everyday use.  
-Somehow I'm recently using Atom, but Vim is more powerful for a geek.
+Somehow I'm prefer to use Atom, but Vim is more effective for such a geek.
 
 MacBook Pro
 -----------
