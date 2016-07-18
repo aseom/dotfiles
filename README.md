@@ -1,6 +1,9 @@
 aseom.dotfiles
 ==============
 
+Here are some delightful dotfiles for my everyday use.  
+Somehow I'm recently using Atom, but Vim is more powerful for a geek.
+
 MacBook Pro
 -----------
 
@@ -13,12 +16,14 @@ Install XCode and Homebrew.
 git clone --recursive https://github.com/aseom/dotfiles.git ~/dotfiles
 cd ~/dotfiles && ./install.sh
 ```
+Run `update.sh` for updating all submodules under the `vendor` directory.
 
 #### Atom
 ```Shell
 brew cask install atom
 apm install --packages-file ~/.atom/packages.txt
 ```
+Run `Custom: Save Package List` in Command Palette for updating the `packages.txt`.
 
 #### Vim
 ```Shell
@@ -37,7 +42,7 @@ echo $(which zsh) | sudo tee -a /etc/shells
 chpass -s $(which zsh)
 ```
 
-See also
---------
+Wiki
+----
 
 #### [Bookmarks & Cheatsheet](https://github.com/aseom/dotfiles/wiki)
