@@ -38,13 +38,9 @@ set ignorecase
 " Don't highlight when reloading vimrc
 if !&hlsearch | set hlsearch | endif
 
-" Conceal
-set concealcursor=
-set conceallevel=2
-
 " 80 column ruler
 set textwidth=80
-"set colorcolumn=+1
+set colorcolumn=+1
 
 " Statusline
 function! s:stl_update()
@@ -96,8 +92,9 @@ endfunction
 " Quit after last window closes:
 " defaults write org.vim.MacVim MMLastWindowClosedBehavior 2
 if has('gui_macvim')
-    set guifont=D2Coding:h16
     set guioptions-=L
+    set guifont=Menlo:h14
+    set linespace=3
 
     " If it is not work properly, use Gureum IM.
     set noimdisable  " Auto change input source to english when escaping.
@@ -189,16 +186,13 @@ call plug#begin('~/.vim/bundle')
 "Plug 'zefei/cake16'
 "Plug 'cocopon/iceberg.vim'
 Plug 'aseom/snowcake16'
-Plug 'aseom/vim-notetaking'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'junegunn/vim-peekaboo'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'scrooloose/syntastic'
 Plug 'Shougo/neocomplete.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
-Plug 'Yggdroot/indentLine'
 Plug 'ap/vim-buftabline'
 
 " Languages
@@ -207,7 +201,6 @@ Plug 'moll/vim-node', { 'for': 'javascript' }
 Plug 'hdima/python-syntax'
 Plug 'keith/swift.vim'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
-Plug 'JamshedVesuna/vim-markdown-preview', { 'for': 'markdown' }
 Plug 'tmux-plugins/vim-tmux'
 
 " Add plugins to &runtimepath
@@ -229,17 +222,10 @@ let NERDTreeWinSize = 26
 let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
-let NERDTreeIgnore = ['^\.DS_Store$', '^\.Trash$', '\.swp$']
+let NERDTreeIgnore = ['\.swp$', '^\.DS_Store$', '^Thumbs.db$']
 let NERDTreeAutoDeleteBuffer = 1
 " Quit vim if NERDTree is only window
 autocmd WinEnter * if winnr('$') == 1 && &ft == 'nerdtree' | q | endif
-
-" syntastic
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_loc_list_height = 5
-let g:syntastic_javascript_checkers = ['eslint']
 
 " fugitive
 " resolve symlink when opening file
@@ -252,12 +238,6 @@ function! s:fugitive_resolve_symlink()
 endfunction
 autocmd BufReadPost * call <SID>fugitive_resolve_symlink()
 
-" indentLine
-let g:indentLine_color_gui = 'Gray90'
-" https://github.com/Yggdroot/indentLine/issues/109
-let g:indentLine_conceallevel  = &conceallevel
-let g:indentLine_concealcursor = &concealcursor
-
 " buftabline
 let g:buftabline_numbers = 2
 let g:buftabline_indicators = 1
@@ -268,11 +248,6 @@ let g:python_version_2 = 1
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
-
-" vim-markdown-preview
-" By default, <C-p> to activate preview
-let vim_markdown_preview_github=1
-let vim_markdown_preview_browser='Safari'
 
 " }}}
 
