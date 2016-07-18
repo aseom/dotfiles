@@ -25,13 +25,6 @@ create_symlink() {
 
 main() {
     echo "Creating symlinks from '$DOTFILES_PATH' to '$INSTALL_PATH'..."
-
-    # Symlink `~/.ssh/config`
-    local ssh_dir="$INSTALL_PATH/.ssh"
-    [ ! -d "$ssh_dir" ] && mkdir -v "$ssh_dir" && chmod 700 "$ssh_dir"
-    create_symlink "$DOTFILES_PATH/.ssh_config" "$ssh_dir/config"
-
-    # Synlink other files/dirs
     files=(
         .gitconfig .gitignore_global
         .zshrc .vimrc .tmux.conf .eslintrc.yml .tern-config
