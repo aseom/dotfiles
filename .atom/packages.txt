@@ -1,0 +1,15 @@
+auto-detect-indentation@1.1.0
+autocomplete-paths@1.0.2
+autocomplete-python@1.8.2
+file-icons@1.7.17
+filesize@0.4.2
+git-plus@5.16.2
+git-projects@1.17.0
+markdown-scroll-sync@2.1.2
+minimap@4.24.7
+one-dark-vivid-syntax@1.1.2
+open-recent@5.0.0
+pigments@0.31.2
+simple-drag-drop-text@0.3.1
+
+
