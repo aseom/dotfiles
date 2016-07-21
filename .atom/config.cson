@@ -24,7 +24,6 @@
       "one-light-syntax"
     ]
   editor:
-    fontFamily: "Fira Mono, D2Coding"
     scrollPastEnd: true
     scrollSensitivity: 20
     showInvisibles: true
@@ -37,7 +36,6 @@
     rootPath: "~;~/Dropbox/GitHub"
     sortBy: "Latest modification date"
   minimap:
-    charHeight: 3
     scrollAnimation: true
   "one-dark-ui":
     fontSize: 12

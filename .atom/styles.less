@@ -1,16 +1,28 @@
 @import "syntax-variables";
 
-// The tree view
-.tree-view {
-  .list-tree .list-nested-item > .list-tree > li,
-  .list-tree .list-nested-item > .list-group > li {
-    padding-left: 14px;
+// For One Light UI
+.theme-one-light-ui {
+  .tree-view {
+    .list-nested-item > .list-tree > li,
+    .list-nested-item > .list-group > li {
+      padding-left: 12px;
+    }
+  }
+  .tab-bar .tab {
+    max-width: 19em;
+  }
+}
+
+// For One Light Syntax
+.theme-one-light-syntax {
+  atom-text-editor::shadow .selection .region {
+    background-color: darken(@syntax-selection-color, 3%);
   }
 }
 
 // The text editor
 atom-text-editor {
-  font-weight: 500;
+  text-shadow: 0 0 0.1px rgba(0, 0, 0, 0.15);
 
   &::shadow {
     // Makes the cursor pulse
@@ -28,12 +40,5 @@ atom-text-editor {
     .vertical-scrollbar {
       display: none;
     }
-  }
-}
-
-// For One Light Syntax
-.theme-one-light-syntax {
-  atom-text-editor::shadow .selection .region {
-    background-color: darken(@syntax-selection-color, 3%);
   }
 }
