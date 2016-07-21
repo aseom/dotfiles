@@ -19,7 +19,10 @@
 
 // The text editor
 atom-text-editor {
-  -webkit-text-stroke: 0.01px;
+
+  // Some tricks for better font smoothing
+  text-shadow: 0 0 0.1px rgba(0, 0, 0, 0.1);
+  -webkit-text-stroke: 0.02px;
 
   &::shadow {
     // Makes the cursor pulse
