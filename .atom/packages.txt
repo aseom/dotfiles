@@ -5,8 +5,8 @@ file-icons@1.7.17
 filesize@0.4.2
 git-plus@5.16.2
 git-projects@1.17.0
-markdown-scroll-sync@2.1.2
 minimap@4.24.7
+nvatom@0.11.0
 one-dark-vivid-syntax@1.1.2
 open-recent@5.0.0
 pigments@0.31.2
