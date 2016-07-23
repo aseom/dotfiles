@@ -24,6 +24,7 @@
       "one-light-syntax"
     ]
   editor:
+    fontFamily: "Fira Mono, D2Coding"
     scrollPastEnd: true
     scrollSensitivity: 20
     showInvisibles: true
