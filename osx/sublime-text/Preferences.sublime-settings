@@ -2,22 +2,23 @@
     // Theme
     "theme": "Afterglow-orange.sublime-theme",
     "color_scheme": "Packages/User/Wombat-afterglow.tmTheme",
-    "tabs_medium": true,
+    "tabs_small": true,
+    "tabs_padding_medium": true,
     "sidebar_size_12": true,
-    "sidebar_row_padding_medium": true,
+    "sidebar_no_icon": true,
+    "folder_no_icon": true,
     "status_bar_brighter": true,
 
-    // Font
-    "font_face": "D2Coding",
-    "font_size": 16,
-
     // Editor
+    "font_face": "Menlo",
+    "font_size": 14,
     "word_wrap": true,
     "translate_tabs_to_spaces": true,
 
     // Visual
     "enable_tab_scrolling": false,
     "highlight_line": true,
+    "line_padding_top": 1,
     "line_padding_bottom": 1,
     "caret_extra_width": 1,
     "caret_style": "phase",
@@ -27,9 +28,7 @@
 
     // Others
     "folder_exclude_patterns": [],
-    "file_exclude_patterns": [],
-    "overlay_scroll_bars": "disabled",
+    "file_exclude_patterns": [".DS_Store", "Thumbs.db"],
     "scroll_speed": 0,
-    "scroll_past_end": true,
-    "hot_exit": false
+    "scroll_past_end": true
 }

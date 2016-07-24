@@ -1,5 +1,7 @@
 {
+    "close_affected_buffers_when_deleting_even_if_dirty": true,
     "disabled_menuitem_edit": true,
-    "disabled_menuitem_open_in_new_window": true,
-    "disabled_menuitem_paste_in_parent": true
+    "disabled_menuitem_paste_in_parent": true,
+    "disabled_menuitem_copy_name": true,
+    "disabled_menuitem_copy_path": true
 }

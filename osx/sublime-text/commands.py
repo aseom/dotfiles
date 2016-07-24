@@ -7,11 +7,11 @@ import webbrowser
 class ItermHereCommand(sublime_plugin.WindowCommand):
     def run(self, paths = []):
         if paths:
-            # Sidebar에서 호출되었다면 paths가 존재
+            # Paths would be passed if it called from side bar
             path = paths[0]
             cwd = path if os.path.isdir(path) else os.path.dirname(path)
         else:
-            # 아니면, 프로젝트 디렉토리 사용
+            # Alternatively, use project root
             project_file = self.window.project_file_name()
             cwd = os.path.dirname(project_file) if project_file else '$HOME'
 
@@ -23,10 +23,10 @@ class WebSearchCommand(sublime_plugin.TextCommand):
         for region in self.view.sel():
             sel_texts.append(self.view.substr(region))
             
-        # Join multiselected text, with space
+        # Join multiselected texts with space
         query = " ".join(sel_texts)
 
-        # 선택된 텍스트가 없다면 base url만 사용
+        # Ommit suffix in URL if here is no query 
         full_url = base_url + suffix + query if query else base_url
 
         webbrowser.open(full_url)

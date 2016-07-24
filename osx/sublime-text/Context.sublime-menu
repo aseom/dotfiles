@@ -8,10 +8,10 @@
         }
     },
     {
-        "caption": "Search Python 3.4 doc",
+        "caption": "Search Python Docs",
         "command": "web_search",
         "args": {
-            "base_url": "https://docs.python.org/3.4/",
+            "base_url": "https://docs.python.org/3/",
             "suffix": "search.html?q="
         }
     }
