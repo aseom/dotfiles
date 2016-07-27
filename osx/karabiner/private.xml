@@ -6,8 +6,8 @@
     <equal>org.vim.MacVim</equal>
   </appdef>
   <appdef>
-    <appname>ATOM</appname>
-    <equal>com.github.atom</equal>
+    <appname>EDITOR</appname>
+    <equal>com.sublimetext.3</equal>
   </appdef>
 
   <vkopenurldef>
@@ -31,10 +31,9 @@
 
   <item>
     <name>Mouse: XButtonUp, XButtonDown configurations</name>
-    <appendix>XButtonUp, XButtonUp + LeftClick, XButtonDown</appendix>
     <identifier>private.mouse_map_XButtonUpDown</identifier>
 
-    <!-- XUp, XUp+LClick -->
+    <!-- XUp, XUp+CursorMove -->
     <autogen>
       __KeyOverlaidModifier__
       PointingButton::BUTTON5,
@@ -42,9 +41,12 @@
       KeyCode::VK_OPEN_URL_toggle_keyup
     </autogen>
     <autogen>
-      __KeyToKey__
-      PointingButton::LEFT, ModifierFlag::EXTRA1,
-      KeyCode::SPACE, ModifierFlag::COMMAND_L
+      __PointingRelativeToKey__
+      ModifierFlag::EXTRA1,
+      PointingRelative::UP,    KeyCode::CURSOR_UP,    ModifierFlag::CONTROL_L,
+      PointingRelative::DOWN,  KeyCode::CURSOR_DOWN,  ModifierFlag::CONTROL_L,
+      PointingRelative::LEFT,  KeyCode::CURSOR_LEFT,  ModifierFlag::CONTROL_L,
+      PointingRelative::RIGHT, KeyCode::CURSOR_RIGHT, ModifierFlag::CONTROL_L
     </autogen>
 
     <!-- XDown -->
@@ -57,8 +59,6 @@
 
   <item>
     <name>Mouse: LeftButton, RightButton configurations</name>
-    <appendix>Simultaneously Left + RightClick,</appendix>
-    <appendix>Right + LeftClick, Right + Long-LeftClick, Right + CursorMove</appendix>
     <identifier>private.mouse_map_LeftRightButton</identifier>
 
     <!-- L+RClick (Simultaneous) -->
@@ -77,7 +77,7 @@
     </autogen>
     <block>
       <!-- Other App -->
-      <not>TERMINAL, ATOM</not>
+      <not>TERMINAL, EDITOR</not>
       <autogen>
         __HoldingKeyToKey__
         PointingButton::LEFT, ModifierFlag::EXTRA2
@@ -91,8 +91,8 @@
       </autogen>
     </block>
     <block>
-      <!-- Atom Only -->
-      <only>ATOM</only>
+      <!-- Editor Only -->
+      <only>EDITOR</only>
       <autogen>
         __HoldingKeyToKey__
         PointingButton::LEFT, ModifierFlag::EXTRA2
@@ -122,7 +122,6 @@
     </block>
 
     <!-- R+CursorMove -->
-    <!-- Configure 'Parameters' > 'PointingRelative to Key' > 'Detection interval' -->
     <autogen>
       __PointingRelativeToKey__
       ModifierFlag::EXTRA2,
