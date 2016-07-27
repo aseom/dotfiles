@@ -6,11 +6,13 @@
 	"installed_packages":
 	[
 		"All Autocomplete",
+		"Color Highlighter",
 		"ConvertToUTF8",
 		"Git",
 		"GitGutter",
 		"Keymaps",
 		"Markdown Extended",
+		"Markdown Preview",
 		"Package Control",
 		"PackageResourceViewer",
 		"Pretty JSON",

@@ -12,8 +12,10 @@
     "font_size": 14,
     "word_wrap": true,
     "translate_tabs_to_spaces": true,
+    "auto_complete_commit_on_tab": true,
 
     // Visual
+    "rulers": [80],
     "enable_tab_scrolling": false,
     "highlight_line": true,
     "line_padding_top": 1,
