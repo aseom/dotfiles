@@ -17,13 +17,6 @@ cd ~/dotfiles && ./install.sh
 ```
 Run `update.sh` for updating all submodules under the `vendor` directory.
 
-#### Atom
-```Shell
-brew cask install atom
-apm install --packages-file ~/.atom/packages.txt
-```
-Run `Custom: Save Package List` in Command Palette for updating the `packages.txt`.
-
 #### Vim
 ```Shell
 brew install vim --with-lua  # neocomplete requires lua

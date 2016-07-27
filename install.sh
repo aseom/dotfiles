@@ -28,7 +28,7 @@ main() {
     files=(
         .gitconfig .gitignore_global
         .zshrc .vimrc .tmux.conf .eslintrc.yml .tern-config
-        .zsh .vim .atom bin
+        .zsh .vim bin
     )
     for file in ${files[@]}; do
         create_symlink "$DOTFILES_PATH/$file" "$INSTALL_PATH/$file"
