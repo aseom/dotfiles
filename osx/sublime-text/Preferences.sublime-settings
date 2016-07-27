@@ -1,6 +1,6 @@
 {
     // Theme
-    "theme": "Afterglow-orange.sublime-theme",
+    "theme": "Afterglow.sublime-theme",
     "color_scheme": "Packages/User/Wombat.tmTheme",
     "tabs_small": true,
     "tabs_padding_medium": true,
