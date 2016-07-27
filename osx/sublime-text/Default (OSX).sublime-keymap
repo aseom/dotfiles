@@ -1,13 +1,4 @@
 [
-    // Command Palette
-    { "keys": ["shift+enter"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
-
-    // Goto Anything
-    { "keys": ["shift+space"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
-
-    // Quick Switch Project
-    { "keys": ["option+tab"], "command": "prompt_select_workspace" },
-
     // Split View
     { "keys": ["command+right"], "command": "new_pane" },
     { "keys": ["command+left"], "command": "close_pane" },
