@@ -268,17 +268,19 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>516 392 667 178 0 0 1920 1057 </string>
+	<string>923 555 667 195 0 0 1920 1057 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>269 574 606 456 0 0 1920 1057 </string>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>38 480 400 129 0 0 1920 1057 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 515 620 392 0 0 1920 1057 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>155 473 592 584 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>368 92 1050 787 0 0 1920 1057 </string>
+	<string>500 64 1050 787 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>398 339 970 635 0 0 1920 1057 </string>
+	<string>578 383 810 597 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>268 407 874 639 0 0 1920 1057 </string>
 	<key>New Bookmarks</key>
@@ -478,7 +480,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>130</integer>
+			<integer>100</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Color</key>
@@ -851,7 +853,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>D2Coding 16</string>
+			<string>Menlo-Regular 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -859,7 +861,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>40</integer>
+			<integer>30</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -911,7 +913,7 @@
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1</real>
+			<real>1.1000000000000001</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -993,7 +995,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-07-01T13:42:23Z</date>
+	<date>2016-07-27T15:45:43Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>UKCrashReporterLastCrashReportDate</key>
@@ -1001,6 +1003,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>3.0.1</string>
+	<string>3.0.4</string>
 </dict>
 </plist>
